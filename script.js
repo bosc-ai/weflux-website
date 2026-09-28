@@ -38,54 +38,6 @@
     loop();
   }
 
-  // ---------- Hero chat: typing animation ----------
-  const stream = document.getElementById('chatStream');
-  const script = [
-    { who: 'in',  text: 'Hi 👋 quick question about my order' },
-    { who: 'out', text: 'Hi Priya! I see order #12847 - how can I help?', meta: '11:41 · ✓✓' },
-    { who: 'in',  text: 'Awesome! When will it arrive?' },
-    { who: 'out', text: 'Tomorrow by 6 PM. Tracking link → wc.in/t/12847', meta: '11:42 · ✓✓' },
-  ];
-  function makeBubble(role, text, meta) {
-    const b = document.createElement('div');
-    b.className = 'bubble ' + role;
-    b.textContent = text;
-    if (meta) {
-      const m = document.createElement('div');
-      m.className = 'meta';
-      const parts = meta.split('·');
-      m.innerHTML = '<span>' + parts[0].trim() + '</span>' + (parts[1] ? '<span class="read">' + parts[1].trim() + '</span>' : '');
-      b.appendChild(m);
-    }
-    return b;
-  }
-  function makeTyping() {
-    const t = document.createElement('div');
-    t.className = 'typing';
-    t.innerHTML = '<span></span><span></span><span></span>';
-    return t;
-  }
-  async function runChat() {
-    if (!stream) return;
-    while (true) {
-      stream.innerHTML = '';
-      await wait(400);
-      for (let i = 0; i < script.length; i++) {
-        const step = script[i];
-        if (step.who === 'out') {
-          const t = makeTyping();
-          stream.appendChild(t);
-          await wait(900);
-          t.remove();
-        }
-        stream.appendChild(makeBubble(step.who, step.text, step.meta));
-        await wait(step.who === 'in' ? 1100 : 1300);
-      }
-      await wait(2400);
-    }
-  }
-  function wait(ms) { return new Promise(r => setTimeout(r, reduced ? 200 : ms)); }
-  runChat();
 
   // ---------- Stats: count-up on intersect ----------
   function animateNumber(el, to, decimals, suffix) {

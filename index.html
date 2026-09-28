@@ -20,84 +20,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="app-mock.css">
   <style>
     /* ===== Interactive Demo ===== */
     .lpdemo { padding: 120px 0; background: var(--paper-2); border-top: 1px solid var(--line); }
-    .lpdemo-wrap { background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg); }
-    .lpdemo-chrome { display: flex; align-items: center; gap: 16px; padding: 12px 20px; background: #F4F2EC; border-bottom: 1px solid var(--line); }
-    .lpdemo-dots { display: flex; gap: 6px; }
-    .lpdemo-dots span { width: 10px; height: 10px; border-radius: 50%; }
-    .lpdemo-dots span:nth-child(1) { background: #FF5F57; }
-    .lpdemo-dots span:nth-child(2) { background: #FFBD2E; }
-    .lpdemo-dots span:nth-child(3) { background: #28C840; }
-    .lpdemo-url { flex-shrink: 0; font-family: var(--font-mono); font-size: 12px; color: var(--muted); background: #fff; border: 1px solid var(--line); padding: 4px 12px; border-radius: 8px; }
-    .lpdemo-tabs { display: flex; gap: 4px; margin-left: auto; }
-    .lptab { padding: 6px 14px; font-size: 13px; font-weight: 500; color: var(--muted); border-radius: 8px; transition: all .2s; }
-    .lptab:hover { background: #fff; color: var(--ink); }
-    .lptab.active { background: var(--ink); color: #fff; }
-    .lpdemo-body { position: relative; }
-    .lppanel { display: none; }
-    .lppanel.show { display: flex; }
-    /* inbox panel */
-    .lpinbox { height: 460px; }
-    .lpinbox-list { width: 256px; border-right: 1px solid var(--line); overflow-y: auto; flex-shrink: 0; }
-    .lpinbox-head { padding: 12px 16px; font-size: 13px; font-weight: 600; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
-    .lpinbox-head .cnt { font-family: var(--font-mono); font-size: 10px; font-weight: 700; background: var(--green); color: #fff; border-radius: 9999px; padding: 2px 7px; }
-    .lprow { display: flex; align-items: center; gap: 10px; padding: 11px 16px; cursor: pointer; border-bottom: 1px solid var(--line); transition: background .15s; }
-    .lprow:hover { background: var(--paper-2); }
-    .lprow.on { background: var(--green-tint); }
-    .lpav { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; color: #fff; flex-shrink: 0; }
-    .lpav.a { background: linear-gradient(135deg,#34D399,#06B6D4); }
-    .lpav.b { background: linear-gradient(135deg,#F59E0B,#EF4444); }
-    .lpav.c { background: linear-gradient(135deg,#6366F1,#A855F7); }
-    .lpav.d { background: linear-gradient(135deg,#0F8A53,#25D366); }
-    .lprn { font-size: 12.5px; font-weight: 600; }
-    .lprs { font-size: 11.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 148px; margin-top: 1px; }
-    .lpwhen { font-size: 10.5px; color: var(--muted-2); font-family: var(--font-mono); }
-    .lpinbox-chat { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
-    .lpchat-head { padding: 12px 16px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px; }
-    .lpchat-head .nm { font-size: 14px; font-weight: 600; }
-    .lpchat-head .sub { font-size: 11.5px; color: var(--muted); }
-    .lpchat-msgs { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; background: #F0F2F5; }
-    .lpbub { max-width: 72%; padding: 9px 13px; font-size: 13px; line-height: 1.5; border-radius: 14px; }
-    .lpbub.in { background: #fff; align-self: flex-start; border-radius: 2px 14px 14px 14px; box-shadow: 0 1px 3px rgba(0,0,0,.07); }
-    .lpbub.out { background: #D9FDD3; align-self: flex-end; border-radius: 14px 14px 2px 14px; }
-    .lpchat-compose { padding: 10px 12px; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 10px; background: #fff; }
-    .lpchat-input { flex: 1; padding: 9px 14px; border: 1.5px solid var(--line); border-radius: 22px; font: inherit; font-size: 13px; outline: none; transition: border-color .2s; background: var(--paper); }
-    .lpchat-input:focus { border-color: var(--green); }
-    .lpchat-send { width: 34px; height: 34px; border-radius: 50%; background: var(--green); display: grid; place-items: center; cursor: pointer; border: 0; flex-shrink: 0; transition: background .2s, transform .15s; }
-    .lpchat-send:hover { background: var(--green-2); transform: scale(1.05); }
-    .lpchat-send svg { color: #fff; }
-    /* campaign panel */
-    .lpcampaign { padding: 24px 28px; flex-direction: column; min-height: 460px; }
-    .lpc-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
-    .lpc-hdr h4 { font-size: 16px; }
-    .lpc-ok { display: none; align-items: center; gap: 12px; background: var(--green-tint); border: 1px solid rgba(37,211,102,.3); border-radius: 12px; padding: 14px 18px; font-size: 14px; color: var(--green-deep); font-weight: 500; margin-bottom: 16px; }
-    .lpc-ok.show { display: flex; }
-    .lpct { width: 100%; border-collapse: collapse; font-size: 13px; }
-    .lpct th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); font-family: var(--font-mono); }
-    .lpct td { padding: 11px 12px; border-bottom: 1px solid var(--line); }
-    .lpct tr:last-child td { border-bottom: 0; }
-    .lpct td:first-child { font-family: var(--font-mono); font-size: 12px; color: var(--ink); }
-    .lptag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 9999px; font-family: var(--font-mono); letter-spacing: .03em; }
-    .lptag.u { background: #EDE9FE; color: #5B21B6; }
-    .lptag.m { background: #FEF3C7; color: #92400E; }
-    .lptag.aa { background: var(--green-tint); color: var(--green-deep); }
-    .lpbar { height: 4px; background: var(--line); border-radius: 9999px; width: 90px; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 4px; }
-    .lpbar i { display: block; height: 100%; background: var(--green); border-radius: inherit; }
-    /* analytics panel */
-    .lpanalytics { padding: 24px 28px; flex-direction: column; min-height: 460px; gap: 20px; }
-    .lpkpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-    .lpkpi { background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
-    .lpkpi .ll { font-size: 12px; color: var(--muted); margin-bottom: 6px; font-family: var(--font-mono); }
-    .lpkpi .vv { font-family: var(--font-mono); font-size: 28px; font-weight: 600; letter-spacing: -0.04em; color: var(--ink); }
-    .lpkpi .cc { font-size: 12px; margin-top: 4px; }
-    .lpkpi .cc.up { color: #16A34A; }
-    .lpkpi .cc.dn { color: #DC2626; }
-    .lpchartbox { flex: 1; background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; }
-    .lpchartbox h5 { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; font-family: var(--font-mono); }
 
     /* ===== Comparison Table ===== */
     .vs-section { padding: 120px 0; }
@@ -184,110 +112,63 @@
         </div>
 
         <div class="hero-right" id="inboxWrap">
-          <div class="inbox-frame" id="inboxFrame">
-            <div class="inbox-chrome">
-              <div class="inbox-traffic"><span></span><span></span><span></span></div>
-              <div class="inbox-url"><span>weflux.in</span></div>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+          <div class="inbox-frame wfa wfa-browser wfa-hero" id="inboxFrame" role="img" aria-label="The Weflux shared inbox: a conversation list beside a live WhatsApp chat with a customer">
+            <div class="wfa-bar">
+              <div class="wfa-dots"><span></span><span></span><span></span></div>
+              <div class="wfa-url"><i data-ic="lock"></i>app.weflux.in<b>/dashboard/inbox</b></div>
+              <div class="wfa-bar-end"></div>
             </div>
-            <div class="inbox-body">
-              <aside class="inbox-side">
-                <div class="inbox-side-head">
-                  <span>Inbox</span>
-                  <span class="count">12</span>
-                </div>
-                <div class="conv active">
-                  <div class="conv-avatar">PR</div>
-                  <div class="conv-body">
-                    <div class="conv-name">Priya R. <span class="when">now</span></div>
-                    <div class="conv-snippet">Awesome! When will it arrive?</div>
+            <div class="wfa-app">
+              <aside class="wfa-sb rail" data-wfa-sidebar data-active="inbox"></aside>
+              <div class="wfa-main">
+                <section class="wfa-list">
+                  <div class="wfa-list-top">
+                    <div class="wfa-list-hd">
+                      <div><h3 style="display:inline">Inbox</h3><span class="sub">4 open</span></div>
+                      <div class="acts"><span class="wfa-ibtn"><i data-ic="filter"></i></span><span class="wfa-new"><i data-ic="plus"></i>New</span></div>
+                    </div>
+                    <div class="wfa-search"><i data-ic="search"></i>Search conversations…</div>
                   </div>
-                </div>
-                <div class="conv">
-                  <div class="conv-avatar b">AK</div>
-                  <div class="conv-body">
-                    <div class="conv-name">Arjun K. <span class="when">2m</span></div>
-                    <div class="conv-snippet">Need a bulk quote for 200 units…</div>
+                  <div class="wfa-pills"><span class="wfa-pill on">All<b>4</b></span><span class="wfa-pill">Unreplied<b>2</b></span><span class="wfa-pill">Mine<b>2</b></span></div>
+                  <ul class="wfa-rows" data-wfa-rows></ul>
+                </section>
+                <section class="wfa-thread">
+                  <div class="wfa-th-hd">
+                    <span class="wfa-av" style="background:#1976D2">PS</span>
+                    <div class="wfa-th-id">
+                      <div class="wfa-th-n"><b>Priya Sharma</b><span class="wfa-stage lc-customer">Customer</span></div>
+                      <div class="wfa-th-s">+91 98765 43210 · <span class="open">OPEN</span> · Assigned: Meera Shah</div>
+                    </div>
+                    <div class="wfa-th-acts"><span class="wfa-hbtn"><i data-ic="file"></i><span class="t">Template</span></span></div>
                   </div>
-                </div>
-                <div class="conv">
-                  <div class="conv-avatar c">SN</div>
-                  <div class="conv-body">
-                    <div class="conv-name">Sneha N. <span class="when">8m</span></div>
-                    <div class="conv-snippet">Thanks, got it 🙏</div>
+                  <div class="wfa-sess"><i></i><span><b>Session open</b> - reply freely for another <b>23h 16m</b></span></div>
+                  <div class="wfa-chat" id="chatStream" data-wfa-stream></div>
+                  <div class="wfa-comp">
+                    <span class="ico"><i data-ic="smile"></i></span>
+                    <div class="wfa-input" data-wfa-input>Type a message or / for shortcuts…</div>
+                    <span class="wfa-send"><i data-ic="send"></i></span>
                   </div>
-                </div>
-                <div class="conv">
-                  <div class="conv-avatar d">RV</div>
-                  <div class="conv-body">
-                    <div class="conv-name">Rohit V. <span class="when">14m</span></div>
-                    <div class="conv-snippet">Payment failed, please retry…</div>
-                  </div>
-                </div>
-              </aside>
-
-              <section class="inbox-chat">
-                <div class="chat-head">
-                  <div class="conv-avatar">PR</div>
-                  <div class="chat-head-meta">
-                    <div class="name">Priya Raghavan</div>
-                    <div class="num">+91 98 1023 7741 · Order #12847</div>
-                  </div>
-                  <div class="live"><span class="dot"></span> Live</div>
-                </div>
-                <div class="chat-stream" id="chatStream"></div>
-                <div class="chat-compose">
-                  <div class="compose-input">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"><path d="M14 9V5a3 3 0 1 0-6 0v9a5 5 0 0 0 10 0V8"/></svg>
-                    Reply to Priya…
-                  </div>
-                  <button class="compose-send" aria-label="Send">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>
-                  </button>
-                </div>
-              </section>
-
-              <aside class="inbox-right">
-                <div class="cust-name">Priya Raghavan</div>
-                <div class="cust-sub">VIP · since 2023</div>
-                <div class="cust-section">
-                  <h5>Order</h5>
-                  <div class="cust-row"><span>ID</span><b class="mono">#12847</b></div>
-                  <div class="cust-row"><span>Value</span><b class="mono">₹4,299</b></div>
-                  <div class="cust-row"><span>Status</span><b style="color:var(--green-deep)">Shipped</b></div>
-                </div>
-                <div class="cust-section">
-                  <h5>Tags</h5>
-                  <div class="tags">
-                    <span class="tag green">VIP</span>
-                    <span class="tag amber">Repeat</span>
-                    <span class="tag">Mumbai</span>
-                  </div>
-                </div>
-                <div class="cust-section">
-                  <h5>Assigned</h5>
-                  <div class="cust-row"><span>Agent</span><b>Meera S.</b></div>
-                </div>
-              </aside>
+                </section>
+              </div>
             </div>
           </div>
 
           <div class="hero-tag tl">
             <div class="icon g">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>
             </div>
             <div>
-              <b>Delivered</b>
-              <span>read · 2s ago</span>
+              <b>Read</b>
+              <span>blue ticks, live</span>
             </div>
           </div>
           <div class="hero-tag br">
             <div class="icon t">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
             <div>
-              <b>847 ms</b>
-              <span>median reply</span>
+              <b>23h 16m</b>
+              <span>left in the 24h window</span>
             </div>
           </div>
           <div style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;font-style:italic">Illustrative product preview</div>
@@ -469,32 +350,37 @@
               <h4>Shared inbox</h4>
               <div class="right">
                 <span class="pill">3 agents online</span>
-                <span>· 12 open</span>
+                <span>· 4 open</span>
               </div>
             </div>
-            <div class="fp-inbox">
-              <div class="col-l">
-                <div class="seg">
-                  <span class="on">All</span><span>Mine</span><span>Unassigned</span>
+            <div class="wfa wfa-feat" style="height:calc(100% - 41px)">
+              <div class="wfa-app" style="height:100%">
+                <div class="wfa-main">
+                  <section class="wfa-list" style="width:250px">
+                    <div class="wfa-pills" style="padding-top:10px"><span class="wfa-pill on">All<b>4</b></span><span class="wfa-pill">Unreplied<b>2</b></span><span class="wfa-pill">Mine<b>2</b></span></div>
+                    <ul class="wfa-rows" data-wfa-rows-static></ul>
+                  </section>
+                  <section class="wfa-thread">
+                    <div class="wfa-th-hd">
+                      <span class="wfa-av" style="background:#1976D2">PS</span>
+                      <div class="wfa-th-id">
+                        <div class="wfa-th-n"><b>Priya Sharma</b><span class="wfa-stage lc-customer">Customer</span></div>
+                        <div class="wfa-th-s">+91 98765 43210 · <span class="open">OPEN</span> · Assigned: Meera Shah</div>
+                      </div>
+                    </div>
+                    <div class="wfa-sess"><i></i><span><b>Session open</b> - reply freely for another <b>21h 40m</b></span></div>
+                    <div class="wfa-chat" style="justify-content:flex-end">
+                      <div class="wfa-msg in">Hi, just got the shipping message but I am travelling tomorrow. Can it come on Friday instead?<span class="wfa-meta"><span>10:41 am</span></span></div>
+                      <div class="wfa-msg out">Of course, Priya. Rescheduled to Friday between 4 and 6 pm. You will get a confirmation here.<span class="wfa-meta"><span>10:42 am</span><span class="st"><i data-ic="checks" data-ic-class="rd"></i></span></span></div>
+                      <div class="wfa-msg in">Perfect, thank you 🙏<span class="wfa-meta"><span>10:43 am</span></span></div>
+                    </div>
+                    <div class="wfa-comp">
+                      <span class="ico"><i data-ic="smile"></i></span>
+                      <div class="wfa-input">Type a message or / for shortcuts…</div>
+                      <span class="wfa-send"><i data-ic="send"></i></span>
+                    </div>
+                  </section>
                 </div>
-                <div class="row"><div class="av a1"></div><div class="ln"><div class="t">Arjun K. <span>2m</span></div><div class="s">Need a bulk quote for 200…</div></div></div>
-                <div class="row"><div class="av a2"></div><div class="ln"><div class="t">Priya R. <span>now</span></div><div class="s">When will it arrive?</div></div></div>
-                <div class="row"><div class="av a3"></div><div class="ln"><div class="t">Sneha N. <span>8m</span></div><div class="s">Thanks, got it 🙏</div></div></div>
-                <div class="row"><div class="av a4"></div><div class="ln"><div class="t">Rohit V. <span>14m</span></div><div class="s">Payment failed, please…</div></div></div>
-                <div class="row"><div class="av a5"></div><div class="ln"><div class="t">Devika M. <span>22m</span></div><div class="s">Can I exchange size?</div></div></div>
-              </div>
-              <div class="col-r">
-                <div class="chat-head">
-                  <div class="conv-avatar">PR</div>
-                  <div class="chat-head-meta">
-                    <div class="name">Priya Raghavan</div>
-                    <div class="num">Assigned to Meera S. · @rohan mentioned</div>
-                  </div>
-                  <div class="live"><span class="dot"></span> Live</div>
-                </div>
-                <div class="bubble in" style="animation-delay:.1s">Hi 👋 just got the shipment notification - but I'm travelling tomorrow. Can it be delivered Friday instead?</div>
-                <div class="bubble out" style="animation-delay:.25s">Of course Priya - I've rescheduled it to Friday between 4–6 PM. You'll get a confirmation shortly.<div class="meta"><span>11:42</span><span class="read">✓✓</span></div></div>
-                <div class="bubble in" style="animation-delay:.4s">Perfect. Thanks Meera!</div>
               </div>
             </div>
           </div>
@@ -732,162 +618,53 @@
       <div class="section-head" style="text-align:center;margin:0 auto 48px;">
         <span class="eyebrow"><span class="dot"></span> Live product tour</span>
         <h2 style="margin:14px 0 16px;">See Weflux in action - no signup needed.</h2>
-        <p class="lede" style="margin:0 auto;">Click through the inbox, launch a sample campaign, and inspect analytics in our simulated sandbox.</p>
+        <p class="lede" style="margin:0 auto;">This is the Weflux dashboard layout, filled with sample data. Reply to a customer, type <b>/</b> for a saved reply, launch a campaign or switch the analytics range. Use the sidebar to move around.</p>
         <div style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:var(--paper-2);border:1px solid var(--line);border-radius:20px;padding:4px 14px;margin-top:14px;"><span>🧪</span> Illustrative product preview · Interactive simulated workspace</div>
       </div>
 
-      <div class="lpdemo-wrap">
-        <!-- browser chrome -->
-        <div class="lpdemo-chrome">
-          <div class="lpdemo-dots"><span></span><span></span><span></span></div>
-          <span class="lpdemo-url">app.weflux.in</span>
-          <span style="font-size:11px;background:rgba(37,211,102,.12);color:var(--green-deep);border:1px solid rgba(37,211,102,.25);border-radius:12px;padding:2px 8px;font-weight:500;margin-left:14px">Sandbox Demo Workspace</span>
-          <div class="lpdemo-tabs">
-            <button class="lptab active" data-lp="inbox">Inbox</button>
-            <button class="lptab" data-lp="campaign">Campaigns</button>
-            <button class="lptab" data-lp="analytics">Analytics</button>
-          </div>
+      <div class="lpdemo-wrap wfa wfa-browser wfa-tour" id="wfaTour">
+        <div class="wfa-bar">
+          <div class="wfa-dots"><span></span><span></span><span></span></div>
+          <div class="wfa-url"><i data-ic="lock"></i>app.weflux.in<b>/dashboard<span data-wfa-path>/inbox</span></b></div>
+          <div class="wfa-bar-end"><span class="wfa-chip">Sample data</span></div>
         </div>
+        <div class="wfa-app">
+          <aside class="wfa-sb" data-wfa-sidebar data-active="inbox" data-interactive></aside>
+          <div class="wfa-main">
+            <div class="wfa-panel-view" data-view="overview"></div>
 
-        <div class="lpdemo-body">
-
-          <!-- INBOX PANEL -->
-          <div class="lppanel show lpinbox" id="lpp-inbox">
-            <div class="lpinbox-list">
-              <div class="lpinbox-head">Inbox <span class="cnt">4</span></div>
-              <div class="lprow on" data-conv="priya">
-                <div class="lpav a">P</div>
-                <div style="min-width:0;flex:1">
-                  <div class="lprn">Priya Sharma</div>
-                  <div class="lprs">Where's my order?</div>
+            <div class="wfa-panel-view wfa-inbox show" data-view="inbox">
+              <section class="wfa-list">
+                <div class="wfa-list-top">
+                  <div class="wfa-list-hd">
+                    <div><h3 style="display:inline">Inbox</h3><span class="sub" data-wfa-open>4 open</span></div>
+                    <div class="acts"><button type="button" class="wfa-ibtn" aria-label="Filter"><i data-ic="filter"></i></button><button type="button" class="wfa-new"><i data-ic="plus"></i>New</button></div>
+                  </div>
+                  <label class="wfa-search"><i data-ic="search"></i><input data-wfa-search type="search" placeholder="Search conversations…" aria-label="Search conversations" style="border:0;background:transparent;outline:none;font:inherit;font-size:12px;width:100%;color:#0F172A"></label>
                 </div>
-                <div class="lpwhen">2m</div>
-              </div>
-              <div class="lprow" data-conv="arjun">
-                <div class="lpav b">A</div>
-                <div style="min-width:0;flex:1">
-                  <div class="lprn">Arjun Mehta</div>
-                  <div class="lprs">Booking confirmed?</div>
-                </div>
-                <div class="lpwhen">14m</div>
-              </div>
-              <div class="lprow" data-conv="sneha">
-                <div class="lpav c">S</div>
-                <div style="min-width:0;flex:1">
-                  <div class="lprn">Sneha Reddy</div>
-                  <div class="lprs">Need invoice copy</div>
-                </div>
-                <div class="lpwhen">1h</div>
-              </div>
-              <div class="lprow" data-conv="rohit">
-                <div class="lpav d">R</div>
-                <div style="min-width:0;flex:1">
-                  <div class="lprn">Rohit Nair</div>
-                  <div class="lprs">Refund status?</div>
-                </div>
-                <div class="lpwhen">3h</div>
-              </div>
+                <div class="wfa-pills" data-wfa-pills></div>
+                <ul class="wfa-rows" data-wfa-rows style="overflow-y:auto;scrollbar-width:thin"></ul>
+              </section>
+              <section class="wfa-thread">
+                <div class="wfa-th-hd" data-wfa-head></div>
+                <div class="wfa-sess" data-wfa-sess></div>
+                <div class="wfa-chat scroll" data-wfa-stream aria-live="polite"></div>
+                <div class="wfa-comp" data-wfa-comp></div>
+              </section>
+              <aside class="wfa-ctx" data-wfa-ctx></aside>
             </div>
 
-            <div class="lpinbox-chat">
-              <div class="lpchat-head">
-                <div class="lpav a" id="lp-chat-av" style="width:32px;height:32px;font-size:11px;">P</div>
-                <div>
-                  <div class="nm" id="lp-chat-nm">Priya Sharma</div>
-                  <div class="sub" id="lp-chat-sub">+91 98765 43210 · open</div>
-                </div>
-              </div>
-              <div class="lpchat-msgs" id="lp-chat-msgs"></div>
-              <div class="lpchat-compose">
-                <input class="lpchat-input" id="lp-chat-input" placeholder="Type a reply…" type="text" autocomplete="off">
-                <button class="lpchat-send" id="lp-chat-send" aria-label="Send">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                </button>
-              </div>
-            </div>
+            <div class="wfa-panel-view" data-view="campaigns"></div>
+            <div class="wfa-panel-view" data-view="analytics"></div>
           </div>
-
-          <!-- CAMPAIGN PANEL -->
-          <div class="lppanel lpcampaign" id="lpp-campaign">
-            <div class="lpc-hdr">
-              <h4>Template campaigns <span style="font-size:12px;color:var(--muted);font-weight:400;margin-left:8px">(Sample templates · Illustrative)</span></h4>
-              <button class="btn btn-green" onclick="lpSendCampaign()" style="font-size:13px;padding:9px 18px;">Launch campaign →</button>
-            </div>
-            <div class="lpc-ok" id="lpc-ok">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Campaign queued - 2,400 messages sending now. You'll see delivery stats in Analytics.
-            </div>
-            <div class="table-wrap"><table class="lpct">
-              <thead><tr><th>Template</th><th>Category</th><th>Reach</th><th>Open rate</th><th>Status</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td>order_shipped_v3</td>
-                  <td><span class="lptag u">Utility</span></td>
-                  <td>2,400</td>
-                  <td><span class="lpbar"><i style="width:91%"></i></span>91%</td>
-                  <td><span class="lptag aa">Approved</span></td>
-                </tr>
-                <tr>
-                  <td>sale_alert_aug</td>
-                  <td><span class="lptag m">Marketing</span></td>
-                  <td>8,150</td>
-                  <td><span class="lpbar"><i style="width:74%"></i></span>74%</td>
-                  <td><span class="lptag aa">Approved</span></td>
-                </tr>
-                <tr>
-                  <td>appt_reminder_q3</td>
-                  <td><span class="lptag u">Utility</span></td>
-                  <td>340</td>
-                  <td><span class="lpbar"><i style="width:88%"></i></span>88%</td>
-                  <td><span class="lptag aa">Approved</span></td>
-                </tr>
-                <tr>
-                  <td>restock_promo_oct</td>
-                  <td><span class="lptag m">Marketing</span></td>
-                  <td>5,200</td>
-                  <td> - </td>
-                  <td><span class="lptag" style="background:var(--paper-2);color:var(--muted);border:1px solid var(--line);">Pending</span></td>
-                </tr>
-              </tbody>
-            </table></div>
-          </div>
-
-          <!-- ANALYTICS PANEL -->
-          <div class="lppanel lpanalytics" id="lpp-analytics">
-            <div style="font-size:12px;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:6px;background:var(--paper-2);border:1px solid var(--line);border-radius:8px;padding:8px 12px;"><span>📊</span> <span><strong>Sample analytics:</strong> Showing simulated performance figures for an illustrative demo workspace.</span></div>
-            <div class="lpkpis">
-              <div class="lpkpi">
-                <div class="ll">Messages sent (30d)</div>
-                <div class="vv">48,320</div>
-                <div class="cc up">↑ 18% vs last month</div>
-              </div>
-              <div class="lpkpi">
-                <div class="ll">Avg delivery rate</div>
-                <div class="vv">98.4%</div>
-                <div class="cc up">↑ 0.3 pp</div>
-              </div>
-              <div class="lpkpi">
-                <div class="ll">Open rate (templates)</div>
-                <div class="vv">84.2%</div>
-                <div class="cc dn">↓ 1.1 pp</div>
-              </div>
-            </div>
-            <div class="lpchartbox">
-              <h5>Daily messages · last 14 days</h5>
-              <svg viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-                <defs>
-                  <linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#25D366" stop-opacity=".25"/>
-                    <stop offset="100%" stop-color="#25D366" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <path d="M0,90 C40,85 80,70 120,60 C160,50 200,75 240,55 C280,35 320,45 360,30 C400,15 440,25 480,20 C520,15 560,10 600,8 L600,120 L0,120 Z" fill="url(#lg1)"/>
-                <path d="M0,90 C40,85 80,70 120,60 C160,50 200,75 240,55 C280,35 320,45 360,30 C400,15 440,25 480,20 C520,15 560,10 600,8" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-          </div>
-
-        </div><!-- /lpdemo-body -->
+          <nav class="wfa-bnav" aria-label="Sample workspace sections">
+            <button type="button" data-go="overview"><i data-ic="dash"></i>Home</button>
+            <button type="button" data-go="inbox" class="on"><i data-ic="inbox"></i>Inbox</button>
+            <button type="button" data-go="campaigns"><i data-ic="megaphone"></i>Campaigns</button>
+            <button type="button" data-go="analytics"><i data-ic="chart"></i>Analytics</button>
+          </nav>
+        </div>
+        <div class="wfa-toast" role="status"></div>
       </div><!-- /lpdemo-wrap -->
       <div style="font-size:11.5px;color:var(--muted);text-align:center;margin-top:12px;font-style:italic">Illustrative product preview · Interactive simulated workspace with sample demo metrics</div>
     </div>
@@ -1090,122 +867,6 @@
   <div id="wc-footer"></div>
   <script src="shell.js"></script>
   <script src="script.js"></script>
-  <script>
-    /* ===== Interactive demo ===== */
-    const convs = {
-      priya: {
-        av: 'a', letter: 'P', name: 'Priya Sharma', phone: '+91 98765 43210',
-        msgs: [
-          { t:'in',  m:'Hi, I placed order #ORD-8821 two days ago and it still shows "processing". Where is it?' },
-          { t:'out', m:'Hi Priya! Let me check that for you right away 🔍' },
-          { t:'in',  m:'I needed it by tomorrow for a gift 😟' },
-          { t:'out', m:'I can see your order. It shipped this morning - Delhivery AWB 7742881. Expected delivery tomorrow by 6 PM. You’ll get an SMS too!' },
-          { t:'in',  m:'Oh great! Thank you so much 🙏' },
-        ]
-      },
-      arjun: {
-        av: 'b', letter: 'A', name: 'Arjun Mehta', phone: '+91 87654 32109',
-        msgs: [
-          { t:'in',  m:'I booked a table for 4 at 8 PM tonight. Did you get the booking?' },
-          { t:'out', m:'Yes Arjun, confirmed! Table for 4 at 8:00 PM tonight. We\'ll see you then 🍽️' },
-          { t:'in',  m:'Can I change it to 4 people? We may have one more friend joining.' },
-          { t:'out', m:'Done - updated to 5 people just in case. No problem at all 😊' },
-        ]
-      },
-      sneha: {
-        av: 'c', letter: 'S', name: 'Sneha Reddy', phone: '+91 76543 21098',
-        msgs: [
-          { t:'in',  m:'Hello, I need a GST invoice for my purchase last week. Invoice no INV-4490.' },
-          { t:'out', m:'Sure Sneha! Sending INV-4490 to your registered email right now. You\'ll receive it in 2 minutes.' },
-          { t:'in',  m:'My email is sneha.reddy@acmecorp.in' },
-          { t:'out', m:'Got it - sent to sneha.reddy@acmecorp.in. Let me know if you need anything else!' },
-          { t:'in',  m:'Received. Thanks! ✅' },
-        ]
-      },
-      rohit: {
-        av: 'd', letter: 'R', name: 'Rohit Nair', phone: '+91 65432 10987',
-        msgs: [
-          { t:'in',  m:'I returned a product 5 days ago. Refund still not received. TXN#887123.' },
-          { t:'out', m:'Hi Rohit, sorry for the wait. I can see your return was processed on the 18th. Refund is in transit - 2-3 more business days.' },
-          { t:'in',  m:'It\'s been 7 already 😤' },
-          { t:'out', m:'You\'re right, I\'m escalating this to our finance team right now. I\'ll personally follow up and message you by 5 PM today.' },
-        ]
-      }
-    };
-
-    let activeConv = 'priya';
-
-    function renderConv(key) {
-      const c = convs[key];
-      if (!c) return;
-      activeConv = key;
-
-      document.querySelectorAll('.lprow').forEach(r => r.classList.toggle('on', r.dataset.conv === key));
-      const avEl = document.getElementById('lp-chat-av');
-      avEl.className = 'lpav ' + c.av;
-      avEl.textContent = c.letter;
-      document.getElementById('lp-chat-nm').textContent = c.name;
-      document.getElementById('lp-chat-sub').textContent = c.phone + ' · open';
-
-      const box = document.getElementById('lp-chat-msgs');
-      box.innerHTML = '';
-      c.msgs.forEach(msg => {
-        const b = document.createElement('div');
-        b.className = 'lpbub ' + msg.t;
-        b.textContent = msg.m;
-        box.appendChild(b);
-      });
-      box.scrollTop = box.scrollHeight;
-    }
-
-    document.querySelectorAll('.lprow').forEach(r => {
-      r.addEventListener('click', () => renderConv(r.dataset.conv));
-    });
-
-    document.getElementById('lp-chat-send').addEventListener('click', sendReply);
-    document.getElementById('lp-chat-input').addEventListener('keydown', e => { if (e.key === 'Enter') sendReply(); });
-
-    function sendReply() {
-      const inp = document.getElementById('lp-chat-input');
-      const txt = inp.value.trim();
-      if (!txt) return;
-      inp.value = '';
-      const c = convs[activeConv];
-      c.msgs.push({ t: 'out', m: txt });
-      const box = document.getElementById('lp-chat-msgs');
-      const b = document.createElement('div');
-      b.className = 'lpbub out';
-      b.textContent = txt;
-      box.appendChild(b);
-      box.scrollTop = box.scrollHeight;
-    }
-
-    /* tab switching */
-    document.querySelectorAll('.lptab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.lptab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.lppanel').forEach(p => p.classList.remove('show'));
-        tab.classList.add('active');
-        document.getElementById('lpp-' + tab.dataset.lp).classList.add('show');
-        if (tab.dataset.lp === 'inbox') renderConv(activeConv);
-      });
-    });
-
-    /* campaign launch */
-    function lpSendCampaign() {
-      const btn = document.querySelector('#lpp-campaign .btn-green');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-      setTimeout(() => {
-        document.getElementById('lpc-ok').classList.add('show');
-        btn.textContent = 'Sent ✓';
-      }, 1200);
-    }
-
-
-
-    /* init */
-    renderConv('priya');
-  </script>
+  <script src="app-mock.js"></script>
 </body>
 </html>
