@@ -814,6 +814,8 @@
 
   // ---- TRIGGER: Show popup with 30-45s dismissal cooldown & page rules ----
   function initPopupTrigger() {
+    // Let visitors explore the homepage product tour without an automatic interruption.
+    if (document.body.hasAttribute("data-guided-product-tour")) return;
     if (isContactPage()) return;
     if (getCookie(CONFIG.submitCookieName) || getStorage(CONFIG.submitCookieName)) return;
     if (getCookie(CONFIG.dismissCookieName) || getStorage(CONFIG.dismissCookieName)) return;

@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ===== Interactive Demo ===== */
     .lpdemo { padding: 120px 0; background: var(--paper-2); border-top: 1px solid var(--line); }
@@ -137,10 +138,11 @@
       }
     }
   </style>
+<link rel="stylesheet" href="css/portal-demos.css">
 
 
 </head>
-<body data-page="home">
+<body data-page="home" data-guided-product-tour="true">
   <div id="wc-nav"></div>
 
   <main id="main">
@@ -183,11 +185,11 @@
           </div>
         </div>
 
-        <div class="hero-right" id="inboxWrap">
+        <div class="hero-right" id="inboxWrap" data-portal-preview>
           <div class="inbox-frame" id="inboxFrame">
             <div class="inbox-chrome">
               <div class="inbox-traffic"><span></span><span></span><span></span></div>
-              <div class="inbox-url"><span>weflux.in</span></div>
+              <div class="inbox-url"><span>app.weflux.in / inbox</span></div>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
             </div>
             <div class="inbox-body">
@@ -231,7 +233,7 @@
                   <div class="conv-avatar">PR</div>
                   <div class="chat-head-meta">
                     <div class="name">Priya Raghavan</div>
-                    <div class="num">+91 98 1023 7741 · Order #12847</div>
+                    <div class="num">Customer · Assigned to Meera</div>
                   </div>
                   <div class="live"><span class="dot"></span> Live</div>
                 </div>
@@ -241,9 +243,9 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"><path d="M14 9V5a3 3 0 1 0-6 0v9a5 5 0 0 0 10 0V8"/></svg>
                     Reply to Priya…
                   </div>
-                  <button class="compose-send" aria-label="Send">
+                  <a class="compose-send" href="#demo" aria-label="Try replying in the interactive demo">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>
-                  </button>
+                  </a>
                 </div>
               </section>
 
@@ -730,9 +732,9 @@
   <section class="lpdemo" id="demo">
     <div class="container">
       <div class="section-head" style="text-align:center;margin:0 auto 48px;">
-        <span class="eyebrow"><span class="dot"></span> Live product tour</span>
+        <span class="eyebrow"><span class="dot"></span> Explore the workspace</span>
         <h2 style="margin:14px 0 16px;">See Weflux in action - no signup needed.</h2>
-        <p class="lede" style="margin:0 auto;">Click through the inbox, launch a sample campaign, and inspect analytics in our simulated sandbox.</p>
+        <p class="lede" style="margin:0 auto;">Switch conversations, try a reply, and explore a sample automation. Everything here stays in your browser.</p>
         <div style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:var(--paper-2);border:1px solid var(--line);border-radius:20px;padding:4px 14px;margin-top:14px;"><span>🧪</span> Illustrative product preview · Interactive simulated workspace</div>
       </div>
 
@@ -741,9 +743,10 @@
         <div class="lpdemo-chrome">
           <div class="lpdemo-dots"><span></span><span></span><span></span></div>
           <span class="lpdemo-url">app.weflux.in</span>
-          <span style="font-size:11px;background:rgba(37,211,102,.12);color:var(--green-deep);border:1px solid rgba(37,211,102,.25);border-radius:12px;padding:2px 8px;font-weight:500;margin-left:14px">Sandbox Demo Workspace</span>
-          <div class="lpdemo-tabs">
+          <span style="font-size:11px;background:rgba(37,211,102,.12);color:var(--green-deep);border:1px solid rgba(37,211,102,.25);border-radius:12px;padding:2px 8px;font-weight:500;margin-left:14px">Anand Home Furnishings · Demo</span>
+          <div class="lpdemo-tabs" role="tablist" aria-label="Product tour">
             <button class="lptab active" data-lp="inbox">Inbox</button>
+            <button class="lptab" data-lp="automation">Automation</button>
             <button class="lptab" data-lp="campaign">Campaigns</button>
             <button class="lptab" data-lp="analytics">Analytics</button>
           </div>
@@ -759,17 +762,17 @@
                 <div class="lpav a">P</div>
                 <div style="min-width:0;flex:1">
                   <div class="lprn">Priya Sharma</div>
-                  <div class="lprs">Where's my order?</div>
+                  <div class="lprs">Curtain collection?</div>
                 </div>
-                <div class="lpwhen">2m</div>
+                <div class="lpwhen">10:42</div>
               </div>
               <div class="lprow" data-conv="arjun">
                 <div class="lpav b">A</div>
                 <div style="min-width:0;flex:1">
                   <div class="lprn">Arjun Mehta</div>
-                  <div class="lprs">Booking confirmed?</div>
+                  <div class="lprs">Saturday store visit</div>
                 </div>
-                <div class="lpwhen">14m</div>
+                <div class="lpwhen">10:28</div>
               </div>
               <div class="lprow" data-conv="sneha">
                 <div class="lpav c">S</div>
@@ -777,15 +780,15 @@
                   <div class="lprn">Sneha Reddy</div>
                   <div class="lprs">Need invoice copy</div>
                 </div>
-                <div class="lpwhen">1h</div>
+                <div class="lpwhen">Yesterday</div>
               </div>
               <div class="lprow" data-conv="rohit">
                 <div class="lpav d">R</div>
                 <div style="min-width:0;flex:1">
                   <div class="lprn">Rohit Nair</div>
-                  <div class="lprs">Refund status?</div>
+                  <div class="lprs">Rug delivery enquiry</div>
                 </div>
-                <div class="lpwhen">3h</div>
+                <div class="lpwhen">Monday</div>
               </div>
             </div>
 
@@ -794,12 +797,12 @@
                 <div class="lpav a" id="lp-chat-av" style="width:32px;height:32px;font-size:11px;">P</div>
                 <div>
                   <div class="nm" id="lp-chat-nm">Priya Sharma</div>
-                  <div class="sub" id="lp-chat-sub">+91 98765 43210 · open</div>
+                  <div class="sub" id="lp-chat-sub">Fictional demo contact · open</div>
                 </div>
               </div>
               <div class="lpchat-msgs" id="lp-chat-msgs"></div>
               <div class="lpchat-compose">
-                <input class="lpchat-input" id="lp-chat-input" placeholder="Type a reply…" type="text" autocomplete="off">
+                <input aria-label="Try a demo reply" maxlength="1000" class="lpchat-input" id="lp-chat-input" placeholder="Type a reply…" type="text" autocomplete="off">
                 <button class="lpchat-send" id="lp-chat-send" aria-label="Send">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                 </button>
@@ -807,18 +810,19 @@
             </div>
           </div>
 
+<div class="lppanel portal-flow" id="lpp-automation"><div class="portal-panel-heading"><div><h4>Catalogue enquiry</h4><p>Sample flow · Automation plan limits apply</p></div><button class="btn btn-ghost" id="portal-run">Walk through this flow →</button></div><div class="portal-canvas" role="img" aria-label="Sample automation: a catalogue enquiry triggers a reply, waits for the customer, adds an interest tag and notifies an agent."><div class="portal-canvas-inner"><svg viewBox="0 0 760 520" aria-hidden="true"><path class="portal-edge" d="M380 108 C380 120 380 122 380 134 M380 218 C380 232 380 234 380 244 M380 328 C380 359 228 350 228 382 M380 328 C380 359 532 350 532 382"/></svg><div class="portal-node" style="left:277px;top:24px;--node-color:#F59E0B"><div class="portal-node-title"><span class="portal-node-icon">ϟ</span>Customer sends a message</div><p>Keyword contains “catalogue”</p></div><div class="portal-node" style="left:277px;top:134px;--node-color:#22C55E"><div class="portal-node-title"><span class="portal-node-icon">↗</span>Send message</div><p>Share the latest collection</p></div><div class="portal-node" style="left:277px;top:244px;--node-color:#0EA5E9"><div class="portal-node-title"><span class="portal-node-icon">↩</span>Wait for reply</div><p>Continue when the customer replies</p></div><div class="portal-node" style="left:125px;top:382px;--node-color:#6366F1"><div class="portal-node-title"><span class="portal-node-icon">⌑</span>Add tag</div><p>Interested · Living room</p></div><div class="portal-node" style="left:429px;top:382px;--node-color:#F43F5E"><div class="portal-node-title"><span class="portal-node-icon">♧</span>Notify agent</div><p>Assign to the sales team</p></div></div></div><p id="portal-flow-status" role="status">Select “Walk through” to follow the five steps.</p></div>
           <!-- CAMPAIGN PANEL -->
           <div class="lppanel lpcampaign" id="lpp-campaign">
             <div class="lpc-hdr">
               <h4>Template campaigns <span style="font-size:12px;color:var(--muted);font-weight:400;margin-left:8px">(Sample templates · Illustrative)</span></h4>
-              <button class="btn btn-green" onclick="lpSendCampaign()" style="font-size:13px;padding:9px 18px;">Launch campaign →</button>
+              <button class="btn btn-green" onclick="lpSendCampaign()" style="font-size:13px;padding:9px 18px;">Simulate campaign →</button>
             </div>
             <div class="lpc-ok" id="lpc-ok">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              Campaign queued - 2,400 messages sending now. You'll see delivery stats in Analytics.
+              Simulation complete. No messages were sent. Explore sample delivery figures in Analytics.
             </div>
             <div class="table-wrap"><table class="lpct">
-              <thead><tr><th>Template</th><th>Category</th><th>Reach</th><th>Open rate</th><th>Status</th></tr></thead>
+              <thead><tr><th>Template</th><th>Category</th><th>Reach</th><th>Read rate</th><th>Status</th></tr></thead>
               <tbody>
                 <tr>
                   <td>order_shipped_v3</td>
@@ -867,28 +871,20 @@
                 <div class="cc up">↑ 0.3 pp</div>
               </div>
               <div class="lpkpi">
-                <div class="ll">Open rate (templates)</div>
+                <div class="ll">Read rate (templates)</div>
                 <div class="vv">84.2%</div>
                 <div class="cc dn">↓ 1.1 pp</div>
               </div>
             </div>
             <div class="lpchartbox">
-              <h5>Daily messages · last 14 days</h5>
-              <svg viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
-                <defs>
-                  <linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#25D366" stop-opacity=".25"/>
-                    <stop offset="100%" stop-color="#25D366" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <path d="M0,90 C40,85 80,70 120,60 C160,50 200,75 240,55 C280,35 320,45 360,30 C400,15 440,25 480,20 C520,15 560,10 600,8 L600,120 L0,120 Z" fill="url(#lg1)"/>
-                <path d="M0,90 C40,85 80,70 120,60 C160,50 200,75 240,55 C280,35 320,45 360,30 C400,15 440,25 480,20 C520,15 560,10 600,8" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round"/>
-              </svg>
+              <h5>Message volume · Sample month · Basic and above</h5><div class="portal-legend"><span>● Sent</span><span>● Delivered</span><span>● Read</span><span>● Replied</span></div>
+              <svg class="portal-volume" viewBox="0 0 1060 260" role="img" aria-label="Illustrative daily message volume. Sent and delivered closely track each other; reads and replies are lower. All values are fictional."><line x1="42" y1="30" x2="1040" y2="30" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="0" y="34">1,500</text><line x1="42" y1="90" x2="1040" y2="90" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="0" y="94">1,000</text><line x1="42" y1="150" x2="1040" y2="150" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="0" y="154">500</text><line x1="42" y1="210" x2="1040" y2="210" stroke="#E2E8F0" stroke-dasharray="3 3"/><text x="0" y="214">0</text><polygon points="42,210 42,170 125,155 208,164 291,121 374,138 457,106 540,118 623,78 706,102 789,56 872,72 955,30 1040,46 1040,210" fill="#64748B" opacity=".07"/><polyline points="42,170 125,155 208,164 291,121 374,138 457,106 540,118 623,78 706,102 789,56 872,72 955,30 1040,46" fill="none" stroke="#64748B" stroke-width="2"/><circle cx="42" cy="170" r="3" fill="#64748B"/><circle cx="125" cy="155" r="3" fill="#64748B"/><circle cx="208" cy="164" r="3" fill="#64748B"/><circle cx="291" cy="121" r="3" fill="#64748B"/><circle cx="374" cy="138" r="3" fill="#64748B"/><circle cx="457" cy="106" r="3" fill="#64748B"/><circle cx="540" cy="118" r="3" fill="#64748B"/><circle cx="623" cy="78" r="3" fill="#64748B"/><circle cx="706" cy="102" r="3" fill="#64748B"/><circle cx="789" cy="56" r="3" fill="#64748B"/><circle cx="872" cy="72" r="3" fill="#64748B"/><circle cx="955" cy="30" r="3" fill="#64748B"/><circle cx="1040" cy="46" r="3" fill="#64748B"/><polygon points="42,210 42,179 125,164 208,174 291,134 374,147 457,117 540,131 623,90 706,112 789,68 872,82 955,43 1040,58 1040,210" fill="#25D366" opacity=".10"/><polyline points="42,179 125,164 208,174 291,134 374,147 457,117 540,131 623,90 706,112 789,68 872,82 955,43 1040,58" fill="none" stroke="#25D366" stroke-width="2"/><circle cx="42" cy="179" r="3" fill="#25D366"/><circle cx="125" cy="164" r="3" fill="#25D366"/><circle cx="208" cy="174" r="3" fill="#25D366"/><circle cx="291" cy="134" r="3" fill="#25D366"/><circle cx="374" cy="147" r="3" fill="#25D366"/><circle cx="457" cy="117" r="3" fill="#25D366"/><circle cx="540" cy="131" r="3" fill="#25D366"/><circle cx="623" cy="90" r="3" fill="#25D366"/><circle cx="706" cy="112" r="3" fill="#25D366"/><circle cx="789" cy="68" r="3" fill="#25D366"/><circle cx="872" cy="82" r="3" fill="#25D366"/><circle cx="955" cy="43" r="3" fill="#25D366"/><circle cx="1040" cy="58" r="3" fill="#25D366"/><polygon points="42,210 42,188 125,177 208,185 291,156 374,161 457,143 540,153 623,119 706,139 789,97 872,107 955,77 1040,91 1040,210" fill="#3B82F6" opacity="0"/><polyline points="42,188 125,177 208,185 291,156 374,161 457,143 540,153 623,119 706,139 789,97 872,107 955,77 1040,91" fill="none" stroke="#3B82F6" stroke-width="2"/><polygon points="42,210 42,204 125,199 208,201 291,191 374,196 457,183 540,190 623,174 706,181 789,159 872,167 955,146 1040,151 1040,210" fill="#8B5CF6" opacity="0"/><polyline points="42,204 125,199 208,201 291,191 374,196 457,183 540,190 623,174 706,181 789,159 872,167 955,146 1040,151" fill="none" stroke="#8B5CF6" stroke-width="2"/><text x="42" y="246">01 Sep</text><text x="206" y="246">05 Sep</text><text x="374" y="246">10 Sep</text><text x="538" y="246">15 Sep</text><text x="706" y="246">20 Sep</text><text x="970" y="246">27 Sep</text></svg>
             </div>
           </div>
 
         </div><!-- /lpdemo-body -->
       </div><!-- /lpdemo-wrap -->
+      <div class="portal-tour-actions"><span>Sample data only. Replies and campaign simulations are never sent.</span><a href="https://app.weflux.in/register" class="btn btn-green">Try your own workspace →</a></div>
       <div style="font-size:11.5px;color:var(--muted);text-align:center;margin-top:12px;font-style:italic">Illustrative product preview · Interactive simulated workspace with sample demo metrics</div>
     </div>
   </section>
@@ -1090,47 +1086,14 @@
   <div id="wc-footer"></div>
   <script src="shell.js"></script>
   <script src="script.js"></script>
+<script src="portal-demos.js" defer></script>
   <script>
     /* ===== Interactive demo ===== */
     const convs = {
-      priya: {
-        av: 'a', letter: 'P', name: 'Priya Sharma', phone: '+91 98765 43210',
-        msgs: [
-          { t:'in',  m:'Hi, I placed order #ORD-8821 two days ago and it still shows "processing". Where is it?' },
-          { t:'out', m:'Hi Priya! Let me check that for you right away 🔍' },
-          { t:'in',  m:'I needed it by tomorrow for a gift 😟' },
-          { t:'out', m:'I can see your order. It shipped this morning - Delhivery AWB 7742881. Expected delivery tomorrow by 6 PM. You’ll get an SMS too!' },
-          { t:'in',  m:'Oh great! Thank you so much 🙏' },
-        ]
-      },
-      arjun: {
-        av: 'b', letter: 'A', name: 'Arjun Mehta', phone: '+91 87654 32109',
-        msgs: [
-          { t:'in',  m:'I booked a table for 4 at 8 PM tonight. Did you get the booking?' },
-          { t:'out', m:'Yes Arjun, confirmed! Table for 4 at 8:00 PM tonight. We\'ll see you then 🍽️' },
-          { t:'in',  m:'Can I change it to 4 people? We may have one more friend joining.' },
-          { t:'out', m:'Done - updated to 5 people just in case. No problem at all 😊' },
-        ]
-      },
-      sneha: {
-        av: 'c', letter: 'S', name: 'Sneha Reddy', phone: '+91 76543 21098',
-        msgs: [
-          { t:'in',  m:'Hello, I need a GST invoice for my purchase last week. Invoice no INV-4490.' },
-          { t:'out', m:'Sure Sneha! Sending INV-4490 to your registered email right now. You\'ll receive it in 2 minutes.' },
-          { t:'in',  m:'My email is sneha.reddy@acmecorp.in' },
-          { t:'out', m:'Got it - sent to sneha.reddy@acmecorp.in. Let me know if you need anything else!' },
-          { t:'in',  m:'Received. Thanks! ✅' },
-        ]
-      },
-      rohit: {
-        av: 'd', letter: 'R', name: 'Rohit Nair', phone: '+91 65432 10987',
-        msgs: [
-          { t:'in',  m:'I returned a product 5 days ago. Refund still not received. TXN#887123.' },
-          { t:'out', m:'Hi Rohit, sorry for the wait. I can see your return was processed on the 18th. Refund is in transit - 2-3 more business days.' },
-          { t:'in',  m:'It\'s been 7 already 😤' },
-          { t:'out', m:'You\'re right, I\'m escalating this to our finance team right now. I\'ll personally follow up and message you by 5 PM today.' },
-        ]
-      }
+      priya: {av:'a',letter:'P',name:'Priya Sharma',phone:'Customer · Jaipur',msgs:[{t:'in',m:'Hi! Could you share your curtain collection?'},{t:'out',m:'Of course, Priya. Are you looking for light-filtering or blackout curtains?'},{t:'in',m:'Light-filtering, in sage green.'},{t:'out',m:'We have a linen blend you might like. Would you like to see a sample in store?'}]},
+      arjun: {av:'b',letter:'A',name:'Arjun Mehta',phone:'Qualified · Jaipur',msgs:[{t:'in',m:'Could I visit on Saturday to see the sofa fabrics?'},{t:'out',m:'Absolutely. I’ll keep the fabric swatches ready for you.'},{t:'in',m:'Thank you! Around 11 AM works for me.'}]},
+      sneha: {av:'c',letter:'S',name:'Sneha Reddy',phone:'Customer · Jaipur',msgs:[{t:'in',m:'Could you share a copy of my invoice for the cushion covers?'},{t:'out',m:'Sure, Sneha. I’ll ask our team to share a copy.'},{t:'in',m:'Thank you for your help.'}]},
+      rohit: {av:'d',letter:'R',name:'Rohit Nair',phone:'New lead · Jaipur',msgs:[{t:'in',m:'Do you deliver rugs to Vaishali Nagar?'},{t:'out',m:'Yes, we deliver within Jaipur. What size are you looking for?'},{t:'in',m:'A 5 by 7 foot rug for the living room.'}]}
     };
 
     let activeConv = 'priya';
@@ -1153,6 +1116,7 @@
         const b = document.createElement('div');
         b.className = 'lpbub ' + msg.t;
         b.textContent = msg.m;
+        if(msg.t === 'out') { const receipt=document.createElement('small'); receipt.className='portal-receipt'; receipt.textContent='10:42 ✓✓'; b.appendChild(receipt); }
         box.appendChild(b);
       });
       box.scrollTop = box.scrollHeight;
@@ -1176,6 +1140,7 @@
       const b = document.createElement('div');
       b.className = 'lpbub out';
       b.textContent = txt;
+      const receipt=document.createElement('small'); receipt.className='portal-receipt'; receipt.textContent='Demo reply · not sent'; b.appendChild(receipt);
       box.appendChild(b);
       box.scrollTop = box.scrollHeight;
     }
@@ -1194,11 +1159,11 @@
     /* campaign launch */
     function lpSendCampaign() {
       const btn = document.querySelector('#lpp-campaign .btn-green');
-      btn.textContent = 'Sending…';
+      btn.textContent = 'Simulating…';
       btn.disabled = true;
       setTimeout(() => {
         document.getElementById('lpc-ok').classList.add('show');
-        btn.textContent = 'Sent ✓';
+        btn.textContent = 'Simulated ✓';
       }, 1200);
     }
 
