@@ -15,7 +15,7 @@
   // ---------- Phone-mockup tilt (the inbox frame) ----------
   const inboxFrame = document.getElementById('inboxFrame');
   const inboxWrap = document.getElementById('inboxWrap');
-  if (inboxFrame && inboxWrap && !reduced) {
+  if (inboxFrame && inboxWrap && !inboxWrap.hasAttribute("data-portal-preview") && !reduced) {
     let raf = null;
     let target = { x: -4, y: 2 };
     let cur = { x: -4, y: 2 };

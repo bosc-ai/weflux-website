@@ -57,6 +57,8 @@
     tpl: '<rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="5" height="7" x="16" y="14" rx="1"/>',
     alert: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
     link: '<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+    msg: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+    tag: '<path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/>',
     reply: '<polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/>'
   };
   function ic(name, cls) {
@@ -135,9 +137,9 @@
     var html =
       '<div class="wfa-sb-logo"><span class="wfa-mark"><img src="' + LOGO + '" alt="" width="30" height="30" loading="lazy"></span>' +
       '<span class="wfa-brand">Weflux</span><span class="wfa-plan">Pro</span></div>' +
-      '<div class="wfa-acct"><span class="wfa-acct-btn"><span class="wfa-acct-av">KS</span>' +
-      '<span class="wfa-acct-t"><p>Kiara Store</p><p>+91 80471 82290</p></span>' + ic('chevron') + '</span></div>' +
-      '<div class="wfa-org">Kiara Home Decor</div>' +
+      '<div class="wfa-acct"><span class="wfa-acct-btn"><span class="wfa-acct-av">AS</span>' +
+      '<span class="wfa-acct-t"><p>Anand Store</p><p>Demo number</p></span>' + ic('chevron') + '</span></div>' +
+      '<div class="wfa-org">Anand Home Furnishings · Demo</div>' +
       '<nav class="wfa-nav" aria-label="Sample workspace">' + item('overview');
     GROUPS.forEach(function (g) {
       html += '<div class="wfa-grp"><div class="wfa-grp-h"><span>' + g[0] + '</span>' + ic('chevron') + '</div>';
@@ -296,8 +298,8 @@
   var ME = 'Meera Shah';
   var CONVS = [
     {
-      id: 'priya', name: 'Priya Sharma', phone: '+91 98765 43210', time: '10:44 am', stage: 'customer', agent: 'Meera Shah',
-      labels: [['VIP', '#16A34A']], windowLeft: '23h 16m', city: 'Mumbai', orders: 4, ltv: 18400, source: 'Instagram ad',
+      id: 'priya', name: 'Priya Sharma', phone: 'Demo contact', time: '10:44 am', stage: 'customer', agent: 'Meera Shah',
+      labels: [['VIP', '#16A34A']], windowLeft: '23h 16m', city: 'Jaipur', orders: 4, ltv: 18400, source: 'Instagram ad',
       msgs: [
         { d: 'in', t: 'Hi, I ordered the linen bedsheet set yesterday. Can I still change the colour?', at: '10:41 am' },
         { d: 'out', t: 'Hi Priya, yes. Order #WF-12847 has not been packed yet. Which colour would you like?', at: '10:42 am' },
@@ -309,17 +311,17 @@
       auto: ['Great, will keep an eye out for the tracking link.', 'Thanks again 😊']
     },
     {
-      id: 'arjun', name: 'Arjun Mehta', phone: '+91 87654 32109', time: '10:31 am', unread: true, unreadCount: 2, stage: 'qualified',
-      wait: ['nudge', '42m'], windowLeft: '23h 29m', city: 'Pune', orders: 0, ltv: 0, source: 'Website chat button',
+      id: 'arjun', name: 'Arjun Mehta', phone: 'Demo contact', time: '10:31 am', unread: true, unreadCount: 2, stage: 'qualified',
+      wait: ['nudge', '42m'], windowLeft: '23h 29m', city: 'Jaipur', orders: 0, ltv: 0, source: 'Website chat button',
       msgs: [
         { d: 'in', t: 'Hello, saw the Oslo sofa on your website.', at: '10:30 am' },
-        { d: 'in', t: 'Is the 3-seater available in grey? And do you deliver to Pune?', at: '10:31 am' }
+        { d: 'in', t: 'Is the 3-seater available in grey? And do you deliver to Vaishali Nagar?', at: '10:31 am' }
       ],
-      auto: ['Nice. What is the delivery time to Pune?', 'Okay, please share the payment link.']
+      auto: ['Nice. How long does delivery take?', 'Okay, please share the payment link.']
     },
     {
-      id: 'sneha', name: 'Sneha Reddy', phone: '+91 76543 21098', time: '9:12 am', unread: true, unreadCount: 1, stage: 'opportunity', agent: 'Rahul Verma',
-      labels: [['B2B', '#7C3AED']], wait: ['warn', '6h'], windowLeft: '17h 48m', city: 'Hyderabad', orders: 2, ltv: 142000, source: 'Referral',
+      id: 'sneha', name: 'Sneha Reddy', phone: 'Demo contact', time: '9:12 am', unread: true, unreadCount: 1, stage: 'opportunity', agent: 'Rahul Verma',
+      labels: [['B2B', '#7C3AED']], wait: ['warn', '6h'], windowLeft: '17h 48m', city: 'Jaipur', orders: 2, ltv: 142000, source: 'Referral',
       preview: { icon: 'file', text: 'PO-4490.pdf' },
       msgs: [
         { d: 'in', t: 'Hi, we need 40 cushion covers for our new office. Sharing our purchase order.', at: '9:10 am' },
@@ -328,8 +330,8 @@
       auto: ['Thanks. Can you also send a GST invoice with the quote?']
     },
     {
-      id: 'kavya', name: 'Kavya Iyer', phone: '+91 99001 22334', time: 'Yesterday', fromBroadcast: true, stage: 'new',
-      windowLeft: '4h 05m', city: 'Chennai', orders: 0, ltv: 0, source: 'Diwali broadcast',
+      id: 'kavya', name: 'Kavya Iyer', phone: 'Demo contact', time: 'Yesterday', fromBroadcast: true, stage: 'new',
+      windowLeft: '4h 05m', city: 'Jaipur', orders: 0, ltv: 0, source: 'Diwali broadcast',
       msgs: [
         { d: 'out', tpl: 'diwali_early_access', t: 'Hi Kavya, our Diwali collection opens early for you. Get 15% off till Sunday with code DIYA15.', at: 'Yesterday' },
         { d: 'in', t: 'Yes, I want the Diwali offer. Does it work on lamps too?', at: 'Yesterday' }
@@ -337,16 +339,16 @@
       auto: ['Great, ordering the brass lamp now.']
     },
     {
-      id: 'rohit', name: 'Rohit Nair', phone: '+91 65432 10987', time: 'Mon', stage: 'contacted', agent: 'Meera Shah',
-      wait: ['late', '2d'], windowLeft: null, city: 'Kochi', orders: 1, ltv: 3200, source: 'Organic',
+      id: 'rohit', name: 'Rohit Nair', phone: 'Demo contact', time: 'Mon', stage: 'contacted', agent: 'Meera Shah',
+      wait: ['late', '2d'], windowLeft: null, city: 'Jaipur', orders: 1, ltv: 3200, source: 'Organic',
       msgs: [
         { d: 'in', t: 'I returned the table runner last week. Refund status?', at: 'Mon' }
       ],
       auto: ['Got it, thanks for the update.']
     },
     {
-      id: 'farhan', name: 'Farhan Qureshi', phone: '+91 91234 56780', time: 'Sun', stage: 'customer', agent: 'Rahul Verma',
-      windowLeft: null, city: 'Lucknow', orders: 6, ltv: 26750, source: 'Google search',
+      id: 'farhan', name: 'Farhan Qureshi', phone: 'Demo contact', time: 'Sun', stage: 'customer', agent: 'Rahul Verma',
+      windowLeft: null, city: 'Jaipur', orders: 6, ltv: 26750, source: 'Google search',
       msgs: [
         { d: 'out', t: 'Hi Farhan, your order #WF-12790 was delivered today. Hope you love it.', at: 'Sun' },
         { d: 'in', t: 'Received, thanks ✅', at: 'Sun' },
@@ -363,8 +365,8 @@
   });
 
   var SHORTCUTS = [
-    ['/thanks', 'Thank you for shopping with Kiara. Anything else I can help with?'],
-    ['/track', 'Here is your tracking link: kiara.in/t/WF-12847'],
+    ['/thanks', 'Thank you for shopping with Anand. Anything else I can help with?'],
+    ['/track', 'Your order WF-12847 ships today. We will share tracking here.'],
     ['/hours', 'We are available 9 am to 9 pm, Monday to Saturday.']
   ];
 
@@ -570,7 +572,7 @@
     function send(text, tpl) {
       var c = conv(state.sel);
       var m = tpl
-        ? { d: 'out', tpl: 'order_update', t: 'Hi ' + c.name.split(' ')[0] + ', an update on your Kiara order is ready. Tap below to see it.', at: nowTime(), st: 'pending' }
+        ? { d: 'out', tpl: 'order_update', t: 'Hi ' + c.name.split(' ')[0] + ', an update on your Anand order is ready. Tap below to see it.', at: nowTime(), st: 'pending' }
         : { d: 'out', t: text, at: nowTime(), st: 'pending' };
       c.msgs.push(m);
       c.preview = { text: 'You: ' + (tpl ? 'Template: order_update' : text) };
@@ -727,7 +729,7 @@
       return '<div class="wfa-card wfa-camp" data-camp="' + c.id + '">' +
         '<div class="wfa-camp-hd"><h5>' + esc(c.name) + '</h5><span class="wfa-sp ' + st[1] + '">' + ic(st[2]) + st[0] + '</span>' +
         '<span class="wfa-sp ' + (c.cat === 'UTILITY' ? 'sp-util' : 'sp-mkt') + '">' + c.cat + '</span></div>' +
-        '<p class="wfa-camp-meta">' + (c.auto ? '<b style="color:#128C7E">' + esc(c.aud) + ' · ongoing</b> · ' : '') + 'Template: <b>' + esc(c.tpl) + '</b> · Kiara Store' +
+        '<p class="wfa-camp-meta">' + (c.auto ? '<b style="color:#128C7E">' + esc(c.aud) + ' · ongoing</b> · ' : '') + 'Template: <b>' + esc(c.tpl) + '</b> · Anand Store' +
         (c.auto ? '' : ' · ' + esc(c.aud)) + (c.when ? ' · Starts ' + esc(c.when) : '') + '</p>' +
         (c.status === 'scheduled' ? '' :
           '<div class="wfa-prog"><div class="trk"><i style="width:' + prog + '%"></i></div><span>' + prog + '%</span></div>' +
@@ -746,8 +748,8 @@
       var list = CAMPAIGNS.filter(function (c) { return cTab === 'all' || c.status === cTab; });
       v.innerHTML = '<div class="wfa-page">' +
         '<div class="wfa-pagehd"><div><h3 class="wfa-title">Campaigns</h3><p class="wfa-sub">Manage and monitor your WhatsApp broadcast campaigns</p></div>' +
-        '<button type="button" class="wfa-btn" data-act="launch"' + (launched ? ' disabled' : '') + '>' + ic('plus') + (launched ? 'Campaign started' : 'New campaign') + '</button></div>' +
-        (launched ? '<div class="wfa-ok">' + ic('done') + '<span><b>Restock alert - linen</b> started. 1,250 messages are going out now, paced to your Meta tier.</span></div>' : '') +
+        '<button type="button" class="wfa-btn" data-act="launch"' + (launched ? ' disabled' : '') + '>' + ic('plus') + (launched ? 'Simulation running' : 'Simulate campaign') + '</button></div>' +
+        (launched ? '<div class="wfa-ok">' + ic('done') + '<span><b>Restock alert - linen</b> simulation running on sample data. No messages are sent.</span></div>' : '') +
         '<div class="wfa-tabs">' + tabs.map(function (t) {
           return '<button type="button" class="wfa-pill' + (cTab === t ? ' on' : '') + '" data-ctab="' + t + '">' + (t === 'all' ? 'All' : CSTATUS[t][0]) + '</button>';
         }).join('') + '<span class="wfa-search wfa-hide-sm">' + ic('search') + 'Search campaigns…</span></div>' +
@@ -833,6 +835,40 @@
     views.analytics && views.analytics.addEventListener('click', function (e) {
       var b = e.target.closest('[data-range]');
       if (b) { range = b.getAttribute('data-range'); RENDER.analytics(); }
+    });
+
+    /* ----- Automation (a browser-only walkthrough of one sample flow) ----- */
+    var FLOW = [
+      ['zap', '#F59E0B', 'Trigger', 'Message received · contains “catalogue”', 'A catalogue enquiry starts the flow.'],
+      ['msg', '#22C55E', 'Send Message', 'Share the latest collection', 'The customer gets the collection with two quick-reply buttons.'],
+      ['reply', '#0EA5E9', 'Receive Message', 'Continue when the customer replies', 'The flow waits for the customer to answer.'],
+      ['tag', '#6366F1', 'Add Tag', 'Interested · Living room', 'An interest tag adds context to the contact.'],
+      ['bell', '#F43F5E', 'Notify Agent', 'Assign to the sales team', 'The sales team is notified to pick up the conversation.']
+    ];
+    var flowStep = -1;
+    function node(n, i) {
+      return '<div class="wfa-node' + (i === flowStep ? ' cur' : '') + '" style="--c:' + n[1] + '"><div class="nt"><span class="ni">' + ic(n[0]) + '</span>' + n[2] + '</div><p>' + n[3] + '</p></div>';
+    }
+    RENDER.automation = function () {
+      var v = views.automation;
+      v.innerHTML = '<div class="wfa-page">' +
+        '<div class="wfa-pagehd"><div><h3 class="wfa-title">Automation</h3><p class="wfa-sub">Visual flow-based automations</p></div>' +
+        '<button type="button" class="wfa-btn ghost" data-act="new-flow">' + ic('plus') + 'New flow</button></div>' +
+        '<div class="wfa-card" style="overflow:hidden"><div class="wfa-flow-hd"><div><h4 class="wfa-h">Catalogue enquiry</h4>' +
+        '<p><span class="wfa-sp sp-completed">Active</span> Sample flow · 412 runs this month</p></div>' +
+        '<button type="button" class="wfa-btn" data-act="walk">' + (flowStep < 0 ? 'Walk through this flow' : flowStep === FLOW.length - 1 ? 'Restart walkthrough' : 'Next step') + ic('arrow') + '</button></div>' +
+        '<div class="wfa-flow">' + node(FLOW[0], 0) + '<i class="wfa-edge"></i>' + node(FLOW[1], 1) + '<i class="wfa-edge"></i>' + node(FLOW[2], 2) +
+        '<div class="wfa-fork">' + node(FLOW[3], 3) + node(FLOW[4], 4) + '</div></div>' +
+        '<p class="wfa-flow-st" role="status">' + (flowStep < 0 ? 'Select “Walk through this flow” to follow the five steps.' : 'Step ' + (flowStep + 1) + ' of ' + FLOW.length + ': ' + FLOW[flowStep][4]) + '</p>' +
+        '</div></div>';
+    };
+    views.automation && views.automation.addEventListener('click', function (e) {
+      if (e.target.closest('[data-act="walk"]')) {
+        flowStep = (flowStep + 1) % FLOW.length;
+        RENDER.automation();
+        var b = views.automation.querySelector('[data-act="walk"]');
+        if (b) b.focus();
+      } else if (e.target.closest('[data-act="new-flow"]')) showToast('Building your own flows');
     });
 
     /* ----- Boot ----- */
