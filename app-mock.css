@@ -312,11 +312,12 @@
 .wfa-hbtn.solid { background: var(--wfa-wa-ink); border-color: var(--wfa-wa-ink); color: #fff; }
 
 .wfa-sess {
-  flex: 0 0 auto; display: flex; align-items: center; gap: 7px; padding: 5px 14px;
+  flex: 0 0 auto; display: flex; align-items: center; gap: 7px; padding: 5px 14px; white-space: nowrap; overflow: hidden;
   background: #F0FDF4; border-bottom: 1px solid #BBF7D0; font-size: 11px; color: #15803D;
 }
 .wfa-sess i { width: 6px; height: 6px; border-radius: 50%; background: #22C55E; animation: wfaPulse 2s ease-in-out infinite; }
 .wfa-sess b { font-weight: 700; }
+.wfa-sess > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .wfa-sess.closed { background: #FFFBEB; border-color: #FDE68A; color: #B45309; }
 .wfa-sess.closed i { background: #F59E0B; animation: none; }
 @keyframes wfaPulse { 50% { opacity: .35; } }
@@ -556,6 +557,12 @@ input.wfa-input:focus { border-color: rgba(37, 211, 102, .5); }
 .wfa-toast a { color: #25D366; font-weight: 600; text-decoration: none; }
 
 /* ---------- Hero variant: rail + list + thread, fixed height ---------- */
+/* The mock must never size its grid column. Text typed into the composer
+   and new list previews are nowrap, and without min-width: 0 they widened
+   the column mid-animation, re-wrapping the headline beside it. */
+.hero-grid > * { min-width: 0; }
+.wfa-hero, .wfa-hero .wfa-app, .wfa-hero .wfa-main, .wfa-hero .wfa-thread, .wfa-hero .wfa-comp { min-width: 0; max-width: 100%; }
+.wfa-hero { contain: layout paint; }
 .wfa-hero .wfa-app { height: 468px; }
 .wfa-hero .wfa-list { width: 236px; }
 .wfa-hero .wfa-av { width: 36px; height: 36px; font-size: 12.5px; }
