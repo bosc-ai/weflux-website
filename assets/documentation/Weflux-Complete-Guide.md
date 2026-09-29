@@ -5,7 +5,7 @@
 Weflux (weflux.in) is a WhatsApp Business platform: a shared team inbox, broadcast
 campaigns, a visual automation builder, a CRM, and integrations. This guide explains all
 of it, start to finish, with **no prior experience assumed**: you do not need to know
-anything about the WhatsApp Business API, a "BSP", or tools like Wati / Interakt / AiSensy.
+anything about the WhatsApp Business API, a Meta Tech Provider, or tools like Wati / Interakt / AiSensy.
 
 > This Markdown file mirrors the designed PDF guide. It is written so you can also paste it
 > (or any section) into an AI assistant and ask it to walk you through a step. The wording
@@ -43,13 +43,13 @@ of WhatsApp. There is no app to open - a tool like Weflux plugs into it and give
 team one shared screen. An **API** is simply a doorway that lets two pieces of software talk;
 the WhatsApp API is the doorway between Weflux and Meta's WhatsApp network. You never see it.
 
-## 1.2 What a "BSP" is - and where Weflux fits
-A **BSP** (Business Solution Provider), also called a **Tech Provider**, is a Meta-approved
+## 1.2 What a Tech Provider is - and where Weflux fits
+A **Tech Provider** is a Meta-approved
 company that hosts the API connection on your behalf. Meta doesn't hand the raw API to every
-small business - you go through a BSP. **Weflux is your BSP.** It holds the approved connection,
+small business - you go through a provider. **Weflux is a Meta Tech Provider.** It holds the approved connection,
 keeps it healthy, and turns the technical machinery into simple screens.
 
-**How a message travels:** You & your team (in Weflux) → Weflux (your BSP) → Meta WhatsApp
+**How a message travels:** You & your team (in Weflux) → Weflux (Meta Tech Provider) → Meta WhatsApp
 Cloud API → your customer's WhatsApp. It's two-way: when the customer replies, Meta pushes it
 straight back through the same path into your inbox. That push is called a **webhook**.
 
@@ -456,7 +456,7 @@ it. Weflux adds ₹0 markup.
 - **Approved template**: a pre-written message Meta has reviewed and allowed.
 - **Assignment**: the agent who owns a conversation (first to reply is auto-assigned).
 - **Broadcast / Campaign**: one approved template sent to many contacts at once.
-- **BSP / Tech Provider**: a Meta-approved company that hosts your WhatsApp API connection. Weflux is your BSP.
+- **Tech Provider**: a Meta-approved company that connects your business to the WhatsApp API and hosts that connection. Weflux is a Meta Tech Provider.
 - **Canned response**: a saved reply snippet inserted by typing `/`.
 - **Category**: a template's type: Marketing, Utility, or Authentication.
 - **Cloud API**: Meta's hosted WhatsApp Business API that Weflux connects to.

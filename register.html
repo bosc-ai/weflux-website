@@ -19,20 +19,22 @@
   <link rel="icon" href="assets/weflux-logo.png">
   <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2167003997195249');
-    fbq('track', 'PageView');
-    fbq('track', 'CompleteRegistration');
+    var wfC=null;try{wfC=JSON.parse(localStorage.getItem('wf_consent')||'null');}catch(e){}
+    if (wfC && wfC.m) {
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '2167003997195249');
+      fbq('track', 'PageView');
+      fbq('track', 'CompleteRegistration');
+    }
     setTimeout(function(){ window.location.replace("https://app.weflux.in/register"); }, 300);
   </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2167003997195249&ev=PageView&noscript=1" /></noscript>
   <!-- End Meta Pixel Code -->
   <style>
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;background:#FBFAF6;color:#0f172a}

@@ -234,7 +234,7 @@ format: html
 <p dir="ltr" role="presentation">Export all chat history from the WhatsApp Business App.</p>
 </li>
 <li dir="ltr" aria-level="1">
-<p dir="ltr" role="presentation">Choose a BSP (Twilio, WATI, Interakt, Weflux) or set up Meta Cloud API directly.</p>
+<p dir="ltr" role="presentation">Choose a provider (Twilio, WATI, Interakt, or Weflux as a Meta Tech Provider) or set up Meta Cloud API directly.</p>
 </li>
 <li dir="ltr" aria-level="1">
 <p dir="ltr" role="presentation">Remove the number from the App &mdash; only one platform can own a number at a time.</p>

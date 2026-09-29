@@ -48,7 +48,7 @@ markup to Meta's charges. 14-day trial, no card required.
 - [WhatsApp CRM](https://www.weflux.in/whatsapp-crm): contacts, tags, lead stages, segmentation
 - [Features](https://www.weflux.in/features): the full product surface
 - [Platform](https://www.weflux.in/platform): infrastructure, roles and API access
-- [Comparison](https://www.weflux.in/comparison): Weflux against other Indian BSPs
+- [Comparison](https://www.weflux.in/comparison): Weflux against other Indian WhatsApp API providers
 - [Refund Policy](https://www.weflux.in/refund-policy): 14-day free trial, cancellation, 5-7 business day refund timeline
 - [Service Delivery](https://www.weflux.in/service-delivery): instant digital provisioning and onboarding timelines
 - [Acceptable Use Policy](https://www.weflux.in/acceptable-use): opt-in consent requirement, anti-spam enforcement
