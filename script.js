@@ -137,8 +137,13 @@
         const v = mode === 'annual' ? p.dataset.annual : p.dataset.monthly;
         p.textContent = Number(v).toLocaleString('en-IN');
       });
-      document.querySelectorAll('.plan-price .per').forEach((per) => {
-        per.textContent = mode === 'annual' ? '/mo · billed annually' : '/mo · billed monthly';
+      document.querySelectorAll('.plan').forEach((plan) => {
+        const price = plan.querySelector('.price');
+        const bill = plan.querySelector('.plan-bill');
+        if (!price || !bill || Number(price.dataset.monthly) === 0) return;
+        bill.textContent = mode === 'annual'
+          ? 'Billed yearly · ₹' + (Number(price.dataset.annual) * 12).toLocaleString('en-IN') + '/year'
+          : 'Billed monthly';
       });
     });
   });

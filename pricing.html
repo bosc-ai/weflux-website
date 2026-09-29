@@ -90,53 +90,6 @@
       padding: 10px 18px;
     }
 
-    /* --- enterprise banner --- */
-    .enterprise-banner {
-      margin-top: 32px;
-      background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);
-      border-radius: 18px;
-      padding: 40px 36px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      color: #fff;
-    }
-
-    .enterprise-banner h3 {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .enterprise-banner p {
-      color: var(--muted-2);
-      font-size: 14px;
-      line-height: 1.55;
-      max-width: 520px;
-    }
-
-    .enterprise-banner .btn-enterprise {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 28px;
-      background: #fff;
-      color: var(--ink);
-      font-weight: 600;
-      font-size: 14px;
-      border-radius: var(--radius-btn);
-      transition: all .2s var(--ease);
-      white-space: nowrap;
-      text-decoration: none;
-    }
-
-    .enterprise-banner .btn-enterprise:hover {
-      background: var(--green);
-      color: #07371C;
-      transform: translateY(-2px);
-    }
-
     /* --- add-ons section --- */
     .addons-section {
       padding: 80px 0;
@@ -282,16 +235,6 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .enterprise-banner {
-        flex-direction: column;
-        text-align: center;
-        padding: 32px 24px;
-      }
-
-      .enterprise-banner p {
-        max-width: none;
-      }
-
       .compare {
         font-size: 13px;
       }
@@ -323,10 +266,6 @@
       }
 
       .messaging-info {
-        padding: 28px 20px;
-      }
-
-      .enterprise-banner {
         padding: 28px 20px;
       }
     }
@@ -655,7 +594,7 @@
         <span>Pricing</span>
       </div>
       <span class="eyebrow"><span class="dot"></span> WhatsApp Pricing</span>
-      <h1 style="max-width:22ch">Simple WhatsApp Pricing for Growing Businesses</h1>
+      <h1 style="max-width:22ch">Simple WhatsApp pricing for growing businesses</h1>
       <p class="lede" style="text-align:center;max-width:640px">Manage WhatsApp conversations, campaigns, automation
         and integrations — with simple pricing and no Weflux markup on WhatsApp messaging charges.</p>
 
@@ -664,6 +603,7 @@
         <button type="button" data-billing="annual" aria-pressed="false">Annual <span
             class="save">−20%</span></button>
       </div>
+      <p class="bill-note">Free is free forever. Every paid plan starts with a 14-day trial, no card needed.</p>
     </section>
 
     <!-- ===== PRICING CARDS ===== -->
@@ -676,8 +616,9 @@
             <div class="plan-name">Free</div>
             <div class="plan-price">
               <span class="amt">₹<span class="price" data-monthly="0" data-annual="0">0</span></span>
-              <span class="per">/mo · forever</span>
+              <span class="per">/mo</span>
             </div>
+            <div class="plan-bill">Free forever</div>
             <p class="plan-desc">Try Weflux with essential WhatsApp inbox and contact management tools.</p>
           </div>
           <ul>
@@ -698,8 +639,9 @@
             <div class="plan-name">Basic</div>
             <div class="plan-price">
               <span class="amt">₹<span class="price" data-monthly="999" data-annual="799">999</span></span>
-              <span class="per">/mo · billed monthly</span>
+              <span class="per">/mo</span>
             </div>
+            <div class="plan-bill">Billed monthly</div>
             <p class="plan-desc">Everything a small business needs to manage, engage and automate WhatsApp conversations.</p>
           </div>
           <ul>
@@ -710,7 +652,8 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> 5 automations</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Basic segmentation &amp; integrations</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> 1 Google Sheet integration</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Campaign analytics &amp; Chat support</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Campaign analytics</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Chat support</li>
           </ul>
           <a href="https://app.weflux.in/register?plan=basic" class="btn btn-ghost">Start free trial</a>
         </article>
@@ -722,8 +665,9 @@
             <div class="plan-name">Pro</div>
             <div class="plan-price">
               <span class="amt">₹<span class="price" data-monthly="2499" data-annual="1999">2,499</span></span>
-              <span class="per">/mo · billed monthly</span>
+              <span class="per">/mo</span>
             </div>
+            <div class="plan-bill">Billed monthly</div>
             <p class="plan-desc">For growing businesses that need more automation, campaigns, integrations and team capacity.</p>
           </div>
           <ul>
@@ -734,7 +678,8 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Advanced segmentation &amp; integrations</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Broadcast scheduling</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> 3 Google Sheets</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Webhooks &amp; Priority support</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Webhooks</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Priority support</li>
           </ul>
           <a href="https://app.weflux.in/register?plan=pro" class="btn btn-green">Start free trial</a>
         </article>
@@ -745,8 +690,9 @@
             <div class="plan-name">Scale</div>
             <div class="plan-price">
               <span class="amt">₹<span class="price" data-monthly="4999" data-annual="3999">4,999</span></span>
-              <span class="per">/mo · billed monthly</span>
+              <span class="per">/mo</span>
             </div>
+            <div class="plan-bill">Billed monthly</div>
             <p class="plan-desc">For businesses running larger WhatsApp operations with multiple numbers, team members and automations.</p>
           </div>
           <ul>
@@ -757,7 +703,8 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Advanced segmentation &amp; integrations</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Broadcast scheduling</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> 5 Google Sheets</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Webhooks &amp; Priority support</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Webhooks</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Priority support</li>
           </ul>
           <a href="https://app.weflux.in/register?plan=scale" class="btn btn-ghost">Start free trial</a>
         </article>
@@ -770,7 +717,7 @@
       <div class="enterprise-banner" id="enterprise">
         <div>
           <h3>Enterprise — Custom</h3>
-          <p>For custom requirements. We can build a plan around your business — custom WhatsApp numbers, team size, automations, integrations, workflows, infrastructure and dedicated support.</p>
+          <p>For custom requirements. We can build a plan around your business — custom WhatsApp numbers, team size, automations, integrations, workflows, and dedicated support.</p>
         </div>
         <a href="/contact?topic=enterprise" class="btn-enterprise">Talk to Sales →</a>
       </div>

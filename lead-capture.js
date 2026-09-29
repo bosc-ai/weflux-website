@@ -11,11 +11,9 @@
 
   // ---- CONFIG ----
   var CONFIG = {
-    initialDelayMs: 1500,             // Tiny delay so page renders before popup
-    retryDelayMinSec: 30,             // Re-show popup min seconds after first dismiss
-    retryDelayMaxSec: 45,             // Re-show popup max seconds after first dismiss
+    scrollDepth: 0.6,                 // Reading pages: offer it after 60% of the page
     dismissCookieName: 'wf_lc_seen',
-    dismissCookieDays: 7,             // Suppress for 7 days if user closes popup twice
+    dismissCookieDays: 7,             // One close is enough: suppress for 7 days
     submitCookieName: 'wf_lc_submitted',
     submitCookieDays: 365,            // Never show again if user has submitted contact info
     endpoint: 'https://script.google.com/macros/s/AKfycbw33h-xZdZdkr1XUEYno7eCntwvCmVAefI22th8xyZRGU3JDZ7OsOLUS7YSbYSyWpuo/exec'
@@ -757,7 +755,6 @@
   }
 
   // ---- OPEN / CLOSE ----
-  var timerId = null;
 
   function openPopup() {
     if (isContactPage()) return;
@@ -782,26 +779,9 @@
         setCookie(CONFIG.submitCookieName, 'submitted', CONFIG.submitCookieDays);
         setStorage(CONFIG.submitCookieName, 'submitted', CONFIG.submitCookieDays);
       } else {
-        var dismissCount = parseInt(getStorage('wf_lc_dismiss_count') || '0', 10) + 1;
-        setStorage('wf_lc_dismiss_count', dismissCount.toString(), 7);
-
-        if (dismissCount >= 2) {
-          // Second (or later) dismiss - set dismiss cookie & storage, don't bother again for 7 days
-          setCookie(CONFIG.dismissCookieName, 'dismissed', CONFIG.dismissCookieDays);
-          setStorage(CONFIG.dismissCookieName, 'dismissed', CONFIG.dismissCookieDays);
-        } else {
-          // First dismiss without submitting contact - schedule second attempt after 30-45s cooldown
-          var retryDelaySec = CONFIG.retryDelayMinSec + Math.floor(Math.random() * (CONFIG.retryDelayMaxSec - CONFIG.retryDelayMinSec + 1));
-          var nextShowTime = Date.now() + (retryDelaySec * 1000);
-          setStorage('wf_lc_next_show_time', nextShowTime.toString(), 1);
-
-          if (timerId) clearTimeout(timerId);
-          timerId = setTimeout(function () {
-            if (!state.contactSaved && !state.submitted && !getCookie(CONFIG.submitCookieName) && !getCookie(CONFIG.dismissCookieName) && !getStorage(CONFIG.dismissCookieName) && !isContactPage()) {
-              openPopup();
-            }
-          }, retryDelaySec * 1000);
-        }
+        // One close means no. It never re-opens on a timer.
+        setCookie(CONFIG.dismissCookieName, 'dismissed', CONFIG.dismissCookieDays);
+        setStorage(CONFIG.dismissCookieName, 'dismissed', CONFIG.dismissCookieDays);
       }
     }
   }
@@ -812,37 +792,40 @@
     if (e.key === 'Escape' && backdrop.classList.contains('show')) closePopup();
   });
 
-  // ---- TRIGGER: Show popup with 30-45s dismissal cooldown & page rules ----
+  // ---- TRIGGER: never on first paint ----
+  // Pricing: only on exit intent (pointer leaving through the top of the
+  // window, desktop only). Reading pages (blog, articles, help, resources,
+  // guide): once 60% of the page has been read. Everywhere else: never.
+  function canOpen() {
+    return !state.contactSaved && !state.submitted && !isContactPage() &&
+      !getCookie(CONFIG.submitCookieName) && !getStorage(CONFIG.submitCookieName) &&
+      !getCookie(CONFIG.dismissCookieName) && !getStorage(CONFIG.dismissCookieName);
+  }
   function initPopupTrigger() {
-    // Let visitors explore the homepage product tour without an automatic interruption.
-    if (document.body.hasAttribute("data-guided-product-tour")) return;
-    if (isContactPage()) return;
-    if (getCookie(CONFIG.submitCookieName) || getStorage(CONFIG.submitCookieName)) return;
-    if (getCookie(CONFIG.dismissCookieName) || getStorage(CONFIG.dismissCookieName)) return;
+    if (!canOpen()) return;
+    var path = (window.location.pathname || '').toLowerCase().replace(/\.html$/, '');
+    var page = (document.body.dataset.page || '').toLowerCase();
 
-    var nextShowStr = getStorage('wf_lc_next_show_time');
-    if (nextShowStr) {
-      var nextShowTime = parseInt(nextShowStr, 10);
-      var now = Date.now();
-      var remainingMs = nextShowTime - now;
-
-      if (remainingMs > 0) {
-        // User closed popup recently on this or another page - wait out the remaining 30-45s window
-        timerId = setTimeout(function () {
-          if (!state.contactSaved && !state.submitted && !getCookie(CONFIG.submitCookieName) && !getCookie(CONFIG.dismissCookieName) && !getStorage(CONFIG.dismissCookieName) && !isContactPage()) {
-            openPopup();
-          }
-        }, remainingMs);
-        return;
-      }
+    if (page === 'pricing' || /\/pricing\/?$/.test(path)) {
+      if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+      var onLeave = function (e) {
+        if (e.relatedTarget || e.clientY > 0) return;
+        document.removeEventListener('mouseout', onLeave);
+        if (canOpen()) openPopup();
+      };
+      document.addEventListener('mouseout', onLeave);
+      return;
     }
 
-    // First time visitor or cooldown has elapsed - show after initial delay
-    timerId = setTimeout(function () {
-      if (!state.contactSaved && !state.submitted && !getCookie(CONFIG.submitCookieName) && !getCookie(CONFIG.dismissCookieName) && !getStorage(CONFIG.dismissCookieName) && !isContactPage()) {
-        openPopup();
-      }
-    }, CONFIG.initialDelayMs);
+    if (/^\/(blog|articles|help|resources)(\/|$)/.test(path) || /\/weflux-guide$/.test(path)) {
+      var onScroll = function () {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        if (max <= 0 || window.scrollY / max < CONFIG.scrollDepth) return;
+        window.removeEventListener('scroll', onScroll);
+        if (canOpen()) openPopup();
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
   }
 
   initPopupTrigger();

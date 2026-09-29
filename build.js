@@ -244,7 +244,7 @@ function assertCrawlable() {
 // fallback and the Meta review demo.
 const NOT_INDEXED = new Set([
   "dashboard.html", "register.html", "signin.html", "signup.html",
-  "app-review-demo.html", "weflux-promo.html", "offline.html",
+  "app-review-demo.html", "weflux-promo.html", "offline.html", "404.html",
 ]);
 
 // Indexed, but carries its own inline CSS and internal chapter nav rather

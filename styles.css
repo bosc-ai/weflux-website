@@ -280,12 +280,6 @@ h3 { font-size: 22px; line-height: 1.25; letter-spacing: -0.02em; }
 }
 .hero h1 { margin: 22px 0 22px; }
 .hero h1 .accent { color: var(--green-deep); white-space: nowrap; }
-.hero h1 .accent::after {
-  content: ""; display: inline-block; width: .35em; height: .12em;
-  background: var(--green); margin-left: .12em; vertical-align: middle; border-radius: 2px;
-  animation: caret 1.1s steps(2) infinite;
-}
-@keyframes caret { 50% { opacity: 0; } }
 
 .hero .lede { margin-bottom: 20px; }
 .hero-powered {
@@ -622,8 +616,8 @@ h3 { font-size: 22px; line-height: 1.25; letter-spacing: -0.02em; }
   transition: all .2s var(--ease);
 }
 .feat-tab.active .ic { background: var(--green-tint); color: var(--green-deep); }
-.feat-tab .tt { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
-.feat-tab .dd { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.feat-tab .tt { display: block; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.feat-tab .dd { display: block; font-size: 13px; color: #4B5563; margin-top: 4px; }
 .feat-tab .prog {
   position: absolute; left: 0; top: 0; bottom: 0;
   width: 3px; background: var(--green); transform: scaleY(0); transform-origin: top;
@@ -821,34 +815,63 @@ h3 { font-size: 22px; line-height: 1.25; letter-spacing: -0.02em; }
 .bill-toggle button .save { font-size: 10px; font-family: var(--font-mono); background: var(--green-tint); color: var(--green-deep); padding: 1px 6px; border-radius: 4px; }
 .bill-toggle button.on .save { background: var(--green); color: #07371C; }
 
-.pricing-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; align-items: stretch; }
+/* Cards share rows through subgrid, so the price, the feature list and the
+   button line up across every card whatever each one's copy length is. */
+.pricing-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; align-items: stretch; padding-top: 14px; }
 .pricing-grid .plan-price .amt { font-size: 38px; }
 .plan {
   background: #fff; border: 1px solid var(--line); border-radius: 18px;
-  padding: 26px 24px; display: flex; flex-direction: column; gap: 16px;
-  position: relative;
-  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+  padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 18px;
+  position: relative; min-width: 0;
+  transition: box-shadow .25s var(--ease), border-color .25s var(--ease);
 }
-.plan:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+@supports (grid-template-rows: subgrid) {
+  .pricing-grid .plan { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 18px; }
+}
+.plan:hover { box-shadow: var(--shadow-lg); }
 .plan.featured {
   border: 1.5px solid transparent;
   background:
     linear-gradient(#fff,#fff) padding-box,
     linear-gradient(135deg, #25D366, #06B6D4) border-box;
   box-shadow: var(--shadow-green);
-  transform: translateY(-8px);
 }
-.plan.featured:hover { transform: translateY(-12px); }
-.plan-badge { position: absolute; top: -12px; left: 28px; background: var(--green); color: #07371C; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
+.plan-badge { position: absolute; top: -12px; left: 24px; background: var(--green); color: #07371C; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
 .plan-name { font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
-.plan-price { display: flex; align-items: baseline; gap: 6px; }
-.plan-price .amt { font-family: var(--font-mono); font-size: 44px; font-weight: 500; letter-spacing: -0.04em; }
-.plan-price .per { color: var(--muted); font-size: 13.5px; }
-.plan-desc { color: var(--muted); font-size: 13.5px; line-height: 1.55; }
-.plan ul { list-style: none; display: flex; flex-direction: column; gap: 10px; padding-top: 4px; border-top: 1px solid var(--line); margin-top: 4px; padding-top: 16px; }
-.plan li { display: flex; gap: 10px; font-size: 13.5px; align-items: flex-start; line-height: 1.45; }
+.plan-price { display: flex; align-items: baseline; gap: 6px; margin-top: 10px; white-space: nowrap; }
+.plan-price .amt { font-family: var(--font-mono); font-size: 44px; font-weight: 500; letter-spacing: -0.04em; line-height: 1.05; }
+.plan-price .per { color: var(--muted); font-size: 14px; }
+.plan-bill { margin-top: 4px; font-size: 12.5px; color: #4B5563; min-height: 1.4em; }
+.plan-desc { color: #4B5563; font-size: 14px; line-height: 1.55; margin-top: 12px; }
+.plan ul { list-style: none; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--line); padding-top: 18px; margin: 0; align-self: start; }
+.plan li { display: flex; gap: 10px; font-size: 14px; align-items: flex-start; line-height: 1.45; }
 .plan li svg { color: var(--green-deep); flex-shrink: 0; margin-top: 3px; }
-.plan .btn { margin-top: auto; width: 100%; }
+.plan .btn { margin-top: auto; width: 100%; min-height: 44px; align-self: end; }
+.bill-note { margin-top: 14px; font-size: 13px; color: #4B5563; text-align: center; }
+
+/* Enterprise sits under the plan cards as one full-width strip */
+.enterprise-banner {
+  margin-top: 32px; padding: 36px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%); border-radius: 18px; color: #fff;
+}
+.enterprise-banner h3 { font-size: 22px; font-weight: 600; margin-bottom: 6px; color: #fff; }
+.enterprise-banner p { color: #CBD5E1; font-size: 14px; line-height: 1.55; max-width: 560px; }
+.enterprise-banner .btn-enterprise {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 12px 28px;
+  background: #fff; color: var(--ink); font-weight: 600; font-size: 14px; border-radius: var(--radius-btn);
+  transition: background-color .2s var(--ease), color .2s var(--ease); white-space: nowrap; text-decoration: none;
+}
+.enterprise-banner .btn-enterprise:hover { background: var(--green); color: #07371C; }
+@media (max-width: 1024px) {
+  .enterprise-banner { flex-direction: column; text-align: center; padding: 32px 24px; }
+  .enterprise-banner p { max-width: none; }
+}
+@media (max-width: 640px) {
+  .enterprise-banner { padding: 28px 20px; }
+  /* The plan most people pick comes first on a phone */
+  .pricing-grid .plan.featured { order: -1; }
+}
 .pricing-note { text-align: center; margin-top: 24px; font-size: 13px; color: var(--muted); font-family: var(--font-mono); }
 
 /* ===== testimonials ===== */
@@ -1478,8 +1501,6 @@ details[open] > .post-faq-q::after { content: '−'; color: var(--green-deep); }
   .fp-inbox .col-l { display: none; }
   .fp-analytics { grid-template-columns: 1fr; }
   .chart { height: 180px; }
-  .plan.featured { transform: none; }
-  .plan.featured:hover { transform: translateY(-4px); }
   .stat .num { font-size: 40px; }
   h1 { font-size: 34px; line-height: 1.1; }
   h2 { font-size: 28px; }
