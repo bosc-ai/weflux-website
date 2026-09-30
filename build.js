@@ -394,6 +394,7 @@ function writeSitemap(collectionUrls) {
     ["", "1.0", "weekly"],
     ["features.html", "0.9", "weekly"],
     ["pricing.html", "0.9", "weekly"],
+    ["savings-calculator.html", "0.8", "monthly"],
     ["broadcasts.html", "0.9", "weekly"],
     ["automations.html", "0.9", "weekly"],
     ["shared-inbox.html", "0.9", "weekly"],

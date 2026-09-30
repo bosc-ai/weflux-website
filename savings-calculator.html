@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WhatsApp API Savings Calculator | Weflux</title>
+  <meta name="description" content="Estimate what your team would pay each month on Weflux, WATI, AiSensy and Interakt, from each provider's published pricing. Change any number to match your quote.">
+  <link rel="canonical" href="https://www.weflux.in/savings-calculator">
+  <meta property="og:title" content="WhatsApp API Savings Calculator | Weflux">
+  <meta property="og:description" content="Estimate what your team would pay each month on Weflux, WATI, AiSensy and Interakt, from each provider's published pricing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.weflux.in/savings-calculator">
+  <meta property="og:site_name" content="Weflux">
+  <meta property="og:image" content="https://www.weflux.in/assets/weflux-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/weflux-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .sc { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 24px; align-items: start; }
+    .sc-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+    .sc-card h2 { font-size: 18px; letter-spacing: -0.01em; margin: 0 0 4px; }
+    .sc-card > p.sub { font-size: 13.5px; color: #4B5563; margin: 0 0 18px; }
+    .sc-presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .sc-presets button { min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); font: inherit; font-size: 13px; cursor: pointer; }
+    .sc-presets button:hover, .sc-presets button[aria-pressed="true"] { border-color: var(--green-deep); color: var(--green-deep); background: var(--green-tint); }
+    .sc-field { padding: 12px 0; border-top: 1px solid #F1EFE8; }
+    .sc-field:first-of-type { border-top: 0; }
+    .sc-field label, .sc-field .lbl { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 14px; font-weight: 500; }
+    .sc-field small { display: block; font-size: 12.5px; color: #4B5563; margin-top: 2px; font-weight: 400; }
+    .sc-num { width: 88px; min-height: 40px; padding: 0 10px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-size: 15px; text-align: right; font-variant-numeric: tabular-nums; background: #fff; }
+    .sc-num:focus-visible, .sc-range:focus-visible, .sc-check input:focus-visible, .sc-seg button:focus-visible, .sc-tabs button:focus-visible { outline: 2px solid #16A34A; outline-offset: 2px; }
+    .sc-range { width: 100%; margin-top: 10px; accent-color: #128C7E; height: 24px; }
+    .sc-check { display: flex; align-items: flex-start; gap: 10px; min-height: 44px; padding: 8px 0; font-size: 14px; cursor: pointer; }
+    .sc-check input { width: 18px; height: 18px; margin-top: 2px; accent-color: #128C7E; flex: 0 0 auto; }
+    .sc-seg { display: inline-flex; padding: 3px; border-radius: 10px; background: var(--paper-2); border: 1px solid var(--line); }
+    .sc-seg button { min-height: 36px; padding: 0 14px; border: 0; border-radius: 8px; background: none; font: inherit; font-size: 13.5px; font-weight: 500; cursor: pointer; color: #4B5563; }
+    .sc-seg button[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+    details.sc-more { margin-top: 8px; border-top: 1px solid #F1EFE8; padding-top: 12px; }
+    details.sc-more summary { cursor: pointer; font-size: 14px; font-weight: 500; min-height: 32px; }
+
+    .sc-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .sc-tabs button { min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; }
+    .sc-tabs button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .sc-head { border-radius: 16px; padding: 22px 24px; background: linear-gradient(135deg, #0F8A53, #128C7E); color: #fff; }
+    .sc-head.more { background: #1F2937; }
+    .sc-head .k { font-size: 13px; opacity: .85; }
+    .sc-head .v { font-size: clamp(34px, 5vw, 46px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-top: 4px; font-variant-numeric: tabular-nums; }
+    .sc-head .s { font-size: 14px; opacity: .9; margin-top: 6px; }
+    .sc-bars { margin-top: 22px; position: relative; }
+    .sc-bars h3 { font-size: 14px; font-weight: 600; margin: 0 0 12px; }
+    .sc-bar { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: 12px; padding: 6px 0; }
+    .sc-bar .nm { font-size: 13.5px; font-weight: 500; }
+    .sc-track { position: relative; height: 26px; }
+    .sc-fill { height: 100%; border-radius: 0 4px 4px 0; background: #CBD5E1; min-width: 2px; transition: width .35s var(--ease); }
+    .sc-fill.us { background: #128C7E; }
+    .sc-fill.partial { background: repeating-linear-gradient(135deg, #CBD5E1 0 6px, #E2E8F0 6px 12px); }
+    .sc-val { position: absolute; top: 50%; transform: translateY(-50%); font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; padding-left: 8px; font-variant-numeric: tabular-nums; }
+    .sc-bar:focus-visible { outline: 2px solid #16A34A; outline-offset: 2px; border-radius: 6px; }
+    .sc-tip { position: absolute; z-index: 5; pointer-events: none; background: #111827; color: #fff; font-size: 12.5px; line-height: 1.45; padding: 8px 10px; border-radius: 8px; max-width: 280px; opacity: 0; transition: opacity .15s; }
+    .sc-tip.show { opacity: 1; }
+    .sc-table { width: 100%; border-collapse: collapse; margin-top: 22px; font-size: 14px; table-layout: fixed; }
+    .sc-table th:first-child { width: 52%; }
+    .sc-table td { overflow-wrap: anywhere; }
+    .sc-table td.r span { white-space: normal; }
+    .sc-table caption { text-align: left; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    .sc-table th, .sc-table td { padding: 10px 8px; border-bottom: 1px solid #F1EFE8; text-align: left; vertical-align: top; }
+    .sc-table th { font-size: 12px; font-weight: 600; color: #4B5563; text-transform: uppercase; letter-spacing: .04em; }
+    .sc-table td.r, .sc-table th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .sc-table tfoot td { font-weight: 700; border-bottom: 0; }
+    .sc-note { font-size: 12.5px; color: #4B5563; margin-top: 14px; line-height: 1.55; }
+    .sc-markup { margin-top: 24px; }
+    .sc-rates { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 8px; align-items: center; font-size: 13.5px; }
+    .sc-rates .h { font-size: 12px; font-weight: 600; color: #4B5563; text-transform: uppercase; letter-spacing: .04em; }
+    .sc-rates .sc-num { width: 100%; }
+    .sc-markup-out { margin-top: 14px; font-size: 14px; padding: 12px 14px; border-radius: 12px; background: var(--paper-2); }
+    .sc-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .sc-sources { font-size: 12.5px; color: #4B5563; line-height: 1.6; }
+    .sc-sources a { color: var(--green-deep); text-decoration: underline; }
+    .sc > * { min-width: 0; }
+    @media (max-width: 960px) { .sc { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 640px) {
+      .sc-card { padding: 18px; }
+      .sc-num { font-size: 16px; }
+      .sc-rates { grid-template-columns: 0.9fr 1.25fr 1fr 1fr; gap: 6px; font-size: 12.5px; }
+      .sc-rates .sc-num { padding: 0 6px; }
+      .sc-bar { grid-template-columns: 76px minmax(0, 1fr); }
+      .sc-table { font-size: 13px; }
+      .sc-table th:first-child { width: 46%; }
+      .sc-table td.r, .sc-table th.r { white-space: normal; }
+    }
+  </style>
+</head>
+<body data-page="savings-calculator">
+  <div id="wc-nav"></div>
+  <main id="main" class="page">
+    <section class="container page-hero">
+      <div class="crumb"><a href="/">Home</a> <span class="sep">/</span> <a href="/pricing">Pricing</a> <span class="sep">/</span> <span>Savings calculator</span></div>
+      <span class="eyebrow"><span class="dot"></span> Savings calculator</span>
+      <h1>What would your team pay on Weflux?</h1>
+      <p class="lede">Tell us your team size and what you need. We compare the monthly platform cost on Weflux with WATI, AiSensy and Interakt, using each provider's own published pricing. Every number is editable, so you can match it to a quote.</p>
+    </section>
+
+    <section class="container" style="padding-bottom:64px">
+      <div class="sc">
+        <!-- ===== Inputs ===== -->
+        <form class="sc-card" id="scForm" onsubmit="return false" aria-label="Your setup">
+          <h2>Your setup</h2>
+          <p class="sub">Start from a typical business, then adjust.</p>
+          <div class="sc-presets" role="group" aria-label="Typical setups">
+            <button type="button" data-preset="small" aria-pressed="false">Small shop</button>
+            <button type="button" data-preset="d2c" aria-pressed="true">Growing D2C brand</button>
+            <button type="button" data-preset="support" aria-pressed="false">Support team</button>
+          </div>
+
+          <div class="sc-field">
+            <label for="scAgents">Team members answering chats <input class="sc-num" type="number" id="scAgents" min="1" max="50" value="6" inputmode="numeric"></label>
+            <input class="sc-range" type="range" min="1" max="50" value="6" data-for="scAgents" aria-label="Team members">
+          </div>
+          <div class="sc-field">
+            <label for="scNumbers">WhatsApp numbers <input class="sc-num" type="number" id="scNumbers" min="1" max="10" value="1" inputmode="numeric"></label>
+          </div>
+          <div class="sc-field">
+            <label for="scFlows">Automation flows <input class="sc-num" type="number" id="scFlows" min="0" max="60" value="8" inputmode="numeric"></label>
+            <small>Auto-replies, cart reminders, lead routing and so on.</small>
+          </div>
+          <div class="sc-field">
+            <label class="sc-check"><input type="checkbox" id="scBot" checked><span>We want a chatbot builder<small>Included in every Weflux plan. A paid add-on on some providers.</small></span></label>
+            <label class="sc-check"><input type="checkbox" id="scAI"><span>We want an AI agent<small>Weflux builds flows from plain English at no extra cost.</small></span></label>
+            <label class="sc-check"><input type="checkbox" id="scCRM"><span>We need sales CRM roles<small>Deal stages and contact ownership for a sales team. Weflux CRM is ₹1,500/month.</small></span></label>
+          </div>
+          <div class="sc-field">
+            <span class="lbl">Billing</span>
+            <div class="sc-seg" role="group" aria-label="Billing period" style="margin-top:8px">
+              <button type="button" data-bill="monthly" aria-pressed="true">Monthly</button>
+              <button type="button" data-bill="annual" aria-pressed="false">Annual</button>
+            </div>
+          </div>
+
+          <details class="sc-more">
+            <summary>Assumptions you can change</summary>
+            <div class="sc-field">
+              <label for="scFx">US dollar to rupee rate <input class="sc-num" type="number" id="scFx" min="50" max="150" step="0.5" value="88"></label>
+              <small>WATI prices in USD. Set this to today's rate.</small>
+            </div>
+            <div class="sc-field">
+              <label for="scAiBase">AiSensy base plan, ₹/month <input class="sc-num" type="number" id="scAiBase" min="0" step="1" placeholder="Enter"></label>
+              <small>From your AiSensy quote. Until you add it, AiSensy shows add-ons only.</small>
+            </div>
+          </details>
+        </form>
+
+        <!-- ===== Results ===== -->
+        <div class="sc-card" aria-live="polite">
+          <div class="sc-tabs" role="group" aria-label="Compare Weflux with">
+            <button type="button" data-vs="wati" aria-pressed="true">vs WATI</button>
+            <button type="button" data-vs="aisensy" aria-pressed="false">vs AiSensy</button>
+            <button type="button" data-vs="interakt" aria-pressed="false">vs Interakt</button>
+          </div>
+
+          <div class="sc-head" id="scHead">
+            <div class="k" id="scHeadK">Estimated saving with Weflux</div>
+            <div class="v" id="scHeadV">₹0 a month</div>
+            <div class="s" id="scHeadS"></div>
+          </div>
+
+          <div class="sc-bars" id="scBars">
+            <h3>Monthly platform cost, before GST and Meta's message charges</h3>
+            <div id="scBarRows"></div>
+            <div class="sc-tip" id="scTip" role="tooltip"></div>
+          </div>
+
+          <table class="sc-table" id="scTable">
+            <caption>Where the numbers come from</caption>
+            <thead><tr><th scope="col">Line item</th><th scope="col" class="r">Weflux</th><th scope="col" class="r" id="scVsCol">WATI</th></tr></thead>
+            <tbody id="scRows"></tbody>
+            <tfoot><tr><td>Per month</td><td class="r" id="scTotUs"></td><td class="r" id="scTotVs"></td></tr></tfoot>
+          </table>
+          <p class="sc-note" id="scNote"></p>
+
+          <div class="sc-markup">
+            <h2 style="font-size:16px;margin:0 0 4px">Check your per-message markup</h2>
+            <p class="sub" style="font-size:13.5px;color:#4B5563;margin:0 0 12px">Weflux bills Meta's rate at cost. If your current invoice shows a higher rate per message, enter it with Meta's rate for the same category to see what the difference costs you.</p>
+            <div class="sc-rates">
+              <span class="h">Category</span><span class="h">Messages a month</span><span class="h">Your rate ₹</span><span class="h">Meta's rate ₹</span>
+              <span>Marketing</span><input class="sc-num" type="number" id="mkVol" min="0" step="100" value="5000" aria-label="Marketing messages a month"><input class="sc-num" type="number" id="mkYour" min="0" step="0.001" placeholder="0.00" aria-label="Your marketing rate"><input class="sc-num" type="number" id="mkMeta" min="0" step="0.001" placeholder="0.00" aria-label="Meta's marketing rate">
+              <span>Utility</span><input class="sc-num" type="number" id="utVol" min="0" step="100" value="10000" aria-label="Utility messages a month"><input class="sc-num" type="number" id="utYour" min="0" step="0.001" placeholder="0.00" aria-label="Your utility rate"><input class="sc-num" type="number" id="utMeta" min="0" step="0.001" placeholder="0.00" aria-label="Meta's utility rate">
+              <span>Authentication</span><input class="sc-num" type="number" id="auVol" min="0" step="100" value="0" aria-label="Authentication messages a month"><input class="sc-num" type="number" id="auYour" min="0" step="0.001" placeholder="0.00" aria-label="Your authentication rate"><input class="sc-num" type="number" id="auMeta" min="0" step="0.001" placeholder="0.00" aria-label="Meta's authentication rate">
+            </div>
+            <div class="sc-markup-out" id="scMarkup">Enter both rates for a category to see its markup.</div>
+          </div>
+
+          <div class="sc-cta">
+            <a href="https://app.weflux.in/register" class="btn btn-green">Start free</a>
+            <a href="/contact" class="btn btn-ghost">Book a demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="padding-bottom:40px">
+      <div class="prose" style="max-width:760px;margin:0 auto">
+        <h2>How the estimate works</h2>
+        <p>For Weflux we pick the cheapest plan that fits your team, numbers and flows, then add only the add-ons you need: ₹250 a month per extra team member, ₹500 per extra number, ₹100 per extra automation, and ₹1,500 for Weflux CRM if you ask for CRM roles. Chatbot building and plain-English AI flows are included.</p>
+        <p>For the other providers we use the prices on their own pricing pages, read on 6 September 2026, and the cheapest plan that fits your team size. Where a provider's page did not state something, such as WATI's per-message rate card or AiSensy's base plan, we leave it out of the total and say so rather than guess.</p>
+        <p>All figures are before GST. Meta's per-message charges are not in the totals, because every provider on the official API passes them on; the markup check above shows whether yours adds anything on top.</p>
+      </div>
+    </section>
+
+    <section class="container" style="padding:0 0 72px">
+      <div class="faq-layout" style="max-width:760px;margin:0 auto">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> FAQ</span>
+          <h2 style="margin:10px 0 6px">Common questions</h2>
+        </div>
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <button class="faq-q" type="button">How accurate is this estimate? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">It uses each provider's published list prices as of 6 September 2026 and the cheapest plan that fits your team size. Discounts, custom quotes, taxes and price changes since then are not included, so treat it as a starting point and check the final figure against a written quote.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">Why are Meta's message charges left out of the totals? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Meta charges per delivered template message, and those charges apply whichever provider you use. The part that differs between providers is any margin added on top, which is why the calculator has a separate markup check: enter the rate on your current invoice and Meta's rate for the same category.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">What if another provider comes out cheaper? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Then the calculator says so. Providers with unlimited agents can cost less for very large teams, and our comparison pages explain where each one is the better choice. The <a href="/comparison">comparison hub</a> links to all three.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">Is there a free way to try Weflux first? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Yes. The Free plan is free forever for one number and one team member, and every paid plan starts with a 14-day trial with no card needed.</div></div>
+          </div>
+        </div>
+      </div>
+      <p class="sc-sources" style="max-width:760px;margin:28px auto 0">Sources, read 6 September 2026: <a href="https://www.wati.io/pricing/" rel="nofollow noopener" target="_blank">wati.io/pricing</a> · <a href="https://aisensy.com/pricing" rel="nofollow noopener" target="_blank">aisensy.com/pricing</a> · <a href="https://www.interakt.shop/pricing/" rel="nofollow noopener" target="_blank">interakt.shop/pricing</a> · <a href="/pricing">Weflux pricing</a>. Head-to-head details: <a href="/weflux-vs-wati">vs WATI</a>, <a href="/weflux-vs-aisensy">vs AiSensy</a>, <a href="/weflux-vs-interakt">vs Interakt</a>.</p>
+    </section>
+  </main>
+  <div id="wc-footer"></div>
+  <script src="shell.js"></script>
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    // Published prices, read 6 September 2026 (see the vs pages for quotes).
+    var WEFLUX = {
+      plans: [
+        { name: 'Basic', m: 999, a: 799, members: 3, numbers: 1, flows: 5 },
+        { name: 'Pro', m: 2499, a: 1999, members: 5, numbers: 2, flows: 15 },
+        { name: 'Scale', m: 4999, a: 3999, members: 10, numbers: 5, flows: 25 }
+      ],
+      member: 250, number: 500, flow: 100, crm: 1500
+    };
+    var WATI = [ // USD per month; annual = billed yearly, per month
+      { name: 'Growth', m: 24, a: 19, agents: 3, extra: null },
+      { name: 'Pro', m: 59, a: 49, agents: 5, extra: 24 },
+      { name: 'Business', m: 119, a: 99, agents: 5, extra: 69 }
+    ];
+    var AISENSY = { bot: { m: 2500, a: 2250 }, ai: 1350 };
+    var INTERAKT = { growth: 2799, crmBase: 2499, crmAgents: 5, crmExtra: 499 };
+
+    var $ = function (id) { return document.getElementById(id); };
+    var inr = function (n) { return '₹' + Math.round(n).toLocaleString('en-IN'); };
+    var num = function (id, min) { var v = parseFloat($(id).value); return isNaN(v) ? (min || 0) : Math.max(min || 0, v); };
+    var state = { bill: 'monthly', vs: 'wati' };
+
+    var PRESETS = {
+      small: { agents: 2, numbers: 1, flows: 3, bot: true, ai: false, crm: false, mk: 1000, ut: 2000, au: 0 },
+      d2c: { agents: 6, numbers: 1, flows: 8, bot: true, ai: false, crm: false, mk: 5000, ut: 10000, au: 0 },
+      support: { agents: 15, numbers: 2, flows: 20, bot: true, ai: true, crm: false, mk: 2000, ut: 20000, au: 5000 }
+    };
+
+    function weflux(n) {
+      var best = null;
+      WEFLUX.plans.forEach(function (p) {
+        var lines = [[p.name + ' plan (' + p.members + ' members, ' + p.numbers + ' number' + (p.numbers > 1 ? 's' : '') + ', ' + p.flows + ' flows)', state.bill === 'annual' ? p.a : p.m]];
+        var xm = Math.max(0, n.agents - p.members), xn = Math.max(0, n.numbers - p.numbers), xf = Math.max(0, n.flows - p.flows);
+        if (xm) lines.push([xm + ' extra team member' + (xm > 1 ? 's' : '') + ' × ₹250', xm * WEFLUX.member]);
+        if (xn) lines.push([xn + ' extra number' + (xn > 1 ? 's' : '') + ' × ₹500', xn * WEFLUX.number]);
+        if (xf) lines.push([xf + ' extra flow' + (xf > 1 ? 's' : '') + ' × ₹100', xf * WEFLUX.flow]);
+        if (n.bot) lines.push(['Chatbot builder', 0]);
+        if (n.ai) lines.push(['AI flow building', 0]);
+        if (n.crm) lines.push(['Weflux CRM', WEFLUX.crm]);
+        var total = lines.reduce(function (s, l) { return s + l[1]; }, 0);
+        if (!best || total < best.total) best = { total: total, lines: lines, plan: p.name };
+      });
+      return best;
+    }
+    function wati(n, fx) {
+      var best = null;
+      WATI.forEach(function (p) {
+        if (p.extra === null && n.agents > p.agents) return;
+        var base = (state.bill === 'annual' ? p.a : p.m);
+        var extra = Math.max(0, n.agents - p.agents) * (p.extra || 0);
+        var lines = [[p.name + ' plan, $' + base + '/month (' + p.agents + ' agents)', base * fx]];
+        if (extra) lines.push([(n.agents - p.agents) + ' extra user' + (n.agents - p.agents > 1 ? 's' : '') + ' × $' + p.extra, extra * fx]);
+        if (n.bot) lines.push(['Chatbot builder', null, 'not stated on the pricing page']);
+        if (n.ai) lines.push(['AI agent', null, 'not stated on the pricing page']);
+        var total = (base + extra) * fx;
+        if (!best || total < best.total) best = { total: total, lines: lines, partial: false, note: 'WATI bills messages on its own rate card, which its page does not say matches Meta\'s rates. Number and flow limits are not compared.' };
+      });
+      return best;
+    }
+    function aisensy(n) {
+      var base = num('scAiBase', 0), hasBase = $('scAiBase').value !== '';
+      var lines = [['Base plan', hasBase ? base : null, hasBase ? '' : 'enter it from your quote']];
+      if (n.bot) lines.push(['Chatbot builder add-on (5 chatbots)', state.bill === 'annual' ? AISENSY.bot.a : AISENSY.bot.m]);
+      if (n.ai) lines.push(['AI Agent Builder add-on', AISENSY.ai]);
+      lines.push(['Agents', 0, 'unlimited']);
+      var total = lines.reduce(function (s, l) { return s + (l[1] || 0); }, 0);
+      return { total: total, lines: lines, partial: !hasBase, note: 'AiSensy includes unlimited users. Its base plan price is not on our comparison page, so enter it from your quote for a full total.' };
+    }
+    function interakt(n) {
+      var lines = [['Growth plan (unlimited agents)', INTERAKT.growth]];
+      if (n.crm) {
+        var extra = Math.max(0, n.agents - INTERAKT.crmAgents);
+        lines.push(['Sales CRM plan (5 agents)', INTERAKT.crmBase]);
+        if (extra) lines.push([extra + ' extra CRM agent' + (extra > 1 ? 's' : '') + ' × ₹499', extra * INTERAKT.crmExtra]);
+      }
+      if (n.bot) lines.push(['Chatbot builder', null, 'not stated on the pricing page']);
+      var total = lines.reduce(function (s, l) { return s + (l[1] || 0); }, 0);
+      return { total: total, lines: lines, partial: false, note: 'Interakt lists prices plus taxes, and per-message rates that vary slightly by plan. Annual discounts were not published, so monthly prices are used for both.' };
+    }
+
+    var NAMES = { wati: 'WATI', aisensy: 'AiSensy', interakt: 'Interakt' };
+    function inputs() {
+      return { agents: Math.round(num('scAgents', 1)), numbers: Math.round(num('scNumbers', 1)), flows: Math.round(num('scFlows', 0)), bot: $('scBot').checked, ai: $('scAI').checked, crm: $('scCRM').checked };
+    }
+    function render() {
+      var n = inputs(), fx = num('scFx', 1);
+      if (n.bot && n.flows < 1) n.flows = 1;
+      var us = weflux(n);
+      var them = { wati: wati(n, fx), aisensy: aisensy(n), interakt: interakt(n) };
+      var vs = them[state.vs], name = NAMES[state.vs];
+
+      // Headline
+      var head = $('scHead'), diff = vs.total - us.total;
+      if (vs.partial) {
+        head.className = 'sc-head';
+        $('scHeadK').textContent = 'AiSensy add-ons alone vs the whole Weflux plan';
+        $('scHeadV').textContent = inr(vs.total) + ' vs ' + inr(us.total);
+        $('scHeadS').textContent = 'Add AiSensy\'s base plan under "Assumptions you can change" for the full comparison.';
+      } else if (diff >= 0) {
+        head.className = 'sc-head';
+        $('scHeadK').textContent = 'Estimated saving with Weflux vs ' + name;
+        $('scHeadV').textContent = inr(diff) + ' a month';
+        $('scHeadS').textContent = inr(diff * 12) + ' a year · Weflux ' + us.plan + ' at ' + inr(us.total) + ' vs ' + inr(vs.total) + ' on ' + name;
+      } else {
+        head.className = 'sc-head more';
+        $('scHeadK').textContent = name + ' costs less for this setup';
+        $('scHeadV').textContent = inr(-diff) + ' a month less';
+        $('scHeadS').textContent = 'Weflux ' + inr(us.total) + ' vs ' + inr(vs.total) + ' on ' + name + '. The table below shows why.';
+      }
+
+      // Bars
+      var rows = [['Weflux', us.total, true, false, 'Weflux ' + us.plan + ': ' + inr(us.total) + ' a month']];
+      Object.keys(them).forEach(function (k) {
+        var t = them[k];
+        rows.push([NAMES[k], t.total, false, t.partial, NAMES[k] + ': ' + inr(t.total) + ' a month' + (t.partial ? ' in add-ons, plus the base plan' : '')]);
+      });
+      var max = Math.max.apply(null, rows.map(function (r) { return r[1]; })) || 1;
+      $('scBarRows').innerHTML = rows.map(function (r) {
+        var w = Math.max(0.5, r[1] / max * 78);
+        return '<div class="sc-bar" tabindex="0" data-tip="' + r[4] + '"><span class="nm">' + r[0] + '</span><span class="sc-track"><span class="sc-fill' + (r[2] ? ' us' : '') + (r[3] ? ' partial' : '') + '" style="display:block;width:' + w + '%"></span><span class="sc-val" style="left:' + w + '%">' + inr(r[1]) + (r[3] ? ' + base' : '') + '</span></span></div>';
+      }).join('');
+
+      // Table
+      $('scVsCol').textContent = name;
+      var cell = function (l) { return l[1] === null ? '<span style="color:#4B5563">' + (l[2] || 'not stated') + '</span>' : (l[1] === 0 ? (l[2] || 'Included') : inr(l[1])); };
+      var group = function (title) { return '<tr><td colspan="3" style="font-weight:600;padding-top:14px">' + title + '</td></tr>'; };
+      var html = group('Weflux');
+      us.lines.forEach(function (l) { html += '<tr><td>' + l[0] + '</td><td class="r">' + cell(l) + '</td><td class="r"></td></tr>'; });
+      html += group(name);
+      vs.lines.forEach(function (l) { html += '<tr><td>' + l[0] + '</td><td class="r"></td><td class="r">' + cell(l) + '</td></tr>'; });
+      $('scRows').innerHTML = html;
+      $('scTotUs').textContent = inr(us.total);
+      $('scTotVs').textContent = inr(vs.total) + (vs.partial ? ' + base' : '');
+      $('scNote').textContent = vs.note + ' All prices before GST.';
+
+      markup();
+    }
+
+    function markup() {
+      var cats = [['Marketing', 'mk'], ['Utility', 'ut'], ['Authentication', 'au']], total = 0, any = false, parts = [];
+      cats.forEach(function (c) {
+        var vol = num(c[1] + 'Vol', 0), your = $(c[1] + 'Your').value, meta = $(c[1] + 'Meta').value;
+        if (your === '' || meta === '' || !vol) return;
+        any = true;
+        var d = (parseFloat(your) - parseFloat(meta)) * vol;
+        total += d;
+        parts.push(c[0] + ' ' + (d >= 0 ? inr(d) : '−' + inr(-d)));
+      });
+      var out = $('scMarkup');
+      if (!any) { out.textContent = 'Enter both rates for a category to see its markup.'; return; }
+      out.innerHTML = total > 0
+        ? 'Your provider\'s markup costs about <b>' + inr(total) + ' a month</b> (' + inr(total * 12) + ' a year) over Meta\'s rate. On Weflux that line is ₹0. <span style="color:#4B5563">(' + parts.join(' · ') + ')</span>'
+        : 'Your rates are at or below Meta\'s rate for these categories, so there is no markup to save here.';
+    }
+
+    function applyPreset(k) {
+      var p = PRESETS[k];
+      $('scAgents').value = p.agents; $('scNumbers').value = p.numbers; $('scFlows').value = p.flows;
+      $('scBot').checked = p.bot; $('scAI').checked = p.ai; $('scCRM').checked = p.crm;
+      $('mkVol').value = p.mk; $('utVol').value = p.ut; $('auVol').value = p.au;
+      document.querySelector('[data-for="scAgents"]').value = p.agents;
+      document.querySelectorAll('[data-preset]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-preset') === k)); });
+      render();
+    }
+
+    var form = $('scForm');
+    form.addEventListener('input', function (e) {
+      if (e.target.matches('.sc-range')) $(e.target.getAttribute('data-for')).value = e.target.value;
+      if (e.target.id === 'scAgents') document.querySelector('[data-for="scAgents"]').value = e.target.value;
+      if (e.target.closest('.sc-field')) document.querySelectorAll('[data-preset]').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+      render();
+    });
+    form.addEventListener('change', render);
+    form.addEventListener('click', function (e) {
+      var p = e.target.closest('[data-preset]');
+      if (p) applyPreset(p.getAttribute('data-preset'));
+      var b = e.target.closest('[data-bill]');
+      if (b) {
+        state.bill = b.getAttribute('data-bill');
+        document.querySelectorAll('[data-bill]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+        render();
+      }
+    });
+    document.querySelector('.sc-tabs').addEventListener('click', function (e) {
+      var t = e.target.closest('[data-vs]');
+      if (!t) return;
+      state.vs = t.getAttribute('data-vs');
+      document.querySelectorAll('[data-vs]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === t)); });
+      render();
+    });
+    document.querySelector('.sc-markup').addEventListener('input', markup);
+
+    // Hover / focus tooltip on each bar
+    var tip = $('scTip'), bars = $('scBars');
+    function showTip(el) {
+      tip.textContent = el.getAttribute('data-tip');
+      var r = el.getBoundingClientRect(), br = bars.getBoundingClientRect();
+      tip.style.left = Math.min(r.left - br.left + 96, br.width - 290) + 'px';
+      tip.style.top = (r.top - br.top - 38) + 'px';
+      tip.classList.add('show');
+    }
+    bars.addEventListener('mouseover', function (e) { var el = e.target.closest('.sc-bar'); if (el) showTip(el); });
+    bars.addEventListener('mouseleave', function () { tip.classList.remove('show'); });
+    bars.addEventListener('focusin', function (e) { var el = e.target.closest('.sc-bar'); if (el) showTip(el); });
+    bars.addEventListener('focusout', function () { tip.classList.remove('show'); });
+
+    render();
+  })();
+  </script>
+</body>
+</html>
