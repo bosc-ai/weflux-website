@@ -10,7 +10,7 @@
   'use strict';
 
   var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var LOGO = 'assets/weflux-logo.png';
+  var LOGO = '/assets/weflux-logo.webp';
   var REGISTER = 'https://app.weflux.in/register';
 
   /* ---------- Icons (lucide, the set the app uses) ---------- */

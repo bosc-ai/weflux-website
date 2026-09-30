@@ -2,7 +2,7 @@
 title: "12 WhatsApp message templates you can copy"
 description: "Ready-to-use WhatsApp template examples for order updates, cart recovery, appointment reminders and more, written to pass Meta's review first time."
 date: 2026-05-15
-author: "Weflux Team"
+author: "Prateek Prakash"
 category: "Templates"
 cover: cream
 draft: false

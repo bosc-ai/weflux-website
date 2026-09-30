@@ -2,7 +2,7 @@
 title: "How to send a WhatsApp broadcast that gets read"
 description: "Planning, writing and sending WhatsApp broadcast campaigns on the official Business API: segmentation, template wording, timing, and what to measure afterwards."
 date: 2026-06-01
-author: "Weflux Team"
+author: "Prateek Prakash"
 category: "Broadcasts"
 cover: green
 draft: false

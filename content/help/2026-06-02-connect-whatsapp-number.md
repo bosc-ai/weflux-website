@@ -2,7 +2,7 @@
 title: "How to connect your WhatsApp number"
 description: "Step-by-step guide to connecting a WhatsApp Business number to Weflux through Meta Embedded Signup, including migrating an existing number and fixing common errors."
 date: 2026-06-02
-author: "Weflux Team"
+author: "Prateek Prakash"
 category: "Getting started"
 cover: green
 draft: false

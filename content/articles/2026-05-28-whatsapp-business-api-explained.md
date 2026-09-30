@@ -2,7 +2,7 @@
 title: "The WhatsApp Business API, explained for non-developers"
 description: "What the WhatsApp Business API is, how it differs from the WhatsApp Business app, what it costs, and what you need before you can send your first message."
 date: 2026-05-28
-author: "Weflux Team"
+author: "Prateek Prakash"
 category: "WhatsApp Business API"
 cover: green
 draft: false

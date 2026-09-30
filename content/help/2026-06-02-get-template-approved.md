@@ -2,7 +2,7 @@
 title: "How to get your WhatsApp template approved"
 description: "Why WhatsApp message templates get rejected, the formatting rules Meta enforces, and how to write templates that are approved on the first submission."
 date: 2026-06-02
-author: "Weflux Team"
+author: "Prateek Prakash"
 category: "Templates"
 cover: cream
 draft: false

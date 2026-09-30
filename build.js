@@ -71,7 +71,7 @@ function listPage(col, posts) {
     ? `<div class="blog-grid">
 ${posts
   .map(
-    (p) => `        <a class="blog-card" href="/${col.dir}/${p.slug}"><div class="cover${p.cover ? " " + p.cover : ""}">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.imageAlt || p.title)}" loading="lazy">` : ""}</div><div class="body"><div class="cat">${esc([p.category, p.readTime].filter(Boolean).join(" · "))}</div><h3>${esc(p.title)}</h3><p class="excerpt">${esc(p.description)}</p><div class="meta"><span>${esc(p.author || "Weflux Team")}</span><span>${esc(p.dateLabel)}</span></div></div></a>`
+    (p) => `        <a class="blog-card" href="/${col.dir}/${p.slug}"><div class="cover${p.cover ? " " + p.cover : ""}">${p.image ? `<img src="${esc(p.cover_img.src)}" alt="${esc(p.imageAlt || p.title)}"${p.cover_img.w ? ` width="${p.cover_img.w}" height="${p.cover_img.h}"` : ""} loading="lazy" decoding="async">` : ""}</div><div class="body"><div class="cat">${esc([p.category, p.readTime].filter(Boolean).join(" · "))}</div><h3>${esc(p.title)}</h3><p class="excerpt">${esc(p.description)}</p><div class="meta"><span>${esc(p.author || "Weflux Team")}</span><span>${esc(p.dateLabel)}</span></div></div></a>`
   )
   .join("\n")}
       </div>`
@@ -128,6 +128,23 @@ function copyStatic() {
   }
 }
 
+// A cover's served source and intrinsic size. A .webp next to the uploaded
+// PNG/JPEG is preferred (the PNG stays the og:image, which some link
+// previews still need), and width/height reserve the box so the page does not
+// shift when the image arrives.
+function coverInfo(src) {
+  if (!src || !src.startsWith("/")) return { src, w: 0, h: 0 };
+  const file = path.join(ROOT, src);
+  const webp = src.replace(/\.(png|jpe?g)$/i, ".webp");
+  const served = webp !== src && fs.existsSync(path.join(ROOT, webp)) ? webp : src;
+  let w = 0, h = 0;
+  try {
+    const b = fs.readFileSync(file);
+    if (b.toString("ascii", 1, 4) === "PNG") { w = b.readUInt32BE(16); h = b.readUInt32BE(20); }
+  } catch { /* missing file: no dimensions */ }
+  return { src: served, w, h };
+}
+
 function loadPosts(col) {
   const dir = path.join(ROOT, "content", col.dir);
   if (!fs.existsSync(dir)) return [];
@@ -156,6 +173,7 @@ function loadPosts(col) {
         cover: { dark: "v2", cream: "v3", v2: "v2", v3: "v3" }[data.cover] || "",
         readTime: data.readTime || readTime(content),
         image: data.image || "",
+        cover_img: coverInfo(data.image || ""),
         html: renderBody(data, content),
       };
     })
