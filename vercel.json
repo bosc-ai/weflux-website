@@ -64,6 +64,21 @@
       "source": "/blog/bulk-whatsapp-without-getting-banned",
       "destination": "/blog/whatsapp-broadcasts-without-getting-restricted",
       "permanent": true
+    },
+    {
+      "source": "/integrations",
+      "destination": "/features",
+      "permanent": true
+    },
+    {
+      "source": "/migration",
+      "destination": "/contact?topic=migration",
+      "permanent": true
+    },
+    {
+      "source": "/assets/wachat-logo.png",
+      "destination": "/assets/weflux-logo.png",
+      "permanent": true
     }
   ]
 }
