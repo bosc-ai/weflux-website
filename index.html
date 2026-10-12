@@ -99,7 +99,7 @@
           </div>
 
           <div class="hero-trust">
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 14‑day free trial</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 14‑day free trial of Scale</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Set up in 10 minutes</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Official WhatsApp API</span>
           </div>
@@ -237,7 +237,7 @@
         </div>
         <div class="stat">
           <div class="num">14 Days</div>
-          <div class="lbl">Full platform free trial with zero setup fees or card required</div>
+          <div class="lbl">Scale plan free trial with no card required</div>
         </div>
         <div class="stat">
           <div class="num">24–48h</div>
@@ -285,7 +285,7 @@
             </span>
             <span>
               <span class="tt">No‑code automation</span>
-              <span class="dd">Visual flows. Triggers, branches, webhooks.</span>
+              <span class="dd">Visual flows. Triggers, branches, replies.</span>
             </span>
           </button>
           <button class="feat-tab" role="tab" aria-selected="false">
@@ -308,16 +308,7 @@
               <span class="dd">Conversation funnels, agent SLAs, ROI.</span>
             </span>
           </button>
-          <button class="feat-tab" role="tab" aria-selected="false">
-            <span class="prog"></span>
-            <span class="ic">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4M6 8l-4 4 4 4M14.5 4l-5 16"/></svg>
-            </span>
-            <span>
-              <span class="tt">API &amp; webhooks</span>
-              <span class="dd">REST, webhooks, idempotent retries.</span>
-            </span>
-          </button>
+
         </div>
 
         <div class="feat-stage" id="featStage">
@@ -491,35 +482,7 @@
             </div>
           </div>
 
-          <div class="feat-panel">
-            <div class="f-bar">
-              <h4>API &amp; webhooks</h4>
-              <div class="right"><span class="pill">v2 · stable</span></div>
-            </div>
-            <div class="fp-api">
-              <div class="left">
-                <h5>Endpoints</h5>
-                <div class="endpoint"><span class="method">POST</span><span>/v2/messages</span></div>
-                <div class="endpoint"><span class="method get">GET</span><span>/v2/contacts/{id}</span></div>
-                <div class="endpoint"><span class="method">POST</span><span>/v2/templates/send</span></div>
-                <div class="endpoint"><span class="method del">DEL</span><span>/v2/conversations/{id}</span></div>
-                <p style="font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:8px">Idempotent retries · Signed webhooks · Built for high availability.</p>
-              </div>
-              <div class="right">
-                <div class="ln"><span class="num-x">1</span><span><span class="c">// send a templated message</span></span></div>
-                <div class="ln"><span class="num-x">2</span><span><span class="p">const</span> r = <span class="p">await</span> fetch(<span class="s">"/v2/messages"</span>, {</span></div>
-                <div class="ln"><span class="num-x">3</span><span>&nbsp;&nbsp;method: <span class="s">"POST"</span>,</span></div>
-                <div class="ln"><span class="num-x">4</span><span>&nbsp;&nbsp;headers: { <span class="k">Authorization</span>: <span class="s">`Bearer ${key}`</span> },</span></div>
-                <div class="ln"><span class="num-x">5</span><span>&nbsp;&nbsp;body: JSON.<span class="k">stringify</span>({</span></div>
-                <div class="ln"><span class="num-x">6</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">to</span>: <span class="s">"+919810237741"</span>,</span></div>
-                <div class="ln"><span class="num-x">7</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">template</span>: <span class="s">"order_shipped_v3"</span>,</span></div>
-                <div class="ln"><span class="num-x">8</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">vars</span>: { <span class="k">order_id</span>: <span class="s">"12847"</span> }</span></div>
-                <div class="ln"><span class="num-x">9</span><span>&nbsp;&nbsp;})</span></div>
-                <div class="ln"><span class="num-x">10</span><span>});</span></div>
-                <div class="ln"><span class="num-x">11</span><span><span class="c">// → { id: "msg_01HXY…", status: "queued" }</span></span></div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -557,7 +520,7 @@
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20M6 14h4"/></svg>
           </div>
           <h3>Financial services</h3>
-          <p>OTPs, statement alerts, KYC nudges, EMI reminders. Compliant templates, encrypted transit, audit log.</p>
+          <p>OTPs, statement alerts, KYC nudges, EMI reminders. Compliant templates and encrypted transit.</p>
           <a class="btn-link" href="/use-cases#finance" aria-label="Learn more about Financial services">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </article>
         <article class="uc">
@@ -581,7 +544,7 @@
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10A15.3 15.3 0 0 1 8 12 15.3 15.3 0 0 1 12 2zM2 12h20"/></svg>
           </div>
           <h3>Agencies</h3>
-          <p>Manage 10+ client workspaces from one console. Roles, billing splits, white‑label reports.</p>
+          <p>Manage 10+ client workspaces from one console. Separate workspaces and shared inboxes.</p>
           <a class="btn-link" href="/use-cases#agencies" aria-label="Learn more about Agencies">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
         </article>
       </div>
@@ -660,7 +623,7 @@
           <button type="button" class="on" data-billing="monthly" aria-pressed="true">Monthly</button>
           <button type="button" data-billing="annual" aria-pressed="false">Annual <span class="save">−20%</span></button>
         </div>
-        <p class="bill-note">Free is free forever. Every paid plan starts with a 14-day trial, no card needed.</p>
+        <p class="bill-note">Free is free forever. New workspaces get a 14-day Scale trial, no card needed.</p>
       </div>
 
       <div class="pricing-grid">
@@ -710,7 +673,7 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Campaign analytics</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Chat support</li>
           </ul>
-          <a href="https://app.weflux.in/register?plan=basic" class="btn btn-ghost">Start free trial</a>
+          <a href="https://app.weflux.in/register?plan=basic" class="btn btn-ghost">Choose a plan</a>
         </article>
 
         <!-- PRO (Featured / Most Popular) -->
@@ -733,10 +696,9 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Advanced segmentation &amp; integrations</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Broadcast scheduling</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> 3 Google Sheets</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Webhooks</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Priority support</li>
           </ul>
-          <a href="https://app.weflux.in/register?plan=pro" class="btn btn-green">Start free trial</a>
+          <a href="https://app.weflux.in/register?plan=pro" class="btn btn-green">Choose a plan</a>
         </article>
 
         <!-- SCALE -->
@@ -758,10 +720,9 @@
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Advanced segmentation &amp; integrations</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Broadcast scheduling</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> 5 Google Sheets</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Webhooks</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg> Priority support</li>
           </ul>
-          <a href="https://app.weflux.in/register?plan=scale" class="btn btn-ghost">Start free trial</a>
+          <a href="https://app.weflux.in/register?plan=scale" class="btn btn-ghost">Choose a plan</a>
         </article>
 
       </div>
@@ -812,16 +773,13 @@
           </div>
           <div class="faq-item">
             <button class="faq-q">Can I keep my existing phone number? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-            <div class="faq-a"><div class="faq-a-inner">Yes. If the number is currently on regular WhatsApp or another provider, we can migrate it. Migration is free and takes 15–30 minutes once Meta clears the request.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">Yes. If the number is currently on regular WhatsApp or another provider, we can migrate it. Migrate costs ₹5,000 one time. Timing depends on Meta approval and your existing setup.</div></div>
           </div>
           <div class="faq-item">
             <button class="faq-q">Is Weflux affiliated with Meta or WhatsApp? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
             <div class="faq-a"><div class="faq-a-inner">Weflux is an independent software product built on the official Meta WhatsApp Business Cloud API. We’re not owned by, endorsed by, or sponsored by Meta. WhatsApp is a trademark of Meta Platforms, Inc.</div></div>
           </div>
-          <div class="faq-item">
-            <button class="faq-q">Can my developers hit the WhatsApp API directly? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-            <div class="faq-a"><div class="faq-a-inner">Yes, every workspace exposes a REST API with idempotency keys, signed webhooks, and rate‑limit headers. You can send approved template messages to your opted-in contacts programmatically. Code samples live in our <a href="docs" style="color:var(--green-deep);font-weight:500">API docs</a>.</div></div>
-          </div>
+
           <div class="faq-item">
             <button class="faq-q">How is my customer data stored? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
             <div class="faq-a"><div class="faq-a-inner">Data is encrypted in transit and at rest, with sensitive credentials additionally encrypted at the application layer. We provide a signed Data Processing Agreement (DPA) upon request.</div></div>
@@ -840,8 +798,8 @@
     <div class="container final-cta-inner">
       <h2>Stop juggling WhatsApp tabs.</h2>
       <div class="sub">Start running your customer conversations like a real team.</div>
-      <a href="https://app.weflux.in/register" class="btn btn-white">Start your free 14‑day trial →</a>
-      <div class="note">14‑day free trial · Set up in 10 minutes · Cancel anytime</div>
+      <a href="https://app.weflux.in/register" class="btn btn-white">Start your free 14‑day trial of Scale →</a>
+      <div class="note">14‑day free trial of Scale · Set up in 10 minutes · Cancel anytime</div>
     </div>
   </section>
 

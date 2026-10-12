@@ -12,7 +12,7 @@
 - Appointments and booking, with Google Meet links generated automatically for virtual bookings
 - Invoicing, and campaign and conversation analytics
 - Facebook Messenger and Instagram DM as separate add-ons, in the same inbox
-- REST API and inbound/outbound webhooks; Google Sheets supported directly
+- Google Sheets and supported integrations
 
 ## Pricing model
 
@@ -47,12 +47,12 @@ markup to Meta's charges. 14-day trial, no card required.
 - [Shared Inbox](https://www.weflux.in/shared-inbox): multi-agent team inbox on one number
 - [WhatsApp CRM](https://www.weflux.in/whatsapp-crm): contacts, tags, lead stages, segmentation
 - [Features](https://www.weflux.in/features): the full product surface
-- [Platform](https://www.weflux.in/platform): infrastructure, roles and API access
+- [Platform](https://www.weflux.in/platform): WhatsApp infrastructure and onboarding
 - [Comparison](https://www.weflux.in/comparison): Weflux against other Indian WhatsApp API providers
 - [Refund Policy](https://www.weflux.in/refund-policy): 14-day free trial, cancellation, 5-7 business day refund timeline
 - [Service Delivery](https://www.weflux.in/service-delivery): instant digital provisioning and onboarding timelines
 - [Acceptable Use Policy](https://www.weflux.in/acceptable-use): opt-in consent requirement, anti-spam enforcement
-- [Docs](https://www.weflux.in/docs): REST API and webhook reference
+- [Docs](https://www.weflux.in/docs): Product setup and messaging guides
 - [Security](https://www.weflux.in/security): encryption, access control, data handling
 - [Help Centre](https://www.weflux.in/help): setup and troubleshooting
 

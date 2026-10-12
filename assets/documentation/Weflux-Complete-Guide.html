@@ -401,7 +401,7 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
     overflow: visible !important;
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05) !important;
   }
-  
+
   /* Running footer in fluid mobile layout */
   .pfoot {
     position: static !important;
@@ -413,24 +413,24 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
     right: auto !important;
     bottom: auto !important;
   }
-  
+
   /* Stack grid layouts to single-column on mobile */
   .two, .deffns, .callouts, .grid2, .grid3, .grid4, .kanban {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
-  
+
   /* Stacking the integrations gallery row */
   .cardrow {
     flex-direction: column !important;
     gap: 12px !important;
   }
-  
+
   /* Make inline styled columns stack on mobile, excluding table elements */
   [style*="grid-template-columns"]:not(.tr):not(.hd) {
     grid-template-columns: 1fr !important;
   }
-  
+
   /* But PRESERVE table structures so they stay readable (don't stack cells) */
   .tbl {
     overflow-x: auto !important;
@@ -441,7 +441,7 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
   .tbl .hd, .tbl .tr {
     min-width: 580px !important; /* Forces horizontal scrolling instead of squishing table rows */
   }
-  
+
   /* App mockup stacking & responsiveness */
   .app {
     grid-template-columns: 1fr !important;
@@ -472,7 +472,7 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
     border-top: 1px solid var(--line) !important;
     width: 100% !important;
   }
-  
+
   /* Cover and Chapter Page Optimizations */
   .cover {
     height: auto !important;
@@ -501,7 +501,7 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
     gap: 8px !important;
     margin-top: 24px !important;
   }
-  
+
   .chapter {
     height: auto !important;
     min-height: 320px !important;
@@ -518,12 +518,12 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
   .chapter p {
     max-width: 100% !important;
   }
-  
+
   /* Kanban columns spacing */
   .kanban {
     gap: 16px !important;
   }
-  
+
   /* Prevent flow diagrams from overflowing the page width */
   .flow {
     overflow-x: auto !important;
@@ -737,7 +737,7 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
     <li>A bad <strong>quality rating</strong> from spam/blocks throttles your number.</li>
     <li><strong>Meta</strong> bills you directly for API usage; Weflux adds ₹0 markup.</li>
   </ul>
-  
+
   <h5>API Messaging Rates</h5>
   <div class="rates-grid">
     <div class="rate-row">
@@ -757,7 +757,7 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
       <span class="rate-val">Free</span>
     </div>
   </div>
-  
+
   <div class="cta-card">
     <h6>Ready to go live?</h6>
     <p>Connect your WhatsApp API number and broadcast to thousands of contacts with ₹0 markup.</p>
@@ -1260,7 +1260,7 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
     <div class="tr" style="grid-template-columns:1.1fr .8fr .8fr .8fr .9fr .8fr"><div class="nm">Automation flows</div><div> - </div><div>10</div><div>20</div><div>Unlimited</div><div></div></div>
     <div class="tr" style="grid-template-columns:1.1fr .8fr .8fr .8fr .9fr .8fr"><div class="nm">Integrations</div><div> - </div><div>✓</div><div>✓</div><div>✓</div><div></div></div>
     <div class="tr" style="grid-template-columns:1.1fr .8fr .8fr .8fr .9fr .8fr"><div class="nm">Analytics</div><div> - </div><div> - </div><div>✓</div><div>✓</div><div></div></div>
-    <div class="tr" style="grid-template-columns:1.1fr .8fr .8fr .8fr .9fr .8fr"><div class="nm">API access</div><div> - </div><div> - </div><div> - </div><div>✓</div><div></div></div>
+
   </div>
 
   <div class="two mt14">
@@ -1276,15 +1276,7 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
         <p>Weflux checks your entitlements every ~30 seconds, so a newly-enabled feature lights up without you logging out and back in.</p>
       </div>
     </div>
-    <div>
-      <h3 class="sub" style="margin-top:0">The two roles inside your workspace</h3>
-      <p>Separate from the plan, each teammate has a <strong>role</strong> that sets what they can touch:</p>
-      <div class="deffns" style="grid-template-columns:1fr">
-        <div class="deffn"><div class="t">Admin - “Full access”</div><div class="d">Everything, including connections, billing, and team management. The founder is the protected “main admin”.</div></div>
-        <div class="deffn"><div class="t">Manager - “Team + reports”</div><div class="d">The inbox plus team oversight and reporting.</div></div>
-        <div class="deffn"><div class="t">Agent - “Inbox only”</div><div class="d">Works the shared inbox and chats; can’t change settings.</div></div>
-      </div>
-    </div>
+    <div><h3 class="sub" style="margin-top:0">Working with your team</h3><p>Invite teammates to your shared inbox. Team member capacity depends on your plan.</p></div>
   </div>
   <div class="pfoot"><span class="brand"><b>Weflux</b> · Getting started</span><span class="pnum">Page&nbsp;</span></div>
 </section>
@@ -2082,7 +2074,7 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
           <div class="deffn"><div class="t">Condition</div><div class="d">Yes / No branch</div></div>
           <div class="deffn"><div class="t">Add Tag</div><div class="d">Tag the contact</div></div>
           <div class="deffn"><div class="t">Notify Agent</div><div class="d">Hand off to a human</div></div>
-          <div class="deffn"><div class="t">Wait / Webhook</div><div class="d">Short delay · call a URL</div></div>
+          <div class="deffn"><div class="t">Wait</div><div class="d">Add a short delay</div></div>
         </div>
       </div>
       <div>
@@ -2360,18 +2352,15 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
     <div>
       <h3 class="sub" style="margin-top:0">How you connect</h3>
       <div class="deffns" style="grid-template-columns:1fr">
-        <div class="deffn"><div class="t">Shopify / WooCommerce</div><div class="d">Paste your store’s API keys. Weflux registers all the order webhooks <strong>for you</strong>: nothing to install in your store.</div></div>
-        <div class="deffn"><div class="t">Custom / headless</div><div class="d">Weflux gives your developer a URL + secret to POST order events to. Perfect for any bespoke store.</div></div>
+        <div class="deffn"><div class="t">Shopify / WooCommerce</div><div class="d">Connect a supported store integration from your workspace settings.</div></div>
+
       </div>
       <div class="steps">
         <div class="step"><div class="sh">Connect the store</div><p>~2 minutes with your keys, or an endpoint for a developer.</p></div>
         <div class="step"><div class="sh">Configure the lifecycle</div><p>Switch on each stage you want and pick an approved template for it.</p></div>
         <div class="step"><div class="sh">Test with a real order</div><p>Watch the WhatsApp message fire.</p></div>
       </div>
-      <div class="box key">
-        <div class="bt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/></svg>Webhooks, in one line</div>
-        <p>A <strong>webhook</strong> is your store phoning Weflux the instant something changes (“order shipped!”). Weflux turns that call into the mapped WhatsApp message.</p>
-      </div>
+
     </div>
     <div>
       <h3 class="sub" style="margin-top:0">The order stages you can message</h3>
@@ -2560,18 +2549,10 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
   <div class="two">
     <div>
       <h3 class="sub" style="margin-top:0">Team Members</h3>
-      <p>Invite your team and set what each can do. As an Admin, click <em>Invite Member</em>, enter their name, email, role, and a temporary password to share.</p>
-      <div class="tbl" style="margin-top:4px">
-        <div class="hd" style="grid-template-columns:.8fr 1.2fr"><div>Role</div><div>Can do</div></div>
-        <div class="tr" style="grid-template-columns:.8fr 1.2fr"><div class="nm">Admin</div><div>Full access - everything</div></div>
-        <div class="tr" style="grid-template-columns:.8fr 1.2fr"><div class="nm">Manager</div><div>Team + reports</div></div>
-        <div class="tr" style="grid-template-columns:.8fr 1.2fr"><div class="nm">Agent</div><div>Inbox only</div></div>
-      </div>
-      <p class="small mt6">You can reset a member’s password, change their role, or deactivate them (history is kept - reactivate anytime). Seats are capped by your plan.</p>
-      <div class="box note">
-        <div class="bt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>The main admin</div>
-        <p>The founding account is the protected “main admin” - it can’t be removed and is the only one that can promote or demote other admins.</p>
-      </div>
+      <p>Invite teammates to work together in your shared inbox. Seats are capped by your plan.</p>
+
+      <p class="small mt6">Manage team members from your workspace settings. Seats are capped by your plan.</p>
+
     </div>
     <div>
       <h3 class="sub" style="margin-top:0">Support Access</h3>
@@ -2625,7 +2606,7 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
     <p><b>Tag</b> - A reusable, colour-coded label on a <em>contact</em> (VIP, Urgent). A contact can hold many.</p>
     <p><b>Template</b> - See <em>Approved template</em>. Holds variables like <span class="mono">{{1}}</span> filled at send time.</p>
     <p><b>Variable <span class="mono">{{n}}</span></b> - A numbered blank in a template filled with real data (name, order number) when you send.</p>
-    <p><b>Webhook</b> - An instant “something happened” push - Meta uses one to deliver replies to your inbox; your store uses one to fire order updates.</p>
+    <p><b>Webhook</b> - An instant “something happened” push - Meta uses one to deliver replies to your inbox.</p>
     <p><b>Workspace / Organization</b> - Your Weflux account. The person who registers is its Admin.</p>
   </div>
   <div class="pfoot"><span class="brand"><b>Weflux</b> · Glossary</span><span class="pnum">Page&nbsp;</span></div>
@@ -2738,14 +2719,14 @@ ol.list li::before{ content:counter(li); left:0; top:3px; width:16px; height:16p
 document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section[id]');
   const navItems = document.querySelectorAll('.nav-item');
-  
+
   // Intersection Observer setup for ScrollSpy
   const observerOptions = {
     root: null,
     rootMargin: '-10% 0px -75% 0px',
     threshold: 0
   };
-  
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -2753,7 +2734,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navItems.forEach(item => {
           if (item.getAttribute('href') === `#${id}`) {
             item.classList.add('active');
-            
+
             // Auto scroll sidebar to keep active item in view if needed
             const sidebar = document.querySelector('.left-sidebar');
             if (sidebar) {
@@ -2770,11 +2751,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, observerOptions);
-  
+
   sections.forEach(section => {
     observer.observe(section);
   });
-  
+
   // Smooth scroll click handler
   navItems.forEach(item => {
     item.addEventListener('click', (e) => {

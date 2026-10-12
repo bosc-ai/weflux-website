@@ -148,14 +148,12 @@ After connecting, each number shows an **Active** pill, its **quality rating**, 
 | Automation flows | - | 10 | 20 | Unlimited |
 | Integrations | - | ✓ | ✓ | ✓ |
 | Analytics | - | - | ✓ | ✓ |
-| API access | - | - | - | ✓ |
 
 - **Locked (padlock):** your plan doesn't include it (e.g. Automation on Free) - request an upgrade.
 - **Hidden add-on:** CRM, Tasks, Calls, Migrate are switched on per-account by the Weflux team.
 - Upgrades apply within ~30 seconds (no re-login needed).
 
-**Roles inside your workspace:** Admin ("Full access"), Manager ("Team + reports"), Agent
-("Inbox only"). The founder is the protected "main admin".
+Invite teammates to your shared inbox. Team member capacity depends on your plan.
 
 ---
 
@@ -331,7 +329,7 @@ Active/off, edit, or delete. Only an **Active** flow replies to real customers.
 Drag blocks from the left palette; draw a line from one block's handle to the next.
 **Blocks that power live flows today:** Trigger · Send Message (text/buttons/media/list) ·
 Template · Ask Question (saves the reply) · Condition (Yes/No branch) · Add Tag · Notify Agent ·
-Wait (short delays ≤~20s) · Webhook. The palette also shows richer commerce blocks (Catalogue,
+Wait (short delays ≤~20s). The palette also shows richer commerce blocks (Catalogue,
 Products, WhatsApp Forms, Ask Location) that are being wired to live WhatsApp - build with the
 working set for now.
 
@@ -397,14 +395,13 @@ own number.
 ## 9.2 E-commerce order updates (no plugin)
 Connect Shopify, WooCommerce, or a custom store; every order stage fires the WhatsApp template you
 chose.
-- **Shopify / WooCommerce:** paste your API keys - Weflux registers the order webhooks for you.
-- **Custom / headless:** Weflux gives your developer a URL + secret to POST events to.
+- **Shopify / WooCommerce:** connect a supported store integration from your workspace settings.
+
 
 Stages you can message: cart abandoned, order placed / COD confirm, payment received, shipped,
 out for delivery, delivered, cancelled, RTO, returned, refunded. Order-lifecycle messages are
 UTILITY (cheap, send anytime); cart-recovery and review requests are MARKETING. Variables
-(customer name, order number, total, tracking link, courier…) auto-fill from the order. A
-**webhook** is your store phoning Weflux the instant something changes. Start with COD confirmation
+(customer name, order number, total, tracking link, courier…) auto-fill from the order. Start with COD confirmation
 (cuts fake orders/RTO) and abandoned-cart recovery.
 
 ## 9.3 Migrate from another tool (admin-only)
@@ -435,9 +432,7 @@ Settings is one page with a left menu. Tags, Contact Stages, and Danger Zone app
   by priority) or **round-robin** (spread evenly).
 - **Opt-out Keywords**: words like STOP/UNSUBSCRIBE that auto-unsubscribe a contact (with an
   optional confirming auto-reply). Compliance backbone.
-- **Team Members**: invite people (name, email, role, temporary password); roles are Admin (full
-  access), Manager (team + reports), Agent (inbox only). Reset passwords, change roles, deactivate
-  (history kept). The founding "main admin" is protected. Seats capped by plan.
+- **Team Members**: invite teammates to work together in the shared inbox. Seats are capped by plan.
 - **Support Access**: a read-only log of every time Weflux support entered your dashboard (Entered/Left).
 - **Request a Feature**: describe what you need; Weflux builds custom features on request.
 - **Danger Zone**: permanently delete your account/workspace (type email + password to confirm).
@@ -478,7 +473,7 @@ it. Weflux adds ₹0 markup.
 - **Tag**: a reusable colour-coded label on a contact.
 - **Template**: see Approved template; holds `{{n}}` variables filled at send time.
 - **Variable `{{n}}`**: a numbered blank in a template filled with real data at send time.
-- **Webhook**: an instant "something happened" push (replies into your inbox; order events from your store).
+- **Webhook**: an instant "something happened" push (Meta delivering replies into your inbox).
 - **Workspace / Organization**: your Weflux account; the person who registers is its Admin.
 
 ---

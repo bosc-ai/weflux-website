@@ -65,6 +65,6 @@ Do it in the first week. The common mistake is leaving it until a campaign is bl
 
 ## After connecting
 
-Submit two or three templates for the messages you actually send, so they are approved before you need them. Add your team, set roles, and import contacts. Then send a real campaign to a small segment before you send a large one.
+Submit two or three templates for the messages you actually send, so they are approved before you need them. Add your team and import contacts. Then send a real campaign to a small segment before you send a large one.
 
 The [templates guide](/whatsapp-message-templates) covers what gets approved, and [Embedded Signup](/embedded-signup) explains the onboarding flow in more detail.

@@ -91,7 +91,7 @@
           <li><strong>An inbound message.</strong> A customer messages you, or replies with a specific keyword.</li>
           <li><strong>A button tap.</strong> Someone taps a quick-reply or call-to-action button on a template.</li>
           <li><strong>A CRM change.</strong> A contact moves to a new lead stage, or gains a tag.</li>
-          <li><strong>An external event.</strong> Your store, CRM or backend calls a Weflux webhook: order placed, payment failed, shipment dispatched.</li>
+
           <li><strong>A schedule.</strong> A fixed delay after a previous step, or a set time before an appointment.</li>
         </ul>
 
@@ -99,7 +99,7 @@
         <p>Rather than a feature list, here is what these actually look like in practice.</p>
 
         <h3>1. Abandoned cart recovery</h3>
-        <p><strong>Trigger:</strong> cart abandoned webhook from your store. <strong>Wait:</strong> 15 to 60 minutes. <strong>Condition:</strong> order still not placed. <strong>Send:</strong> a Marketing template naming the item, with a button back to the cart.</p>
+        <p><strong>Trigger:</strong> cart abandoned event from a supported store integration. <strong>Wait:</strong> 15 to 60 minutes. <strong>Condition:</strong> order still not placed. <strong>Send:</strong> a Marketing template naming the item, with a button back to the cart.</p>
         <p>The wait matters more than the copy. Fire it in two minutes and you interrupt someone who is still deciding. Fire it the next day and they have bought elsewhere.</p>
 
         <h3>2. Cash-on-delivery confirmation</h3>
@@ -140,7 +140,7 @@
         </ul>
 
         <h2>Connecting your own systems</h2>
-        <p>Flows are more useful when the trigger comes from where the event actually happens. Weflux takes inbound webhooks so your store, CRM or backend can start a flow, sends outbound webhooks so a flow can update your systems, and offers a REST API for anything bespoke. Google Sheets works for the many real cases where a spreadsheet is genuinely the system of record. Details in the <a href="/docs">API documentation</a>.</p>
+        <p>Connect Google Sheets and supported integrations to your Weflux workspace. See the <a href="/features">feature overview</a> for available integrations, or <a href="/contact">contact us</a> about your requirements.</p>
       </div>
     </section>
 
@@ -192,7 +192,7 @@
           </div>
           <div class="faq-item">
             <button class="faq-q" type="button">Can automations trigger from my store or CRM? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-            <div class="faq-a"><div class="faq-a-inner">Yes. Your systems can call a Weflux webhook to start a flow, and flows can call out to your systems. There is also a REST API and Google Sheets support for cases where a spreadsheet is the real system of record.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">Weflux supports Google Sheets and selected integrations. <a href="/contact">Contact us</a> to confirm support for your CRM, store or operational system.</div></div>
           </div>
           <div class="faq-item">
             <button class="faq-q" type="button">How do I stop a flow when someone buys? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
@@ -214,7 +214,7 @@
           <li><a href="/broadcasts">WhatsApp broadcasts</a> for the campaigns that feed people into these flows</li>
           <li><a href="/shared-inbox">Shared team inbox</a> for the human handover when a flow draws a reply</li>
           <li><a href="/whatsapp-crm">WhatsApp CRM</a> for the tags and stages flows read and write</li>
-          <li><a href="/docs">API and webhooks</a> for triggering flows from your own systems</li>
+          <li><a href="/features">Supported integrations</a> for your workspace</li>
           <li><a href="/use-cases">Industry playbooks</a> for the flows that work in your sector</li>
         </ul>
       </div>

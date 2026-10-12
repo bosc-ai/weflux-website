@@ -250,7 +250,7 @@
 
           buildOptionScreen('lcQ6', 'Which features are most important?', [
             'Shared Team Inbox', 'Automation', 'Broadcast', 'CRM Integration',
-            'API Access', 'Chatbot', 'Analytics', 'AI Replies'
+            'Chatbot', 'Analytics', 'AI Replies'
           ], true, 6),
 
           buildOptionScreen('lcQ7', 'When are you planning to start?', [
@@ -688,7 +688,6 @@
     if (state.budget === '₹5,000+') { addScore('budget_2500_plus'); addScore('budget_5000_plus'); }
     if (Array.isArray(state.features)) {
       if (state.features.indexOf('Automation') !== -1) addScore('needs_automation');
-      if (state.features.indexOf('API Access') !== -1) addScore('needs_api');
     }
     if (state.timeline === 'Today') addScore('start_today');
     if (state.timeline === 'Within a week') addScore('start_week');
