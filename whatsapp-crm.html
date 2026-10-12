@@ -103,10 +103,10 @@
         <p>The discipline is sending to the segment rather than the list. A smaller, better-chosen audience protects your quality rating, costs less per campaign, and converts better. Every broadcast to everyone is a small withdrawal from your number's health.</p>
 
         <h2>Connecting the systems you already run</h2>
-        <p>A CRM that does not know about your orders is a contact list with extra steps. Weflux connects through inbound and outbound webhooks and a REST API, so order, payment and fulfilment events from your store or backend can update contacts, move stages and start flows. Google Sheets is supported directly. See the <a href="/docs">API documentation</a> for the specifics.</p>
+        <p>A CRM that does not know about your orders is a contact list with extra steps. Connected Shopify and WooCommerce stores feed order, payment and fulfilment events in, so contacts update, stages move and flows start without manual entry. Google Sheets is supported directly, and a custom CRM integration is available if you need one.</p>
 
         <h2>Data protection and deletion</h2>
-        <p>Contact data is customer personal data, and it is treated that way. Access is role-based, data is encrypted in transit and at rest, and deletion requests can be honoured for individual contacts or the whole workspace. The <a href="/security">security page</a> covers the controls, and <a href="/data-deletion">data deletion</a> explains the process.</p>
+        <p>Contact data is customer personal data, and it is treated that way. Data is encrypted in transit and at rest, and deletion requests can be honoured for individual contacts or the whole workspace. The <a href="/security">security page</a> covers the controls, and <a href="/data-deletion">data deletion</a> explains the process.</p>
       </div>
     </section>
 
@@ -122,7 +122,7 @@
         <h2>Lead stages in practice</h2>
         <p>A lead stage is where someone sits in your funnel, and it drives both inbox priority and campaign segmentation. Two things make stages useful rather than decorative.</p>
         <p>Keep them few. Five or six stages that everyone applies the same way beat fifteen that each person interprets differently. If your team hesitates about which stage something is in, you have too many.</p>
-        <p>Make them move by themselves where you can. A stage that depends on someone remembering to update it after a call is a stage that is wrong by Thursday. Automations can advance a stage on a reply, a button tap, or an order webhook from your store, which is how the record stays current without anyone doing admin.</p>
+        <p>Make them move by themselves where you can. A stage that depends on someone remembering to update it after a call is a stage that is wrong by Thursday. Automations can advance a stage on a reply, a button tap, or an order event from your store, which is how the record stays current without anyone doing admin.</p>
 
         <h2>Keeping contact data clean</h2>
         <p>Contact quality is what determines your delivery rate, your cost per campaign and eventually your quality rating. Some of this is unglamorous maintenance:</p>
@@ -135,7 +135,7 @@
         </ul>
 
         <h2>How a conversation becomes a record</h2>
-        <p>The reason a WhatsApp CRM stays current is that it is fed by the thing your team already does all day. An inbound message creates or matches a contact. An agent applies a tag while replying. A flow advances the stage when a button is tapped. An order webhook writes the order value. Nobody sits down to update the CRM, because updating it is a side effect of the work.</p>
+        <p>The reason a WhatsApp CRM stays current is that it is fed by the thing your team already does all day. An inbound message creates or matches a contact. An agent applies a tag while replying. A flow advances the stage when a button is tapped. An order event from your store writes the order value. Nobody sits down to update the CRM, because updating it is a side effect of the work.</p>
         <p>That is also its limit, and worth saying plainly. If a meaningful part of your sales happens on calls or email, those interactions will not appear here. In that case keep your main CRM as the system of record and connect the two, so the WhatsApp history flows into it rather than living in a second place nobody checks.</p>
       </div>
     </section>
@@ -170,7 +170,7 @@
         <div class="faq-list" id="faqList">
           <div class="faq-item">
             <button class="faq-q" type="button">Do I still need a separate CRM? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-            <div class="faq-a"><div class="faq-a-inner">If WhatsApp is where your sales and support actually happen, usually not. If you run a large outbound sales motion with complex pipeline reporting, keep your CRM as the system of record and connect the two through webhooks or the API so the conversation history flows into it.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">If WhatsApp is where your sales and support actually happen, usually not. If you run a large outbound sales motion with complex pipeline reporting, keep your CRM as the system of record and connect the two through a custom CRM integration so the conversation history flows into it.</div></div>
           </div>
           <div class="faq-item">
             <button class="faq-q" type="button">How do I import my existing contacts? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
@@ -190,7 +190,7 @@
           </div>
           <div class="faq-item">
             <button class="faq-q" type="button">Can it sync with Shopify, WooCommerce or my own backend? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-            <div class="faq-a"><div class="faq-a-inner">Yes, through inbound and outbound webhooks and the REST API, so order and payment events can update contacts, change lead stages and trigger flows. Google Sheets is supported directly.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">Yes. Connected Shopify and WooCommerce stores can update contacts, change lead stages and trigger flows from order and payment events. Google Sheets is supported directly.</div></div>
           </div>
         </div>
       </div>
@@ -204,7 +204,7 @@
           <li><a href="/shared-inbox">Shared team inbox</a> where these contact records are used</li>
           <li><a href="/broadcasts">Broadcasts</a> for sending to a segment</li>
           <li><a href="/automations">Automations</a> for keeping tags and stages current</li>
-          <li><a href="/docs">API and webhooks</a> for syncing with your own systems</li>
+          <li><a href="/features">Integrations</a> for syncing with your store</li>
         </ul>
       </div>
     </section>

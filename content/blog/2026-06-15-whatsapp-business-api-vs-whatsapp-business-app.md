@@ -57,7 +57,7 @@ format: html
 <p>Rich Media &mdash; PDFs, images, videos, interactive buttons, and list messages</p>
 </li>
 <li aria-level="1">
-<p>Webhooks and analytics &mdash; real-time delivery, read-rate, and CSAT dashboards</p>
+<p>Delivery analytics &mdash; real-time delivery, read-rate, and CSAT dashboards</p>
 </li>
 <li aria-level="1">
 <p>Green Tick Verification &mdash; Meta-approved official business badge</p>

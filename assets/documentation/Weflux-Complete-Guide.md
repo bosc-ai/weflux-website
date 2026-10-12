@@ -148,7 +148,6 @@ After connecting, each number shows an **Active** pill, its **quality rating**, 
 | Automation flows | - | 10 | 20 | Unlimited |
 | Integrations | - | ✓ | ✓ | ✓ |
 | Analytics | - | - | ✓ | ✓ |
-| API access | - | - | - | ✓ |
 
 - **Locked (padlock):** your plan doesn't include it (e.g. Automation on Free) - request an upgrade.
 - **Hidden add-on:** CRM, Tasks, Calls, Migrate are switched on per-account by the Weflux team.
@@ -331,7 +330,7 @@ Active/off, edit, or delete. Only an **Active** flow replies to real customers.
 Drag blocks from the left palette; draw a line from one block's handle to the next.
 **Blocks that power live flows today:** Trigger · Send Message (text/buttons/media/list) ·
 Template · Ask Question (saves the reply) · Condition (Yes/No branch) · Add Tag · Notify Agent ·
-Wait (short delays ≤~20s) · Webhook. The palette also shows richer commerce blocks (Catalogue,
+Wait (short delays ≤~20s). The palette also shows richer commerce blocks (Catalogue,
 Products, WhatsApp Forms, Ask Location) that are being wired to live WhatsApp - build with the
 working set for now.
 

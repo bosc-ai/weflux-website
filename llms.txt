@@ -12,14 +12,14 @@
 - Appointments and booking, with Google Meet links generated automatically for virtual bookings
 - Invoicing, and campaign and conversation analytics
 - Facebook Messenger and Instagram DM as separate add-ons, in the same inbox
-- REST API and inbound/outbound webhooks; Google Sheets supported directly
+- Shopify and WooCommerce store integrations; Google Sheets and Google Drive supported directly
 
 ## Pricing model
 
 Two separate charges. Weflux bills a monthly platform fee by plan: Free, Basic ₹999/month,
 Pro ₹2,499/month, Scale ₹4,999/month. Meta separately bills per message, by template
 category (Marketing, Utility, Authentication) and destination country. Weflux adds no
-markup to Meta's charges. 14-day trial, no card required.
+markup to Meta's charges. 14-day free trial of the Scale plan, no card required.
 
 ## Things Weflux does not do
 
@@ -47,12 +47,12 @@ markup to Meta's charges. 14-day trial, no card required.
 - [Shared Inbox](https://www.weflux.in/shared-inbox): multi-agent team inbox on one number
 - [WhatsApp CRM](https://www.weflux.in/whatsapp-crm): contacts, tags, lead stages, segmentation
 - [Features](https://www.weflux.in/features): the full product surface
-- [Platform](https://www.weflux.in/platform): infrastructure, roles and API access
+- [Platform](https://www.weflux.in/platform): infrastructure and onboarding
 - [Comparison](https://www.weflux.in/comparison): Weflux against other Indian WhatsApp API providers
 - [Refund Policy](https://www.weflux.in/refund-policy): 14-day free trial, cancellation, 5-7 business day refund timeline
 - [Service Delivery](https://www.weflux.in/service-delivery): instant digital provisioning and onboarding timelines
 - [Acceptable Use Policy](https://www.weflux.in/acceptable-use): opt-in consent requirement, anti-spam enforcement
-- [Docs](https://www.weflux.in/docs): REST API and webhook reference
+- [Docs](https://www.weflux.in/docs): setup guides and delivery troubleshooting
 - [Security](https://www.weflux.in/security): encryption, access control, data handling
 - [Help Centre](https://www.weflux.in/help): setup and troubleshooting
 
