@@ -35,7 +35,6 @@ const WEFLUX_PRICING = {
         campaignAnalytics: false,
         whatsappCalling: false,
         whatsappAuthentication: false,
-        webhooks: false,
         contactManagement: 'Basic',
         dashboard: 'Basic',
         support: 'Self-service'
@@ -47,7 +46,7 @@ const WEFLUX_PRICING = {
       monthlyPrice: 999,
       annualPrice: 799,
       positioning: 'Everything a small business needs to manage, engage and automate WhatsApp conversations.',
-      cta: { text: 'Start free trial', url: 'https://app.weflux.in/register?plan=basic' },
+      cta: { text: 'Choose a plan', url: 'https://app.weflux.in/register?plan=basic' },
       featured: false,
       limits: {
         whatsappNumbers: 1,
@@ -67,7 +66,6 @@ const WEFLUX_PRICING = {
         campaignAnalytics: true,
         whatsappCalling: true,
         whatsappAuthentication: true,
-        webhooks: false,
         support: 'Chat support'
       }
     },
@@ -77,7 +75,7 @@ const WEFLUX_PRICING = {
       monthlyPrice: 2499,
       annualPrice: 1999,
       positioning: 'For growing businesses that need more automation, campaigns, integrations and team capacity.',
-      cta: { text: 'Start free trial', url: 'https://app.weflux.in/register?plan=pro' },
+      cta: { text: 'Choose a plan', url: 'https://app.weflux.in/register?plan=pro' },
       featured: true,
       badge: 'Most popular',
       limits: {
@@ -98,7 +96,6 @@ const WEFLUX_PRICING = {
         campaignAnalytics: 'Advanced',
         whatsappCalling: true,
         whatsappAuthentication: true,
-        webhooks: true,
         support: 'Priority support'
       }
     },
@@ -108,7 +105,7 @@ const WEFLUX_PRICING = {
       monthlyPrice: 4999,
       annualPrice: 3999,
       positioning: 'For businesses running larger WhatsApp operations with multiple numbers, team members and automations.',
-      cta: { text: 'Start free trial', url: 'https://app.weflux.in/register?plan=scale' },
+      cta: { text: 'Choose a plan', url: 'https://app.weflux.in/register?plan=scale' },
       featured: false,
       limits: {
         whatsappNumbers: 5,
@@ -128,7 +125,6 @@ const WEFLUX_PRICING = {
         campaignAnalytics: 'Advanced',
         whatsappCalling: true,
         whatsappAuthentication: true,
-        webhooks: true,
         support: 'Priority support'
       }
     }

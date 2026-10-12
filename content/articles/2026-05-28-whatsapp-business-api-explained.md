@@ -8,7 +8,7 @@ cover: green
 draft: false
 faqs:
   - q: "Do I need a developer to use the WhatsApp Business API?"
-    a: "No. The API has no interface of its own, but providers supply one. You log into a dashboard, connect your number through a Facebook authorisation flow, and work from there. The API and webhooks exist if you want to build on them, and are not required to use the product."
+    a: "No. The API has no interface of its own, but providers supply one. You log into a dashboard, connect your number through a Facebook authorisation flow, and work from there. No coding is required to use the product."
   - q: "Can I use my normal WhatsApp number for the API?"
     a: "Only if it is not currently active on the WhatsApp consumer app or the WhatsApp Business app. A number on the Business app can be migrated, but it leaves the app when it does, because the API becomes how that number sends and receives. Most businesses keep a separate personal number."
   - q: "How much does the WhatsApp Business API cost?"
@@ -35,7 +35,7 @@ The reason it exists is that WhatsApp's other products do not scale. The consume
 | People per number | One device | One device | As many as your software allows |
 | Bulk messaging | No | Capped broadcast lists, saved contacts only | Yes, on approved templates |
 | Automation | No | Away messages and greetings | Full, event-driven |
-| Integrations | No | No | REST API and webhooks |
+| Integrations | No | No | Shopify, WooCommerce and Google Sheets |
 | Verified badge | No | No | Possible, at Meta's discretion |
 
 The practical test is simple. **If more than one person needs to answer the number, or you need to message people who have not saved your contact, you need the API.** Below that, the Business app is genuinely fine and costs nothing, and anyone telling you otherwise is selling something.
