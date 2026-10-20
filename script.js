@@ -142,8 +142,8 @@
         const bill = plan.querySelector('.plan-bill');
         if (!price || !bill || Number(price.dataset.monthly) === 0) return;
         bill.textContent = mode === 'annual'
-          ? 'Billed yearly · ₹' + (Number(price.dataset.annual) * 12).toLocaleString('en-IN') + '/year'
-          : 'Billed monthly';
+          ? 'Billed yearly · ₹' + (Number(price.dataset.annual) * 12).toLocaleString('en-IN') + '/year · Incl. GST'
+          : 'Billed monthly · Incl. GST';
       });
     });
   });

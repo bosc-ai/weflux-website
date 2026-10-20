@@ -17,7 +17,7 @@
 ## Pricing model
 
 Two separate charges. Weflux bills a monthly platform fee by plan: Free, Basic ₹999/month,
-Pro ₹2,499/month, Scale ₹4,999/month. Meta separately bills per message, by template
+Pro ₹2,499/month, Scale ₹4,999/month (all plans and add-ons are inclusive of 18% GST). Meta separately bills per message, by template
 category (Marketing, Utility, Authentication) and destination country. Weflux adds no
 markup to Meta's charges. 14-day trial of Scale, no card required.
 

@@ -5,6 +5,9 @@
    ========================================================= */
 
 const WEFLUX_PRICING = {
+  taxInclusive: true,
+  taxRate: 18,
+  taxNote: 'All prices are inclusive of 18% GST',
 
   /* ---- Core Plans ---- */
   plans: [
@@ -213,6 +216,10 @@ const WEFLUX_PRICING = {
     {
       q: 'Does Weflux charge a markup on WhatsApp messages?',
       a: 'No. Weflux does not add a markup to applicable Meta/WhatsApp messaging charges. Meta charges are passed through separately.'
+    },
+    {
+      q: 'Are Weflux pricing and add-ons inclusive of GST?',
+      a: 'Yes. All published subscription plans and add-on prices are inclusive of 18% GST. There are no surprise tax additions at checkout. Valid GST invoices with our GSTIN (09GMBPP2567J1ZJ) are provided for all transactions.'
     },
     {
       q: 'What is the difference between Basic, Pro and Scale?',

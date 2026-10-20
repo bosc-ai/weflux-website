@@ -167,7 +167,7 @@
           </div>
 
           <div class="sc-bars" id="scBars">
-            <h3>Monthly platform cost, before GST and Meta's message charges</h3>
+            <h3>Monthly platform cost (Weflux prices are GST inclusive; Meta message charges separate)</h3>
             <div id="scBarRows"></div>
             <div class="sc-tip" id="scTip" role="tooltip"></div>
           </div>
@@ -205,7 +205,7 @@
         <h2>How the estimate works</h2>
         <p>For Weflux we pick the cheapest plan that fits your team, numbers and flows, then add only the add-ons you need: ₹250 a month per extra team member, ₹500 per extra number, ₹100 per extra automation, and ₹1,500 for Weflux CRM if you ask for CRM roles. Chatbot building and plain-English AI flows are included.</p>
         <p>For the other providers we use the prices on their own pricing pages, read on 6 September 2026, and the cheapest plan that fits your team size. Where a provider's page did not state something, such as WATI's per-message rate card or AiSensy's base plan, we leave it out of the total and say so rather than guess.</p>
-        <p>All figures are before GST. Meta's per-message charges are not in the totals, because every provider on the official API passes them on; the markup check above shows whether yours adds anything on top.</p>
+        <p>Weflux platform prices are inclusive of 18% GST (no additional taxes at checkout). Competitor figures reflect published base prices before taxes. Meta's per-message charges are not in the totals, because every provider on the official API passes them on; the markup check above shows whether yours adds anything on top.</p>
       </div>
     </section>
 
@@ -376,7 +376,7 @@
       $('scRows').innerHTML = html;
       $('scTotUs').textContent = inr(us.total);
       $('scTotVs').textContent = inr(vs.total) + (vs.partial ? ' + base' : '');
-      $('scNote').textContent = vs.note + ' All prices before GST.';
+      $('scNote').textContent = vs.note + ' Weflux prices include 18% GST; competitor figures are before taxes.';
 
       markup();
     }
