@@ -47,15 +47,15 @@
     if (analyticsLoaded) return;
     analyticsLoaded = true;
     // ---- GOOGLE ANALYTICS 4 (injected once from shell so new pages auto-track) ----
-    if (!document.querySelector('script[src*="G-EGHHC5WBPN"]')) {
+    if (!document.querySelector('script[src*="G-3R9RH42Y68"]')) {
       var ga = document.createElement('script');
       ga.async = true;
-      ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-EGHHC5WBPN';
+      ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-3R9RH42Y68';
       document.head.appendChild(ga);
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-EGHHC5WBPN');
+      gtag('config', 'G-3R9RH42Y68');
     }
 
     // ---- GOOGLE TAG MANAGER (injected once from shell so new pages auto-track) ----
