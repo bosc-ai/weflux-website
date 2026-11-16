@@ -9,6 +9,7 @@
    No hand-editing of HTML required.
    ========================================================= */
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
@@ -258,6 +259,28 @@ function assertCrawlable() {
   }
 }
 
+// The download page prints the APK's SHA-256 so visitors can verify the file.
+// A missing APK is a dead download button, and an APK replaced without
+// updating the page is a hash that no longer matches. Fail the build on either
+// rather than ship it.
+function assertApk() {
+  const page = path.join(DIST, "download.html");
+  if (!fs.existsSync(page)) return;
+  const apk = path.join(DIST, "downloads", "weflux.apk");
+  const shown = (fs.readFileSync(page, "utf-8").match(/id="dlHash">([0-9a-f]{64})</) || [])[1];
+  let problem = "";
+  if (!shown) problem = "download.html: no SHA-256 found in #dlHash";
+  else if (!fs.existsSync(apk)) problem = "downloads/weflux.apk is missing, so the download button on /download would 404";
+  else {
+    const actual = crypto.createHash("sha256").update(fs.readFileSync(apk)).digest("hex");
+    if (actual !== shown) problem = `downloads/weflux.apk SHA-256 is ${actual}\n  but download.html shows  ${shown}. Update the hash and version line on the page.`;
+  }
+  if (problem) {
+    console.error("\nBuild failed - Android app download:\n  " + problem);
+    process.exit(1);
+  }
+}
+
 // Not indexed, so none of the checks apply: app redirects, the offline
 // fallback and the Meta review demo.
 const NOT_INDEXED = new Set([
@@ -307,6 +330,7 @@ async function run() {
 
   writeSitemap(urls);
   assertCrawlable();
+  assertApk();
   await pingIndexNow();
   console.log(`Build complete -> ${path.relative(ROOT, DIST)}/`);
 }
@@ -418,6 +442,7 @@ function writeSitemap(collectionUrls) {
     ["contact.html", "0.7", "monthly"],
     ["docs.html", "0.6", "monthly"],
     ["weflux-guide.html", "0.8", "weekly"],
+    ["download.html", "0.7", "monthly"],
     ["changelog.html", "0.5", "weekly"],
     ["support.html", "0.5", "monthly"],
     ["security.html", "0.5", "monthly"],

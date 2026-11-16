@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weflux for Android: Download the App | Weflux</title>
+  <meta name="description" content="Download the Weflux Android app. Your inbox, campaigns and lead alerts on your phone, with the same account as the web dashboard. Version 1.0.0, 3 MB.">
+  <link rel="canonical" href="https://www.weflux.in/download">
+  <meta property="og:title" content="Weflux for Android: Download the App | Weflux">
+  <meta property="og:description" content="Download the Weflux Android app. Your inbox, campaigns and lead alerts on your phone, with the same account as the web dashboard. Version 1.0.0, 3 MB.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.weflux.in/download">
+  <meta property="og:site_name" content="Weflux">
+  <meta property="og:image" content="https://www.weflux.in/assets/weflux-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Weflux for Android: Download the App | Weflux">
+  <meta name="twitter:description" content="Download the Weflux Android app. Your inbox, campaigns and lead alerts on your phone, with the same account as the web dashboard. Version 1.0.0, 3 MB.">
+  <link rel="icon" href="assets/weflux-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ===== Download page ===== */
+    .dl-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 56px; align-items: center; }
+    .dl-hero > div { min-width: 0; }
+    .dl-meta { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); margin-top: 18px; }
+    .dl-verify { margin-top: 14px; max-width: 560px; font-size: 13.5px; color: var(--muted); }
+    .dl-verify summary { cursor: pointer; display: inline-block; color: var(--green-deep); font-weight: 500; padding: 4px 0; }
+    .dl-verify summary:hover { text-decoration: underline; }
+    .dl-verify[open] summary { margin-bottom: 8px; }
+    .dl-verify p { margin: 0 0 8px; line-height: 1.55; }
+    .dl-hash {
+      display: block; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.6; color: var(--ink);
+      background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 10px;
+      overflow-wrap: anywhere; word-break: break-all; text-align: left; user-select: all;
+    }
+    .dl-verify code { font-family: var(--font-mono); font-size: 12px; overflow-wrap: anywhere; }
+
+    /* QR card: desktop visitors only (class set by the script in <head>) */
+    .dl-qr { display: none; flex-direction: column; align-items: center; gap: 12px; width: 232px; padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-card); box-shadow: var(--shadow-md); text-align: center; }
+    .dl-desktop .dl-qr { display: flex; }
+    .dl-qr img { width: 176px; height: 176px; display: block; }
+    .dl-qr b { font-size: 14.5px; font-weight: 600; }
+    .dl-qr span { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* .page-hero sets its own padding and drops the container gutter, so put it back here */
+    .page-hero.dl-page-hero { padding-left: 24px; padding-right: 24px; }
+    .dl-section { padding-bottom: 72px; }
+    .dl-section > h2, .dl-narrow > h2 { font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.025em; margin: 14px 0 8px; }
+    .dl-narrow { max-width: 760px; margin: 0 auto; }
+    .dl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 28px; }
+    .dl-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+    .dl-card .ic { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--green-tint); color: var(--green-deep); margin-bottom: 14px; }
+    .dl-card h3 { font-size: 17px; margin-bottom: 8px; }
+    .dl-card p { font-size: 14px; color: var(--muted); line-height: 1.65; margin: 0; }
+
+    .dl-steps { list-style: none; margin: 24px 0 0; padding: 0; counter-reset: dl; display: flex; flex-direction: column; gap: 10px; }
+    .dl-steps li { counter-increment: dl; position: relative; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px 14px 56px; font-size: 15px; line-height: 1.55; color: var(--ink-2, #1f2937); }
+    .dl-steps li::before { content: counter(dl); position: absolute; left: 16px; top: 13px; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--green-tint); color: var(--green-deep); font-family: var(--font-mono); font-size: 12.5px; font-weight: 600; }
+    .dl-steps strong { font-weight: 600; color: var(--ink); }
+    .dl-note { margin-top: 16px; padding: 14px 16px; border-radius: 12px; background: var(--green-tint); border: 1px solid #BFEFCE; color: #14532D; font-size: 14.5px; line-height: 1.55; }
+
+    .dl-ios-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-card); padding: 28px; text-align: left; }
+    .dl-ios-card h2 { font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.02em; margin: 12px 0 8px; }
+    .dl-ios-card p { color: var(--muted); font-size: 15px; line-height: 1.6; margin: 0; }
+    .dl-ios-card .dl-steps { margin-top: 16px; }
+    .dl-ios-card .dl-steps li { background: var(--paper); }
+    .dl-ios-card .btn { margin-top: 18px; }
+
+    /* iPhone and iPad: the iPhone card moves into the hero and the APK button steps back */
+    .dl-ios .dl-ios-card { margin: 24px 0 4px; border-color: #BFEFCE; box-shadow: var(--shadow-md); }
+    .dl-ios #iphone { display: none; }
+
+    @media (max-width: 1024px) {
+      .dl-hero { grid-template-columns: 1fr; gap: 36px; }
+      .dl-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .dl-grid { grid-template-columns: 1fr; }
+      .dl-verify { margin-left: auto; margin-right: auto; }
+      .dl-qr { margin: 0 auto; }
+      .page-hero.dl-page-hero { padding-left: 16px; padding-right: 16px; }
+      .dl-section { padding-bottom: 56px; }
+      .dl-ios-card { padding: 20px; }
+      .page-hero .cta-row .btn { flex: 1 1 100%; }
+    }
+  </style>
+  <script>
+    /* Device hint for the layout below. No library, runs before first paint. */
+    (function () {
+      var ua = navigator.userAgent || '';
+      var ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var android = !ios && /Android/i.test(ua);
+      document.documentElement.classList.add(ios ? 'dl-ios' : android ? 'dl-android' : 'dl-desktop');
+    })();
+  </script>
+</head>
+<body data-page="download">
+  <div id="wc-nav"></div>
+
+  <main id="main" class="page">
+    <section class="container page-hero dl-page-hero">
+      <div class="dl-hero">
+        <div>
+          <div class="crumb"><a href="/">Home</a> <span class="sep">/</span> <span>Android app</span></div>
+          <span class="eyebrow"><span class="dot"></span> Android app</span>
+          <h1>Weflux for Android</h1>
+          <p class="lede" id="dlLede">Your Weflux inbox, campaigns and lead alerts on your Android phone.</p>
+          <div class="cta-row">
+            <a href="/downloads/weflux.apk" class="btn btn-green" id="dlApk">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
+              Download for Android (3 MB)
+            </a>
+            <a href="https://app.weflux.in/login" class="btn btn-ghost" id="dlWeb">Use it in your browser</a>
+          </div>
+          <p class="dl-meta">Version 1.0.0 · Android 5.0 or later · 3 MB</p>
+          <details class="dl-verify">
+            <summary>Verify the file</summary>
+            <p>SHA-256 of Weflux.apk:</p>
+            <code class="dl-hash" id="dlHash">e9bc68affe9ba9ae9df6c9ce8633d25139170e4177d4d86de29f4c1f4c083824</code>
+            <p>To check your download, run <code>shasum -a 256 Weflux.apk</code> on macOS or Linux, or <code>certutil -hashfile Weflux.apk SHA256</code> on Windows. The result should match the value above exactly.</p>
+          </details>
+        </div>
+
+        <aside class="dl-qr" aria-label="Scan to open this page on your phone">
+          <img src="/assets/weflux-download-qr.svg" alt="QR code that opens www.weflux.in/download" width="176" height="176">
+          <b>On a computer?</b>
+          <span>Scan with your Android phone's camera to open this page and download there.</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container dl-section">
+      <span class="eyebrow"><span class="dot"></span> What you get</span>
+      <h2>Your dashboard, in your pocket.</h2>
+      <div class="dl-grid">
+        <div class="dl-card">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <h3>Same account, same data</h3>
+          <p>Sign in with your existing Weflux login. Everything matches the web dashboard, because it is the same account and the same data.</p>
+        </div>
+        <div class="dl-card">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3>Inbox, Campaigns and Contacts</h3>
+          <p>Reply to customers, check how a campaign is doing and look up a contact, wherever you are.</p>
+        </div>
+        <div class="dl-card">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+          <h3>Instant notifications</h3>
+          <p>Get a notification on your phone the moment a new lead or a reply comes in, so the first response is a fast one.</p>
+        </div>
+        <div class="dl-card">
+          <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg></div>
+          <h3>Updates happen automatically</h3>
+          <p>New features reach the app as soon as they reach the dashboard. There is nothing to update or reinstall.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container dl-section" id="install">
+      <div class="dl-narrow">
+        <span class="eyebrow"><span class="dot"></span> How to install</span>
+        <h2>Six steps, about a minute.</h2>
+        <ol class="dl-steps">
+          <li>Tap <strong>Download</strong>.</li>
+          <li>If Chrome warns about the file type, tap <strong>"Download anyway"</strong>.</li>
+          <li>Open the file from the notification, or from <strong>Files &gt; Downloads</strong>.</li>
+          <li>If Android asks, allow <strong>"Install unknown apps"</strong> for Chrome (Settings &gt; Apps &gt; Chrome &gt; Install unknown apps).</li>
+          <li>Tap <strong>Install</strong>. If Google Play Protect shows a warning, tap <strong>"More details"</strong> &gt; <strong>"Install anyway"</strong>.</li>
+          <li>Open Weflux, sign in, and allow notifications.</li>
+        </ol>
+        <p class="dl-note"><strong>Keep Chrome installed.</strong> The app runs on Google Chrome, so keep Chrome installed and updated on your phone.</p>
+      </div>
+    </section>
+
+    <section class="container dl-section" id="iphone">
+      <div class="dl-narrow">
+        <div class="dl-ios-card" id="iosCard">
+          <span class="eyebrow"><span class="dot"></span> iPhone and iPad</span>
+          <h2>On an iPhone? Add Weflux to your Home Screen.</h2>
+          <p>There is no iPhone app yet. You can still open Weflux like an app, straight from Safari:</p>
+          <ol class="dl-steps">
+            <li>Open <strong>app.weflux.in</strong> in Safari.</li>
+            <li>Tap <strong>Share</strong>.</li>
+            <li>Tap <strong>"Add to Home Screen"</strong>.</li>
+          </ol>
+          <a href="https://app.weflux.in/login" class="btn btn-ghost" id="iosOpen">Open app.weflux.in</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="padding:0 0 72px">
+      <div class="faq-layout" style="max-width:760px;margin:0 auto">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> FAQ</span>
+          <h2 style="margin:10px 0 6px">Android app questions</h2>
+        </div>
+        <div class="faq-list" id="faqList">
+
+          <div class="faq-item">
+            <button class="faq-q" type="button">Is it safe to install? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Yes. The app is signed by Weflux and downloaded from our own domain, weflux.in. You can also check the file's SHA-256 against the value under "Verify the file" on this page. Android shows a warning for any app installed from outside the Play Store, which is why the install steps mention one.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button">Do I need to update the app? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">No. New features arrive automatically, at the same time as they reach the web dashboard.</div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button">Is Weflux on the Google Play Store? <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="faq-a"><div class="faq-a-inner">Not yet. For now, this page is the official place to download the Android app.</div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container final-cta-inner">
+        <h2>New to Weflux?</h2>
+        <p class="sub">Create your account first, then sign in on the app with the same login.</p>
+        <div class="cta-row">
+          <a href="https://app.weflux.in/register" class="btn btn-white">Start free →</a>
+          <a href="https://app.weflux.in/login" class="btn btn-ghost">Sign in</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="wc-footer"></div>
+  <script>
+    /* iPhone and iPad: lead with the Home Screen steps and play down the APK button. */
+    (function () {
+      if (!document.documentElement.classList.contains('dl-ios')) return;
+      var card = document.getElementById('iosCard');
+      var lede = document.getElementById('dlLede');
+      var apk = document.getElementById('dlApk');
+      var open = document.getElementById('iosOpen');
+      if (card && lede) lede.insertAdjacentElement('afterend', card);
+      if (open) open.className = 'btn btn-green';
+      if (apk) { apk.className = 'btn btn-ghost'; apk.lastChild.textContent = ' Android APK (3 MB)'; }
+    })();
+  </script>
+  <script defer src="/shell.js"></script>
+  <script defer src="/script.js"></script>
+</body>
+</html>

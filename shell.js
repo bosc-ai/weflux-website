@@ -120,8 +120,12 @@
           var href = (target.getAttribute('href') || '').toLowerCase();
           var text = (target.textContent || '').trim().toLowerCase();
 
+          // Android app download (APK)
+          if (href.indexOf('/downloads/weflux.apk') !== -1) {
+            fbq('trackCustom', 'AppDownload', { content_name: 'Weflux Android APK', link_url: href, page_path: path });
+          }
           // Start Free / Register CTAs
-          if (href.indexOf('weflux.in/register') !== -1 || href.indexOf('register.html') !== -1 || href.indexOf('signup.html') !== -1 || text.indexOf('start free') !== -1 || text.indexOf('start 14-day free trial') !== -1 || text.indexOf('sign up') !== -1) {
+          else if (href.indexOf('weflux.in/register') !== -1 || href.indexOf('register.html') !== -1 || href.indexOf('signup.html') !== -1 || text.indexOf('start free') !== -1 || text.indexOf('start 14-day free trial') !== -1 || text.indexOf('sign up') !== -1) {
             fbq('track', 'CompleteRegistration', { content_name: text || 'Start Free CTA', link_url: href });
           }
           // Contact actions (WhatsApp, Phone, Email)
@@ -276,7 +280,7 @@
   // every page (current and future) gets it for free.
   (function () {
     const WEFLUX_RE = /^https?:\/\/(www\.)?weflux\.in(\/|$|\?|#)/i;
-    const DELAY = 1500; // 1.5s - within the "1–2 sec" brief
+    const DELAY = 1500; // 1.5s - within the "1-2 sec" brief
 
     const overlay = document.createElement('div');
     overlay.className = 'weflux-redirect';

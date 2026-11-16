@@ -22,19 +22,19 @@ format: html
 <p>Business profile with logo, hours, address, and website</p>
 </li>
 <li aria-level="1">
-<p>Product catalogue &mdash; up to 500 items with images and prices</p>
+<p>Product catalogue - up to 500 items with images and prices</p>
 </li>
 <li aria-level="1">
-<p>Quick Replies &mdash; reusable shortcuts for common customer questions</p>
+<p>Quick Replies - reusable shortcuts for common customer questions</p>
 </li>
 <li aria-level="1">
 <p>Away Messages and Greeting Messages&nbsp; automated when offline</p>
 </li>
 <li aria-level="1">
-<p>Labels &mdash; colour-code conversations for basic CRM-style organisation</p>
+<p>Labels - colour-code conversations for basic CRM-style organisation</p>
 </li>
 <li aria-level="1">
-<p>Broadcast Lists &mdash; send to up to 256 saved contacts at once</p>
+<p>Broadcast Lists - send to up to 256 saved contacts at once</p>
 </li>
 </ul>
 <h3>WhatsApp Business API</h3>
@@ -42,25 +42,25 @@ format: html
 <p>Core Features</p>
 <ul>
 <li aria-level="1">
-<p>Unlimited agent seats &mdash; teams of any size work simultaneously</p>
+<p>Unlimited agent seats - teams of any size work simultaneously</p>
 </li>
 <li aria-level="1">
-<p>Chatbot automation &mdash; NLP or rule-based conversational workflows</p>
+<p>Chatbot automation - NLP or rule-based conversational workflows</p>
 </li>
 <li aria-level="1">
-<p>Message Templates &mdash; approved transactional and promotional messages at scale</p>
+<p>Message Templates - approved transactional and promotional messages at scale</p>
 </li>
 <li aria-level="1">
-<p>CRM integration &mdash; Salesforce, HubSpot, Zendesk, Freshdesk, and more</p>
+<p>CRM integration - Salesforce, HubSpot, Zendesk, Freshdesk, and more</p>
 </li>
 <li aria-level="1">
-<p>Rich Media &mdash; PDFs, images, videos, interactive buttons, and list messages</p>
+<p>Rich Media - PDFs, images, videos, interactive buttons, and list messages</p>
 </li>
 <li aria-level="1">
-<p>Webhooks and analytics &mdash; real-time delivery, read-rate, and CSAT dashboards</p>
+<p>Webhooks and analytics - real-time delivery, read-rate, and CSAT dashboards</p>
 </li>
 <li aria-level="1">
-<p>Green Tick Verification &mdash; Meta-approved official business badge</p>
+<p>Green Tick Verification - Meta-approved official business badge</p>
 </li>
 </ul>
 <h3><strong>Side-by-Side Comparison</strong></h3>
@@ -100,7 +100,7 @@ format: html
 <p>Free</p>
 </td>
 <td style="text-align: center;">
-<p>Pay-per-conversation</p>
+<p>Pay-per-message</p>
 </td>
 </tr>
 <tr>
@@ -174,7 +174,7 @@ format: html
 </div>
 <p>&nbsp;</p>
 <h3><strong id="docs-internal-guid-8f757801-7fff-2c40-4c75-71a03593df09">Who Needs What</strong></h3>
-<p><strong>WhatsApp Business App &mdash; Best For</strong></p>
+<p><strong>WhatsApp Business App - Best For</strong></p>
 <ul>
 <li aria-level="1">
 <p>Freelancers and solopreneurs managing all conversations personally</p>
@@ -189,7 +189,7 @@ format: html
 <p>Early-stage startups validating ideas before investing in infrastructure</p>
 </li>
 </ul>
-<p><strong>WhatsApp Business API &mdash; Best For</strong></p>
+<p><strong>WhatsApp Business API - Best For</strong></p>
 <ul>
 <li aria-level="1">
 <p>E-commerce brands sending order confirmations, shipping alerts, and cart recovery</p>
@@ -211,19 +211,19 @@ format: html
 <p><strong>WhatsApp Business App Costs</strong></p>
 <p>Completely free. Meta charges nothing to download, register, or use any core App feature.</p>
 <p><strong>WhatsApp Business API Costs</strong></p>
-<p>Meta charges per conversation (24-hour window), not per message. Four pricing categories apply:</p>
+<p>Meta charges per delivered template message, not per conversation. Per-message pricing replaced conversation-based pricing on 1 July 2025. Four categories apply:</p>
 <ul>
 <li aria-level="1">
-<p>Marketing conversations &mdash; highest rate; for campaigns and promotions</p>
+<p>Marketing: highest rate; for campaigns and promotions</p>
 </li>
 <li aria-level="1">
-<p>Utility conversations &mdash; mid-rate; for transactional messages like order receipts</p>
+<p>Utility: mid-rate; for transactional messages like order receipts</p>
 </li>
 <li aria-level="1">
-<p>Authentication &mdash; mid-rate; for OTPs and verification flows</p>
+<p>Authentication: mid-rate; for OTPs and verification flows</p>
 </li>
 <li aria-level="1">
-<p>Service conversations &mdash; lowest rate; for customer-initiated support</p>
+<p>Service: free; replies sent inside the 24-hour window after a customer messages you</p>
 </li>
 </ul>
 <p>BSPs add platform or seat fees typically $50 to $500+ per month on top of Meta's charges. Businesses with developer resources can use Meta Cloud API directly to eliminate this extra cost layer.</p>
@@ -237,7 +237,7 @@ format: html
 <p>Choose a provider (Twilio, WATI, Interakt, or Weflux as a Meta Tech Provider) or set up Meta Cloud API directly.</p>
 </li>
 <li aria-level="1">
-<p>Remove the number from the App &mdash; only one platform can own a number at a time.</p>
+<p>Remove the number from the App - only one platform can own a number at a time.</p>
 </li>
 <li aria-level="1">
 <p>Verify the number in your BSP platform or Meta Business Manager.</p>
@@ -251,4 +251,4 @@ format: html
 </ol>
 <h3><strong>Final Verdict</strong></h3>
 <p>Both tools serve real business needs&nbsp; the App removes friction for small operators, the API removes limits for scale-ready teams. The worst move is choosing the App due to cost hesitation and then hitting a growth ceiling at 10x the volume you need to handle.<strong id="docs-internal-guid-1520939b-7fff-7bdc-58cd-ffdb6f55c775"></strong></p>
-<p><a href="/"><strong>Weflux</strong></a> is an official WhatsApp Business API platform: broadcast campaigns, a multi-agent shared inbox, no-code automation and a built-in CRM, with Meta's conversation charges passed through at cost.</p>
+<p><a href="/"><strong>Weflux</strong></a> is an official WhatsApp Business API platform: broadcast campaigns, a multi-agent shared inbox, no-code automation and a built-in CRM, with Meta's per-message charges passed through at cost.</p>

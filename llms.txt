@@ -1,6 +1,6 @@
 # Weflux
 
-> Weflux is a WhatsApp Business API platform built on the official Meta WhatsApp Cloud API, operated by Prateek Prakash (Trade Name: Weflux) in India. It provides WhatsApp opt-in customer notifications, broadcast campaigns, a multi-agent shared inbox, no-code automation flows and a built-in CRM. Weflux bills Meta's per-message conversation charges at cost with 0% markup and shows Meta's own rate on every invoice line.
+> Weflux is a WhatsApp Business API platform built on the official Meta WhatsApp Cloud API, operated by Prateek Prakash (Trade Name: Weflux) in India. It provides WhatsApp opt-in customer notifications, broadcast campaigns, a multi-agent shared inbox, no-code automation flows and a built-in CRM. Weflux bills Meta's per-message charges at cost with 0% markup and shows Meta's own rate on every invoice line.
 
 ## What Weflux does
 
@@ -41,12 +41,13 @@ markup to Meta's charges. 14-day trial of Scale, no card required.
 
 ## Key pages
 
-- [Pricing](https://www.weflux.in/pricing): plan tiers, add-ons, pass-through conversation pricing
+- [Pricing](https://www.weflux.in/pricing): plan tiers, add-ons, pass-through per-message pricing
 - [Broadcasts](https://www.weflux.in/broadcasts): WhatsApp broadcast campaigns to opted-in contacts on the official API, template categories, deliverability
 - [Automations](https://www.weflux.in/automations): no-code chatbot and drip flows, and what automation cannot do on WhatsApp
 - [Shared Inbox](https://www.weflux.in/shared-inbox): multi-agent team inbox on one number
 - [WhatsApp CRM](https://www.weflux.in/whatsapp-crm): contacts, tags, lead stages, segmentation
 - [Features](https://www.weflux.in/features): the full product surface
+- [Android app](https://www.weflux.in/download): direct APK download of the Weflux Android app, install steps, and Home Screen steps for iPhone
 - [Platform](https://www.weflux.in/platform): WhatsApp infrastructure and onboarding
 - [Comparison](https://www.weflux.in/comparison): Weflux against other Indian WhatsApp API providers
 - [Refund Policy](https://www.weflux.in/refund-policy): 14-day free trial, cancellation, 5-7 business day refund timeline
